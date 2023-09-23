@@ -13,6 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [\App\Http\Controllers\HomeController::class, 'index']);
+
+Route::get('/services', [\App\Http\Controllers\ServicesController::class, 'index']);
+
+Route::get('/blog', [\App\Http\Controllers\BlogsController::class, 'index']);
+
+Route::get('/blog/{id}', [\App\Http\Controllers\BlogsController::class, 'article'])->whereNumber('id');
+
+Route::get('/blog/create', [\App\Http\Controllers\BlogsController::class, 'create']);
