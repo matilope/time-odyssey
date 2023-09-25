@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [\App\Http\Controllers\HomeController::class, 'index']);
 
-Route::get('/services', [\App\Http\Controllers\ServicesController::class, 'index']);
+Route::get('/servicios', [\App\Http\Controllers\ServicesController::class, 'index']);
 
 Route::get('/blog', [\App\Http\Controllers\BlogsController::class, 'index']);
 

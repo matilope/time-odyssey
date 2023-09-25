@@ -2,6 +2,8 @@
 
 @section('title', 'Time Odyssey')
 
+@section('main-heading', 'Time Odyssey')
+
 @section('content')
-<h1>Time Odyssey</h1>
+  <h2>Time Odyssey</h2>
 @endsection

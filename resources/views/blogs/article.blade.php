@@ -2,7 +2,11 @@
 
 @section('title', 'Articulo')
 
+@section('main-heading', 'Articulo')
+
 @section('content')
-<h1>Articulo</h1>
-<p>Test</p>
+  <article>
+    <h2 class="text-3xl">{{$blog->title}}</h2>
+    <p>{{$blog->description}}</p>
+  </article>
 @endsection

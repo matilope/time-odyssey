@@ -2,7 +2,11 @@
 
 @section('title', 'Inicio')
 
+@section('main-heading', 'Inicio')
+
 @section('content')
-<h1>Inicio</h1>
-<p>Test</p>
+  <article>
+    <h2 class="text-3xl">Inicio</h2>
+    <p>Test</p>
+  </article>
 @endsection

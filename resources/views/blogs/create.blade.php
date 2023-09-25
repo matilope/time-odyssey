@@ -2,9 +2,11 @@
 
 @section('title', 'Crear articulo de blog')
 
+@section('main-heading', 'Crear articulo')
+
 @section('content')
-<h1>Crear articulo de blog</h1>
-<form action="">
-  <input type="text" />
-</form>
+  <h2 class="text-3xl">Crear articulo de blog</h2>
+  <form action="">
+    <input type="text" />
+  </form>
 @endsection
