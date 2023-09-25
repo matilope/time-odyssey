@@ -114,7 +114,7 @@
     });
 
     const menu = document.querySelector(".custom-menu");
-    menu.addEventListener('click', () => {
+    menu?.addEventListener('click', () => {
       document.querySelector("#mobile-menu")?.classList.toggle("hidden");
     });
   </script>
