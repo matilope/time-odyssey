@@ -12,16 +12,18 @@ class Blog extends Model
     protected $table = "blogs";
     protected $primaryKey = "id";
 
-    protected $fillable = ['title', 'description', 'image', 'updated_at', 'created_at'];
+    protected $fillable = ['title', 'description', 'image', 'synopsis', 'updated_at', 'created_at'];
 
     public static $rules = [
         'title' => 'required|min:3',
+        'description' => 'required',
         'image' => 'required'
     ];
 
     public static $errorMessages = [
         'title.required' => 'El título no puede estar vacío.',
         'title.min' => 'El título debe tener al menos :min caracteres.',
-        'image.required' => 'La imagen es requerida.',
+        'description.required' => 'La descripción es requerida.',
+        'image.required' => 'La imagen es requerida.'
     ];
 }

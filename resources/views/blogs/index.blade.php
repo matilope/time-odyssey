@@ -8,12 +8,12 @@
 <section>
     <h2 class="text-4xl mb-8">Destacados</h2>
     <div class="blogs">
-      <div class="destacados">
+      <div class="featured">
         @foreach($blogs as $key => $blog)
           <article>
             <img src="{{$blog->image}}" alt="{{$blog->title}}" />
             <div>
-              <span>Categoria</span>
+              <span class="category">Categoría</span>
               <h3 title="{{$blog->title}}" class="text-3xl">{{$blog->title}}</h3>
               <p>{{$blog->description}}</p>
               <a href="{{url('/blog/' . $blog->id)}}">Leer blog</a>

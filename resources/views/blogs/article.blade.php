@@ -6,10 +6,13 @@
 
 @section('content')
   <article class="blog-unique">
-    <span>Categoría</span>
-    <h2 class="text-3xl">{{$blog->title}}</h2>
+    <span class="category">Categoría</span>
+    <h2 title="{{$blog->title}}" class="text-5xl">{{$blog->title}}</h2>
     <p>{{$blog->description}}</p>
+    <span class="created_at">{{$blog->created_at}}</span>
     <img src="{{$blog->image}}" alt="{{$blog->title}}" />
-    <p>{{$blog->synopsis}}</p>
+    @if($blog->synopsis)
+      <p>{{$blog->synopsis}}</p>
+    @endif
   </article>
 @endsection
