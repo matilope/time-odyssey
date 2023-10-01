@@ -7,7 +7,7 @@
   <title>@yield('title')</title>
   @vite('resources/css/app.css')
 </head>
-<body>
+<body class="font-sans">
   <nav class="bg-gray-800">
     <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
       <div class="relative flex h-16 items-center justify-between">
@@ -34,7 +34,7 @@
             <div class="flex space-x-4">
               <a href="{{url('/')}}" class="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page">Inicio</a>
               <a href="{{url('/servicios')}}" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Servicios</a>
-              <a href="{{url('/blog')}}" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Blog</a>
+              <a href="{{url('/blogs')}}" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Blog</a>
             </div>
           </div>
         </div>
@@ -63,7 +63,7 @@
       <div class="space-y-1 px-2 pb-3 pt-2">
         <a href="{{url('/')}}" class="bg-gray-900 text-white block rounded-md px-3 py-2 text-base font-medium" aria-current="page">Inicio</a>
         <a href="{{url('/servicios')}}" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Servicios</a>
-        <a href="{{url('/blog')}}" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Blog</a>
+        <a href="{{url('/blogs')}}" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Blog</a>
       </div>
     </div>
   </nav>
@@ -73,10 +73,17 @@
   </div>
 
   <main class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 py-10">
+    @if(\Session::has('status.message'))
+      <div class="alert alert-success">
+        <p>
+          {!! \Session::get('status.message') !!}
+        <p>
+      </div>
+    @endif
     @yield("content")
   </main>
 
-  <footer class="bg-gray-800 py-5 text-white">
+  <footer class="bg-gray-800 py-6 text-white">
     <div class="flex justify-between items-center mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
       <p>
         © {{date('Y')}} Time Odyssey. Todos los derechos reservados

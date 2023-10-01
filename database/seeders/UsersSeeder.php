@@ -6,7 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use \Illuminate\Support\Facades\DB;
 
-class BlogsSeeder extends Seeder
+class UsersSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -20,9 +20,31 @@ class BlogsSeeder extends Seeder
                 'email' => 'matias.lopez@davinci.edu.ar',
                 'password' => 'password',
                 'description' => 'Lo maravilloso de visitar lugares maravillosos en las distintas epocas de la humanidad lorem ipsum lorem ipsum lorem ipsum',
-                'profile_picture' => 'image.jpg',
-                'date_of_birth' => date("Y-m-d"),
-                'created_at' => now()
+                'profile_picture' => 'image.jpg'
+            ],
+            [
+                'id' => 2,
+                'username' => 'lauti',
+                'email' => 'lautaro.climent@davinci.edu.ar',
+                'password' => 'password',
+                'description' => null,
+                'profile_picture' => 'image.jpg'
+            ],
+            [
+                'id' => 3,
+                'username' => 'santi',
+                'email' => 'santiago.gallino@davinci.edu.ar',
+                'password' => 'password',
+                'description' => 'Lo maravilloso de visitar lugares maravillosos en las distintas epocas de la humanidad lorem ipsum lorem ipsum lorem ipsum',
+                'profile_picture' => null
+            ],
+            [
+                'id' => 4,
+                'username' => 'luciana',
+                'email' => 'lu.ciana@davinci.edu.ar',
+                'password' => 'password',
+                'description' => null,
+                'profile_picture' => null
             ]
         ]);
     }

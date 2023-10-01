@@ -18,55 +18,49 @@ class BlogsSeeder extends Seeder
                 'id' => 1,
                 'title' => 'Sobre servicios de viajes en el tiempo',
                 'description' => 'Lo maravilloso de visitar lugares maravillosos en las distintas epocas de la humanidad',
-                'image' => 'https://www.edicontinente.com.ar/image/titulos/9788418703164.jpg',
+                'image' => null,
                 'synopsis' => 'Lo maravilloso de visitar lugares maravillosos en las distintas epocas de la humanidad lorem ipsum lorem ipsum lorem ipsum',
-                'updated_at' => now(),
-                'created_at' => now()
+                'category' => 'Viajes en el tiempo'
             ],
             [
                 'id' => 2,
                 'title' => 'Podcast de viajes en el tiempo',
                 'description' => 'Discutamos las mejores epocas a las cuales viajar',
-                'image' => 'https://img2.rtve.es/imagenes/orbita-laika-podcast-capitulo-6-algun-dia-se-podra-viajar-tiempo/1642607202891.jpg',
+                'image' => null,
                 'synopsis' => null,
-                'updated_at' => now(),
-                'created_at' => now()
+                'category' => 'Viajes en el tiempo'
             ],
             [
                 'id' => 3,
                 'title' => 'Podcast de viajes en el tiempo',
                 'description' => 'Discutamos las mejores epocas a las cuales viajar',
-                'image' => 'https://img2.rtve.es/imagenes/orbita-laika-podcast-capitulo-6-algun-dia-se-podra-viajar-tiempo/1642607202891.jpg',
+                'image' => null,
                 'synopsis' => 'Lo maravilloso de visitar lugares maravillosos en las distintas epocas de la humanidad lorem ipsum lorem ipsum lorem ipsum',
-                'updated_at' => now(),
-                'created_at' => now()
+                'category' => 'Viajes en el tiempo'
             ],
             [
                 'id' => 4,
                 'title' => 'Podcast de viajes en el tiempo',
                 'description' => 'Discutamos las mejores epocas a las cuales viajar',
-                'image' => 'https://img2.rtve.es/imagenes/orbita-laika-podcast-capitulo-6-algun-dia-se-podra-viajar-tiempo/1642607202891.jpg',
+                'image' => null,
                 'synopsis' => null,
-                'updated_at' => now(),
-                'created_at' => now()
+                'category' => 'Viajes en el tiempo',
             ],
             [
                 'id' => 5,
                 'title' => 'Podcast de viajes en el tiempo',
                 'description' => 'Discutamos las mejores epocas a las cuales viajar',
-                'image' => 'https://img2.rtve.es/imagenes/orbita-laika-podcast-capitulo-6-algun-dia-se-podra-viajar-tiempo/1642607202891.jpg',
+                'image' => null,
                 'synopsis' => 'Lo maravilloso de visitar lugares maravillosos en las distintas epocas de la humanidad lorem ipsum lorem ipsum lorem ipsum',
-                'updated_at' => now(),
-                'created_at' => now()
+                'category' => 'Viajes en el tiempo'
             ],
             [
                 'id' => 6,
                 'title' => 'Podcast de viajes en el tiempo',
                 'description' => 'Discutamos las mejores epocas a las cuales viajar',
-                'image' => 'https://img2.rtve.es/imagenes/orbita-laika-podcast-capitulo-6-algun-dia-se-podra-viajar-tiempo/1642607202891.jpg',
+                'image' => null,
                 'synopsis' => null,
-                'updated_at' => now(),
-                'created_at' => now()
+                'category' => 'Viajes en el tiempo'
             ]
         ]);
     }

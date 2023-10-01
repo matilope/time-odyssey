@@ -2,44 +2,29 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
-use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Database\Eloquent\Model;
 
-class User extends Authenticatable
+class User extends Model
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    // use HasFactory; 
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<int, string>
-     */
-    protected $fillable = [
-        'name',
-        'email',
-        'password',
+    protected $table = "users";
+    protected $primaryKey = "id";
+
+    protected $fillable = ['username', 'email', 'password', 'description', 'profile_picture'];
+
+    public static $rules = [
+        'username' => 'required|min:3',
+        'email' => 'required|min:3',
+        'password' => 'required'
     ];
 
-    /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var array<int, string>
-     */
-    protected $hidden = [
-        'password',
-        'remember_token',
-    ];
-
-    /**
-     * The attributes that should be cast.
-     *
-     * @var array<string, string>
-     */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-        'password' => 'hashed',
+    public static $errorMessages = [
+        'username.required' => 'El usuario no puede estar vacío.',
+        'username.min' => 'El usuaraio debe tener al menos :min caracteres.',
+        'email.required' => 'El correo es requerido.',
+        'email.min' => 'El correo debe tener al menos :min caracteres.',
+        'password.required' => 'La contraseña es requerida.'
     ];
 }

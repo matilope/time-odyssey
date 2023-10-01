@@ -15,10 +15,10 @@ return new class extends Migration
             $table->id();
             $table->string('title', 100);
             $table->text('description');
-            $table->string('image', 120);
+            $table->string('image', 120)->nullable();
             $table->text('synopsis')->nullable();
-            $table->date('updated_at');
-            $table->date('created_at');
+            $table->string('category', 100);
+            $table->timestamps();
         });
     }
 
