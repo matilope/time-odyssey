@@ -36,7 +36,7 @@ class User extends Model
     protected $table = "users";
     protected $primaryKey = "id";
 
-    protected $fillable = ['username', 'email', 'password', 'description', 'profile_picture'];
+    protected $fillable = ['username', 'email', 'password', 'rol', 'profile_picture'];
 
     public static $rules = [
         'username' => 'required|min:3',

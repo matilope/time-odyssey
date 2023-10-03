@@ -19,7 +19,7 @@ class UsersSeeder extends Seeder
                 'username' => 'matilo',
                 'email' => 'matias.lopez@davinci.edu.ar',
                 'password' => 'password',
-                'description' => 'Lo maravilloso de visitar lugares maravillosos en las distintas epocas de la humanidad lorem ipsum lorem ipsum lorem ipsum',
+                'rol' => 'admin',
                 'profile_picture' => 'image.jpg'
             ],
             [
@@ -27,7 +27,7 @@ class UsersSeeder extends Seeder
                 'username' => 'lauti',
                 'email' => 'lautaro.climent@davinci.edu.ar',
                 'password' => 'password',
-                'description' => null,
+                'rol' => 'admin',
                 'profile_picture' => 'image.jpg'
             ],
             [
@@ -35,7 +35,7 @@ class UsersSeeder extends Seeder
                 'username' => 'santi',
                 'email' => 'santiago.gallino@davinci.edu.ar',
                 'password' => 'password',
-                'description' => 'Lo maravilloso de visitar lugares maravillosos en las distintas epocas de la humanidad lorem ipsum lorem ipsum lorem ipsum',
+                'rol' => 'user',
                 'profile_picture' => null
             ],
             [
@@ -43,7 +43,7 @@ class UsersSeeder extends Seeder
                 'username' => 'luciana',
                 'email' => 'lu.ciana@davinci.edu.ar',
                 'password' => 'password',
-                'description' => null,
+                'rol' => 'user',
                 'profile_picture' => null
             ]
         ]);
