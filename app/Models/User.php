@@ -40,8 +40,8 @@ class User extends Model
 
     public static $rules = [
         'username' => 'required|min:3',
-        'email' => 'required|min:3',
-        'password' => 'required'
+        'email' => 'required|min:5',
+        'password' => 'required|min:6'
     ];
 
     public static $errorMessages = [
@@ -49,6 +49,7 @@ class User extends Model
         'username.min' => 'El usuaraio debe tener al menos :min caracteres.',
         'email.required' => 'El correo es requerido.',
         'email.min' => 'El correo debe tener al menos :min caracteres.',
-        'password.required' => 'La contraseña es requerida.'
+        'password.required' => 'La contraseña es requerida.',
+        'password.min' => 'La contraseña debe tener al menos :min caracteres.'
     ];
 }

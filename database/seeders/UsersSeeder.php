@@ -41,7 +41,7 @@ class UsersSeeder extends Seeder
             [
                 'id' => 4,
                 'username' => 'luciana',
-                'email' => 'lu.ciana@davinci.edu.ar',
+                'email' => 'luciana@gmail.com',
                 'password' => 'password',
                 'rol' => 'user',
                 'profile_picture' => null

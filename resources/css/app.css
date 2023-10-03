@@ -385,22 +385,27 @@ form option {
   transition: all 0.35s;
 }
 
-form .create-btn {
+.create-btn {
   background-color: rgb(60, 78, 102);
   border-color: rgb(60, 78, 102);
 }
 
-form .create-btn:hover {
+.create-btn:hover {
   color: rgb(60, 78, 102);
 }
 
-form .edit-btn {
+.edit-btn {
   background-color: rgb(124, 114, 50);
   border-color: rgb(124, 114, 50);
+  color: white;
 }
 
-form .edit-btn:hover {
+.edit-btn:hover {
   color: rgb(124, 114, 50);
+}
+
+.edit-btn::after {
+  background-color: white;
 }
 
 form .double-column {
@@ -456,4 +461,32 @@ form .double-column-img div {
     max-width: 100%;
     max-height: 240px;
   }
+}
+
+
+/* Button */
+
+.edit-btn:has(svg) {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: .375rem .75rem;
+}
+
+.delete-btn {
+  background-color: #9f2929;
+  border-color: #9f2929;
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: .375rem .75rem;
+}
+
+.delete-btn:hover {
+  color: #9f2929;
+}
+
+.delete-btn::after {
+  background-color: white;
 }
