@@ -8,7 +8,7 @@
   @vite('resources/css/app.css')
 </head>
 <body class="font-sans">
-  <nav class="bg-gray-800">
+  <nav class="custom-bg-primary">
     <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
       <div class="relative flex h-16 items-center justify-between">
         <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
@@ -28,7 +28,7 @@
         </div>
         <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
           <div class="flex flex-shrink-0 items-center">
-            <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500" alt="Your Company">
+            <img class="h-8 w-auto" src="{{asset('/images/logo.png')}}" alt="Travel odyssey" />
           </div>
           <div class="hidden sm:ml-6 sm:block">
             <div class="flex space-x-4">
@@ -68,8 +68,8 @@
     </div>
   </nav>
   
-  <div class="banner" style="background: url({{url('/images/banner.jpg')}}) no-repeat center;">
-    <h1 class="text-5xl mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 py-10">@yield("main-heading")</h1>
+  <div class="banner" style="background-image: linear-gradient(rgb(55 69 0 / 40%), rgb(97 53 0 / 40%)), url({{url('/images/banner.jpg')}});">
+    <h1 class="text-4xl mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 py-10 font-mono">Travel Odyssey</h1>
   </div>
 
   <main class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 py-10">
@@ -83,10 +83,10 @@
     @yield("content")
   </main>
 
-  <footer class="bg-gray-800 py-6 text-white">
+  <footer class="custom-bg-primary sm:py-6 py-8 text-white">
     <div class="flex justify-between items-center mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
       <p>
-        © {{date('Y')}} Time Odyssey. Todos los derechos reservados
+        © {{date('Y')}} Travel Odyssey. Todos los derechos reservados
       </p>
       <ul class="flex gap-5">
         <li>

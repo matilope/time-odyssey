@@ -14,4 +14,9 @@ class AdminController extends Controller
     {
         return view('admin.index', ["blogs" => Blog::all(), "users" => User::all()]);
     }
+
+    public function blogs(): View
+    {
+        return view('admin.blogs', ["blogs" => Blog::all(), "users" => User::all()]);
+    }
 }

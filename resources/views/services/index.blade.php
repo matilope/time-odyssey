@@ -1,9 +1,7 @@
 @extends('layout.index')
 
-@section('title', 'Time Odyssey')
-
-@section('main-heading', 'Time Odyssey')
+@section('title', 'Travel Odyssey')
 
 @section('content')
-  <h2>Time Odyssey</h2>
+  <h2 class="text-3xl mb-6">Travel Odyssey</h2>
 @endsection

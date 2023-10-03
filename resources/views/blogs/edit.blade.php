@@ -1,11 +1,9 @@
-@extends('layout.index')
+@extends('layout.admin')
 
 @section('title', 'Editar artículo de blog')
 
-@section('main-heading', 'Editar artículo')
-
 @section('content')
-  <h2 class="text-3xl mb-8">Editar artículo {{$blog->title}}</h2>
+  <h1 class="text-4xl mb-6">Editar artículo {{$blog->title}}</h1>
   <form class="form_blogs" action="{{url('/blogs/editar/' . $blog->id)}}" method="POST" enctype="multipart/form-data">
     @csrf
     <div class="double-column">
@@ -36,6 +34,7 @@
       <textarea 
         class="border border-gray-900/25"
         name="description"
+        rows="3"
         @error('description')
         aria-describedby="error-description"
         aria-invalid="true"
@@ -67,7 +66,7 @@
       <label for="sinopsis" class="block text-sm font-medium leading-6 text-gray-900">Sinopsis</label>
       <textarea 
         class="border border-gray-900/25" 
-        rows="5" 
+        rows="8" 
         name="synopsis" 
         id="sinopsis"
         @error('synopsis')
@@ -77,7 +76,7 @@
       >{{ old('synopsis', $blog->synopsis) }}
       </textarea>
     </div>
-    <button class="btn btn-create" type="submit">Editar artículo</button>
+    <button type="submit" class="admin-btn edit-btn">Editar artículo</button>
   </form>
   <script>
     const inputFile = document.getElementById('image');

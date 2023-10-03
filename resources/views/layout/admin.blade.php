@@ -10,22 +10,30 @@
 </head>
 <body class="font-sans">
 
-  <nav style="display: flex;">
+  <nav class="admin-navbar">
     <ul>
       <li><a href="{{url('/')}}">Inicio</a></li>
       <li><a href="{{url('/admin')}}">Admin</a></li>
+      <li><a href="{{url('/admin/blogs')}}">Listado de blogs</a></li>
       <li><a href="{{url('/blogs/crear')}}">Crear blog</a></li>
     </ul>
   </nav>
   
   <main class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 py-10">
+    @if(\Session::has('status.message'))
+      <div class="alert alert-success">
+        <p>
+          {!! \Session::get('status.message') !!}
+        <p>
+      </div>
+    @endif
     @yield("content")
   </main>
 
-  <footer class="bg-gray-800 py-6 text-white">
+  <footer class="custom-bg-primary py-6 text-white">
     <div class="flex justify-between items-center mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
       <p>
-        © {{date('Y')}} Time Odyssey. Todos los derechos reservados
+        © {{date('Y')}} Travel Odyssey. Todos los derechos reservados
       </p>
       <ul class="flex gap-5">
         <li>

@@ -32,3 +32,5 @@ Route::post('/blogs/editar/{id}', [\App\Http\Controllers\BlogsController::class,
 Route::post('/blogs/eliminar/{id}', [\App\Http\Controllers\BlogsController::class, 'delete'])->whereNumber('id');
 
 Route::get('/admin', [\App\Http\Controllers\AdminController::class, 'index']);
+
+Route::get('/admin/blogs', [\App\Http\Controllers\AdminController::class, 'blogs']);
