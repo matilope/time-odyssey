@@ -12,7 +12,7 @@ class AdminController extends Controller
 {
     public function index(): View
     {
-        return view('admin.index', ["blogs" => Blog::all(), "users" => User::all()]);
+        return view('admin.index', ["blogs" => Blog::orderBy('updated_at', 'asc')->get(), "users" => User::all()]);
     }
 
     public function blogs(): View

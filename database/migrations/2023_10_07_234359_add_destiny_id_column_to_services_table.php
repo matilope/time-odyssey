@@ -11,13 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('blogs', function (Blueprint $table) {
-            $table->id();
-            $table->string('title', 100);
-            $table->text('description');
-            $table->string('image', 120)->nullable();
-            $table->text('synopsis')->nullable();
-            $table->timestamps();
+        Schema::table('services', function (Blueprint $table) {
+            $table->unsignedTinyInteger('destiny_id')->before('description');
+            $table->foreign('destiny_id')->references('id')->on('destinations');
         });
     }
 
@@ -26,6 +22,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('blogs');
+        Schema::table('services', function (Blueprint $table) {
+            $table->dropColumn('destiny_id');
+        });
     }
 };

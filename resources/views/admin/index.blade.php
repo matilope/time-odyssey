@@ -4,7 +4,8 @@
 
 @section('content')
 <section>
-    <h1 class="text-4xl mb-8">Bienvenidos al panel de administración</h1>
+    <h1 class="text-4xl mb-4">Bienvenidos al panel de administración</h1>
+    <p class="text-2xl mb-8">Aqui vas a poder crear, editar y eliminar blogs</p>
     <div class="admin">
       <div class="stats">
         <div>

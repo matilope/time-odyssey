@@ -4,7 +4,7 @@
 
 @section('content')
   <article class="blog-unique">
-    <span class="category">{{$blog->category}}</span>
+    <span class="category">{{$blog->category->name}}</span>
     <h2 title="{{$blog->title}}" class="text-3xl mb-6">{{$blog->title}}</h2>
     <p>{!! nl2br(e($blog->description)) !!}</p>
     <span class="created_at">{{$blog->created_at}}</span>

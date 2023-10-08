@@ -10,6 +10,6 @@ class ServicesController extends Controller
 {
 	public function index(): View
 	{
-		return view('services.index', ["services" => Service::all()]);
+		return view('services.index', ["services" => Service::orderBy('duration', 'asc')->get()]);
 	}
 }

@@ -300,7 +300,7 @@ aside .active-users article::after {
   gap: 1rem;
 }
 
-.form_blogs div {
+.form_blogs .form-div {
   display: flex;
   flex-direction: column;
 }
@@ -414,20 +414,21 @@ form .double-column {
   gap: 2rem;
 }
 
-.double-column div {
+.double-column .form-div {
   flex: calc(50% - 1rem);
 }
 
 form .double-column-img {
+  display: flex;
   flex-direction: row;
-  gap: 2rem;
   align-items: center;
+  gap: 2rem;
 }
 
 form .double-column-img img {
   height: 100%;
   object-fit: contain;
-  max-width: 320px;
+  max-height: 240px;
 }
 
 form .double-column-img div {
@@ -489,4 +490,45 @@ form .double-column-img div {
 
 .delete-btn::after {
   background-color: white;
+}
+
+/* Services */
+
+.services {
+  display: flex;
+  gap: 1rem;
+  overflow: hidden;
+  cursor: grab;
+}
+
+.services article {
+  flex: 0 0 auto;
+  width: calc(33.33% - 1rem);
+  border: 1px solid #ddd;
+  padding: .75rem;
+  transition: transform 0.2s ease-in-out;
+}
+
+.services.active {
+  cursor: grabbing;
+}
+
+.services h3 {
+  font-weight: 500;
+}
+
+.services li span {
+  font-weight: 500;
+}
+
+@media (max-width:991px){
+  .services article {
+    width: calc(50% - 1rem);
+  }
+}
+
+@media (max-width:640px){
+  .services article {
+    width: 100%;
+  }
 }

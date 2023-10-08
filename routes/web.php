@@ -25,11 +25,11 @@ Route::get('/blogs/crear', [\App\Http\Controllers\BlogsController::class, 'viewC
 
 Route::post('/blogs/crear', [\App\Http\Controllers\BlogsController::class, 'create']);
 
-Route::get('/blogs/editar/{id}', [\App\Http\Controllers\BlogsController::class, 'viewEdit'])->whereNumber('id');
+Route::get('/blogs/{id}/editar', [\App\Http\Controllers\BlogsController::class, 'viewEdit'])->whereNumber('id');
 
-Route::post('/blogs/editar/{id}', [\App\Http\Controllers\BlogsController::class, 'edit'])->whereNumber('id');
+Route::post('/blogs/{id}/editar', [\App\Http\Controllers\BlogsController::class, 'edit'])->whereNumber('id');
 
-Route::post('/blogs/eliminar/{id}', [\App\Http\Controllers\BlogsController::class, 'delete'])->whereNumber('id');
+Route::post('/blogs/{id}/eliminar', [\App\Http\Controllers\BlogsController::class, 'delete'])->whereNumber('id');
 
 Route::get('/admin', [\App\Http\Controllers\AdminController::class, 'index']);
 

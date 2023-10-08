@@ -15,7 +15,7 @@
               <h2 title="{{$blog->title}}" class="text-3xl mb-3">{{$blog->title}}</h2>
               <p class="mb-3">{{$blog->description}}</p>
               <div>
-                <a class="btn edit-btn" href="{{url('/blogs/editar/' . $blog->id)}}">
+                <a class="btn edit-btn" href="{{url('/blogs/'. $blog->id . '/editar')}}">
                   Editar 
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
                     <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
@@ -35,6 +35,7 @@
       </div>
     </div>
   </section>
+  
   <div class="relative z-10 hidden" aria-labelledby="modal-title" role="dialog" aria-modal="true">
     <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
   
@@ -76,8 +77,7 @@
         const modalMessage = document.querySelector(".modal-message");
         modalMessage.textContent = `¿Estás seguro de eliminar "${title}"? La eliminación será permanente.`;
         const form = document.querySelector('.delete-form');
-        form.action="{{url('/blogs/eliminar/')}}";
-        form.action+=`/${id}`;
+        form.action=`{{url('/blogs/${id}/eliminar')}}`;
         modal.classList.remove("hidden");
         document.querySelector(".modal-cancel")?.addEventListener('click', (e) => {
           modal?.classList.add("hidden");

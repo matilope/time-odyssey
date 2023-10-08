@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
  * App\Models\Blog
@@ -36,12 +37,12 @@ class Blog extends Model
     protected $table = "blogs";
     protected $primaryKey = "id";
 
-    protected $fillable = ['title', 'description', 'image', 'synopsis', 'category'];
+    protected $fillable = ['title', 'description', 'image', 'synopsis', 'category_id'];
 
     public static $rules = [
         'title' => 'required|min:3',
         'description' => 'required|min:3',
-        'category' => 'required'
+        'category_id' => 'required' //|exists:categories
     ];
 
     public static $errorMessages = [
@@ -49,6 +50,12 @@ class Blog extends Model
         'title.min' => 'El título debe tener al menos :min caracteres.',
         'description.required' => 'La descripción es requerida.',
         'description.min' => 'La descripción debe tener al menos :min caracteres.',
-        'category.required' => 'La categoría es requerida.'
+        'category_id.required' => 'La categoría es requerida.',
+        //'category_id.exists' => 'La categoría no existe o no es válida.'
     ];
+
+    public function category(): BelongsTo 
+    {
+        return $this->belongsTo(Category::class, 'category_id', 'id');
+    }
 }

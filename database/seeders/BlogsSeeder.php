@@ -19,6 +19,7 @@ class BlogsSeeder extends Seeder
                 'title' => 'Viajar a Marte',
                 'description' => 'Marte se encuentre entre 54.9 millones y 401 millones de kilometros de distancia de la tierra.',
                 'image' => null,
+                'category_id' => 1,
                 'synopsis' => 'En un mundo donde la exploración del espacio se ha convertido en una realidad cotidiana, imagina un viaje emocionante y audaz: un viaje a Marte. Desde la Tierra, te embarcarás en un viaje interplanetario que te llevará a través de vastos océanos estelares, desafiando las barreras de la distancia en un abrir y cerrar de ojos gracias a los revolucionarios avances en la tecnología de cohetes.
 
                 A bordo de una nave espacial de última generación, experimentarás un nivel de comodidad y lujo que redefine la idea de viajar. Imagina una nave espacial que cuenta con suites espaciosas, ventanas panorámicas que ofrecen vistas impresionantes del espacio exterior y áreas de recreación donde podrás socializar con otros aventureros interplanetarios.
@@ -34,47 +35,58 @@ class BlogsSeeder extends Seeder
                 Este viaje a Marte es más que una aventura; es una ventana al futuro de la exploración espacial y la posibilidad de que la humanidad se convierta en una especie interplanetaria. En un mundo donde la tecnología y la ambición han llevado a la realización de sueños antes inimaginables, el viaje a Marte es una realidad que está más cerca de lo que podríamos haber imaginado.
                 
                 Así que prepárate para despegar y sumergirte en esta emocionante odisea interplanetaria. El viaje a Marte te espera, y el futuro está lleno de posibilidades infinitas en el vasto universo que nos rodea. ¡Bienvenidos al futuro de los viajes espaciales!',
-                'category' => 'viajes'
+                'updated_at' => now(),
+                'created_at' => now()
             ],
             [
                 'id' => 2,
                 'title' => 'Podcast de viajes en el tiempo',
                 'description' => 'Discutamos las mejores epocas a las cuales viajar',
                 'image' => null,
+                'category_id' => 2,
                 'synopsis' => null,
-                'category' => 'Viajes en el tiempo'
+                'updated_at' => now(),
+                'created_at' => now()
             ],
             [
                 'id' => 3,
                 'title' => 'Las mejores epocas',
                 'description' => 'Discutamos las mejores epocas a las cuales viajar',
                 'image' => null,
+                'category_id' => 2,
                 'synopsis' => 'Lo maravilloso de visitar lugares maravillosos en las distintas epocas de la humanidad lorem ipsum lorem ipsum lorem ipsum',
-                'category' => 'Viajes en el tiempo'
+                'updated_at' => now(),
+                'created_at' => now()
             ],
             [
                 'id' => 4,
                 'title' => 'Conoce los años mas brillantes de la Argentina',
                 'description' => 'Discutamos las mejores epocas a las cuales viajar',
                 'image' => null,
+                'category_id' => 2,
                 'synopsis' => null,
-                'category' => 'Viajes en el tiempo',
+                'updated_at' => now(),
+                'created_at' => now()
             ],
             [
                 'id' => 5,
                 'title' => 'Viaje a Estados unidos en el 1963',
                 'description' => 'Discutamos las mejores epocas a las cuales viajar',
                 'image' => null,
+                'category_id' => 2,
                 'synopsis' => 'Lo maravilloso de visitar lugares maravillosos en las distintas epocas de la humanidad lorem ipsum lorem ipsum lorem ipsum',
-                'category' => 'Viajes en el tiempo'
+                'updated_at' => now(),
+                'created_at' => now()
             ],
             [
                 'id' => 6,
                 'title' => 'Viajes a Canada',
                 'description' => 'Discutamos las mejores epocas a las cuales viajar',
                 'image' => null,
+                'category_id' => 3,
                 'synopsis' => null,
-                'category' => 'Viajes en el tiempo'
+                'updated_at' => now(),
+                'created_at' => now()
             ]
         ]);
     }

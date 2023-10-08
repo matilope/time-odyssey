@@ -20,7 +20,9 @@ class UsersSeeder extends Seeder
                 'email' => 'matias.lopez@davinci.edu.ar',
                 'password' => 'password',
                 'rol' => 'admin',
-                'profile_picture' => 'image.jpg'
+                'profile_picture' => 'image.jpg',
+                'updated_at' => now(),
+                'created_at' => now()
             ],
             [
                 'id' => 2,
@@ -28,7 +30,9 @@ class UsersSeeder extends Seeder
                 'email' => 'lautaro.climent@davinci.edu.ar',
                 'password' => 'password',
                 'rol' => 'admin',
-                'profile_picture' => 'image.jpg'
+                'profile_picture' => 'image.jpg',
+                'updated_at' => now(),
+                'created_at' => now()
             ],
             [
                 'id' => 3,
@@ -36,7 +40,9 @@ class UsersSeeder extends Seeder
                 'email' => 'santiago.gallino@davinci.edu.ar',
                 'password' => 'password',
                 'rol' => 'user',
-                'profile_picture' => null
+                'profile_picture' => null,
+                'updated_at' => now(),
+                'created_at' => now()
             ],
             [
                 'id' => 4,
@@ -44,7 +50,9 @@ class UsersSeeder extends Seeder
                 'email' => 'luciana@gmail.com',
                 'password' => 'password',
                 'rol' => 'user',
-                'profile_picture' => null
+                'profile_picture' => null,
+                'updated_at' => now(),
+                'created_at' => now()
             ]
         ]);
     }

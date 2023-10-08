@@ -7,6 +7,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Contracts\View\View;
 use App\Models\Blog;
 use App\Models\User;
+use App\Models\Category;
 use Illuminate\Support\Facades\Storage;
 
 class BlogsController extends Controller
@@ -14,7 +15,8 @@ class BlogsController extends Controller
     public function index(): View
     {
         // \Debugbar::info(Blog::all());
-        return view('blogs.index', ["blogs" => Blog::all(), "users" => User::orderBy('created_at', 'asc')->get()]);
+        $blogs = Blog::orderBy('created_at', 'asc')->with('category')->get();
+        return view('blogs.index', ["blogs" => $blogs, "users" => User::orderBy('created_at', 'asc')->get()]);
     }
 
     public function article(int $id): View
@@ -24,7 +26,7 @@ class BlogsController extends Controller
 
     public function viewCreate(): View
     {
-        return view('blogs.create');
+        return view('blogs.create', ["categories" => Category::All()]);
     }
 
     public function create(Request $request): RedirectResponse
@@ -40,7 +42,7 @@ class BlogsController extends Controller
 
     public function viewEdit(int $id): View
     {
-        return view('blogs.edit', ["blog" => Blog::findOrFail($id)]);
+        return view('blogs.edit', ["blog" => Blog::findOrFail($id), "categories" => Category::All()]);
     }
 
     public function edit(int $id, Request $request): RedirectResponse

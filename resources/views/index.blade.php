@@ -4,7 +4,30 @@
 
 @section('content')
   <article>
-    <h2 class="text-3xl mb-6">Inicio</h2>
-    <p>Test</p>
+    <h2 class="text-3xl mb-6">¡Bienvenidos a Travel Odyssey!</h2>
+    <p>En nuestro viaje, te llevamos a un mundo completamente nuevo y te ofrecemos la oportunidad de explorar los rincones más fascinantes del espacio exterior. Somos la opción perfecta para aquellos que buscan experiencias únicas y emocionantes que van más allá de los destinos terrestres tradicionales. Permítenos presentarte nuestra empresa y lo que te espera en nuestros viajes especiales.</p>
+    <img class="my-5" src="{{asset('/images/home.jpg')}}" alt="" />
+    <ul class="mt-6">
+      <li class="mb-5">
+          <h3 class="text-2xl mb-2">Experiencias Inolvidables</h3>
+          <p>No ofrecemos simples vacaciones; te ofrecemos experiencias inolvidables. Cada uno de nuestros viajes está diseñado cuidadosamente para brindarte una experiencia única en la vida. Desde pasear por la superficie de la Luna hasta explorar los cañones de Marte, nuestros viajes te sumergirán en paisajes y experiencias que solo se pueden encontrar fuera de la Tierra.</p>
+      </li>
+      <li class="mb-5">
+          <h3 class="text-2xl mb-2">Alojamiento de Lujo</h3>
+          <p>En nuestros viajes, la comodidad es primordial. Disfrutarás de alojamiento de lujo con dormitorios privados y todas las comodidades necesarias para garantizar una estancia cómoda en el espacio. Descansa y relájate mientras viajas a destinos lejanos.</p>
+      </li>
+      <li class="mb-5">
+          <h3 class="text-2xl mb-2">Explora los Mejores Lugares</h3>
+          <p>Nuestros expertos guías te llevarán a los mejores lugares de cada destino. Desde cráteres impresionantes hasta paisajes alienígenas, te aseguramos que cada día estará lleno de descubrimientos sorprendentes.</p>
+      </li>
+      <li class="mb-5">
+          <h3 class="text-2xl mb-2">Duraciones Flexibles</h3>
+          <p>Entendemos que cada viajero es único, por lo que ofrecemos duraciones de viaje flexibles para adaptarse a tu tiempo y preferencias. Ya sea que estés buscando una escapada corta o una aventura más larga, tenemos opciones para ti.</p>
+      </li>
+      <li class="mb-5">
+          <h3 class="text-2xl mb-2">Equipos de Clase Mundial</h3>
+          <p>Nuestra empresa cuenta con equipos de clase mundial de astronautas, científicos y expertos en viajes espaciales que están comprometidos con tu seguridad y tu experiencia en el espacio.</p>
+      </li>
+    </ul>
   </article>
 @endsection

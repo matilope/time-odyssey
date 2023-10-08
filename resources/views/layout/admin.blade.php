@@ -21,10 +21,8 @@
   
   <main class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 py-10">
     @if(\Session::has('status.message'))
-      <div class="alert alert-success">
-        <p>
-          {!! \Session::get('status.message') !!}
-        <p>
+      <div class="bg-teal-100 border-l-4 border-teal-500 text-teal-700 p-4 my-5" role="alert">
+        <p>{!! \Session::get('status.message') !!}</p>
       </div>
     @endif
     @yield("content")
