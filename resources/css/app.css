@@ -595,10 +595,10 @@ form .double-column-img div {
   align-items: center;
   max-width: 600px;
   background-color: white;
-  padding: 1rem;
   border-radius: .25rem;
   cursor: default;
   margin: auto;
+  gap: .5rem;
 }
 
 .unique-service div:first-child {
@@ -616,6 +616,7 @@ form .double-column-img div {
 .unique-service div:last-child {
   overflow-y: scroll;
   max-height: 240px;
+  padding: 0 1rem .5rem 1rem;
 }
 
 .unique-service p {

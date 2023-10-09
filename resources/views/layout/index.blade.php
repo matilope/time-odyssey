@@ -41,7 +41,7 @@
             <div class="flex space-x-4">
               <a href="{{url('/')}}" class="hover:bg-gray-700 text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page">Inicio</a>
               <a href="{{url('/servicios')}}" class="text-white hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Servicios</a>
-              <a href="{{url('/blogs')}}" class="text-white hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Blog</a>
+              <a href="{{url('/blogs')}}" class="text-white hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Blogs</a>
             </div>
           </div>
         </div>
@@ -70,7 +70,7 @@
       <div class="space-y-1 px-2 pb-3 pt-2">
         <a href="{{url('/')}}" class="hover:bg-gray-700 text-white block rounded-md px-3 py-2 text-base font-medium" aria-current="page">Inicio</a>
         <a href="{{url('/servicios')}}" class="text-white hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Servicios</a>
-        <a href="{{url('/blogs')}}" class="text-white hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Blog</a>
+        <a href="{{url('/blogs')}}" class="text-white hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Blogs</a>
       </div>
     </div>
   </nav>

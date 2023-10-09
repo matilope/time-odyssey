@@ -18,7 +18,7 @@ class BlogsSeeder extends Seeder
                 'id' => 1,
                 'title' => 'Viajar a Marte',
                 'description' => 'Embárcate en un emocionante viaje a Marte, el planeta rojo. Descubre paisajes asombrosos y observa el espacio profundo en un viaje inolvidable.',
-                'image' => null,
+                'image' => 'blogs_covers/1.png',
                 'category_id' => 1,
                 'synopsis' => 'En un mundo donde la exploración del espacio se ha convertido en una realidad cotidiana, imagina un viaje emocionante y audaz: un viaje a Marte. Desde la Tierra, te embarcarás en un viaje interplanetario que te llevará a través de vastos océanos estelares, desafiando las barreras de la distancia en un abrir y cerrar de ojos gracias a los revolucionarios avances en la tecnología de cohetes.
 
@@ -42,7 +42,7 @@ class BlogsSeeder extends Seeder
                 'id' => 2,
                 'title' => 'Naves Espaciales del Futuro: Descubre las Maravillas de la Tecnología Espacial',
                 'description' => 'Explora la vanguardia de la tecnología espacial y sumérgete en el asombroso mundo de las naves espaciales de última generación.',
-                'image' => null,
+                'image' => 'blogs_covers/2.png',
                 'category_id' => 2,
                 'synopsis' => '¿Te has preguntado alguna vez cómo serán las naves espaciales del futuro? En "Naves Espaciales del Futuro," te sumergirás en un viaje emocionante por el fascinante mundo de la tecnología espacial de última generación, con detalles concretos y datos impresionantes.
 
@@ -58,7 +58,7 @@ class BlogsSeeder extends Seeder
                 'id' => 3,
                 'title' => 'Viajar a la luna',
                 'description' => 'Explora la Luna, nuestro satélite natural, y camina por su superficie única. Descubre cráteres y experimenta la gravedad lunar en este viaje excepcional.',
-                'image' => null,
+                'image' => 'blogs_covers/3.png',
                 'category_id' => 1,
                 'synopsis' => 'La Luna, nuestro vecino celestial a 384,000 kilómetros de distancia, es un destino verdaderamente asombroso para unas vacaciones cortas e inolvidables. Este mundo misterioso está lleno de maravillas naturales que desafían la imaginación. Uno de los principales atractivos son los cráteres lunares, formaciones geológicas únicas que han intrigado a científicos y aventureros durante décadas.
 
@@ -78,7 +78,7 @@ class BlogsSeeder extends Seeder
                 'id' => 4,
                 'title' => 'Explorando los Misterios de la Vía Láctea: Nuestra Galaxia Hogar',
                 'description' => 'Adéntrate en el fascinante universo de la Vía Láctea y descubre sus secretos, desde las estrellas más comunes hasta los agujeros negros más intrigantes.',
-                'image' => null,
+                'image' => 'blogs_covers/4.png',
                 'category_id' => 3,
                 'synopsis' => 'La Vía Láctea, nuestra galaxia hogar, es un vasto y asombroso rincón del universo que continúa deslumbrando a científicos y amantes del espacio por igual. En este blog, te invitamos a explorar los misterios que esconde nuestra galaxia, brindándote información detallada y fascinante que te llevará a un emocionante viaje cósmico.
 
@@ -94,7 +94,7 @@ class BlogsSeeder extends Seeder
                 'id' => 5,
                 'title' => 'Agujeros Negros: Los Devoradores de Luz en el Universo',
                 'description' => 'Sumérgete en el misterioso mundo de los agujeros negros y descubre cómo estas enigmáticas entidades cósmicas desafían las leyes de la física.',
-                'image' => null,
+                'image' => 'blogs_covers/5.png',
                 'category_id' => 4,
                 'synopsis' => 'Los agujeros negros son una de las maravillas más enigmáticas y aterradoras del universo. En este fascinante viaje cósmico, te invitamos a adentrarte en el mundo de estas enigmáticas entidades, donde las leyes de la física parecen desafiar toda lógica.
 
@@ -110,7 +110,7 @@ class BlogsSeeder extends Seeder
                 'id' => 6,
                 'title' => 'Viajar al satélite de Jupiter, Europa',
                 'description' => 'Descubre Europa, la luna de Júpiter. Explora paisajes helados y misteriosas crestas geológicas en este viaje fascinante.',
-                'image' => null,
+                'image' => 'blogs_covers/6.png',
                 'category_id' => 1,
                 'synopsis' => 'Embárcate en un viaje sin precedentes a Europa, el intrigante satélite de Júpiter. Descubre un mundo oculto bajo una capa de hielo que alberga secretos profundos y emocionantes. Europa, que se encuentra a una distancia de aproximadamente 670 millones de kilómetros de la Tierra, es uno de los satélites más grandes de Júpiter, con un diámetro de unos 3,100 kilómetros.
 
