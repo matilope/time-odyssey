@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('image', 120)->nullable();
             $table->unsignedInteger('price');
             $table->unsignedInteger('duration');
+            $table->unsignedInteger('lodging');
             $table->date('date_of_departure');
             $table->timestamps();
         });

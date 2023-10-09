@@ -2,9 +2,20 @@
 
 @section('title', 'Inicio')
 
+@section('meta')
+  <meta name="title" content="Inicio | Travel Odyssey" />
+  <meta name="description" content="En nuestro viaje, te llevamos a un mundo completamente nuevo y te ofrecemos la oportunidad de explorar los rincones más fascinantes del espacio exterior. Somos la opción perfecta para aquellos que buscan experiencias únicas y emocionantes que van más allá de los destinos terrestres tradicionales. Permítenos presentarte nuestra empresa y lo que te espera en nuestros viajes especiales." />
+  <meta property="og:title" content="Inicio | Travel Odyssey" />
+  <meta property="og:description" content="En nuestro viaje, te llevamos a un mundo completamente nuevo y te ofrecemos la oportunidad de explorar los rincones más fascinantes del espacio exterior. Somos la opción perfecta para aquellos que buscan experiencias únicas y emocionantes que van más allá de los destinos terrestres tradicionales. Permítenos presentarte nuestra empresa y lo que te espera en nuestros viajes especiales." />
+  <meta property="og:image" content="{{asset('/images/banner.jpg')}}" />
+  <meta property="twitter:title" content="Inicio | Travel Odyssey" />
+  <meta property="twitter:description" content="En nuestro viaje, te llevamos a un mundo completamente nuevo y te ofrecemos la oportunidad de explorar los rincones más fascinantes del espacio exterior. Somos la opción perfecta para aquellos que buscan experiencias únicas y emocionantes que van más allá de los destinos terrestres tradicionales. Permítenos presentarte nuestra empresa y lo que te espera en nuestros viajes especiales." />
+  <meta property="twitter:image" content="{{asset('/images/banner.jpg')}}" />
+@endsection
+
 @section('content')
   <article>
-    <h2 class="text-3xl mb-6">¡Bienvenidos a Travel Odyssey!</h2>
+    <h2 class="text-4xl mb-6">¡Bienvenidos a Travel Odyssey!</h2>
     <p>En nuestro viaje, te llevamos a un mundo completamente nuevo y te ofrecemos la oportunidad de explorar los rincones más fascinantes del espacio exterior. Somos la opción perfecta para aquellos que buscan experiencias únicas y emocionantes que van más allá de los destinos terrestres tradicionales. Permítenos presentarte nuestra empresa y lo que te espera en nuestros viajes especiales.</p>
     <img class="my-5" src="{{asset('/images/home.jpg')}}" alt="" />
     <ul class="mt-6">

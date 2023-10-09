@@ -14,7 +14,7 @@ class Service extends Model
     protected $table = "services";
     protected $primaryKey = "id";
 
-    protected $fillable = ['destiny_id', 'description', 'image', 'price', 'duration', 'date_of_departure'];
+    protected $fillable = ['destiny_id', 'description', 'image', 'price', 'duration', 'lodging', 'date_of_departure'];
 
     public static $rules = [
         'destiny_id' => 'required',
@@ -22,6 +22,7 @@ class Service extends Model
         'image' => 'required',
         'price' => 'required',
         'duration' => 'required',
+        'lodging' => 'required',
         'date_of_departure' => 'required'
     ];
 
@@ -32,7 +33,8 @@ class Service extends Model
         'image.required' => 'La imagen es requerida.',
         'price.required' => 'El precio es requerido.',
         'duration.required' => 'La duración es requerida.',
-        'date_of_departure.required' => 'El tipo de contenido es requerido.'
+        'lodging.required' => 'El tiempo de alojamiento es requerido.',
+        'date_of_departure.required' => 'La fecha de salida es requerida.'
     ];
 
     public function price(): Attribute

@@ -63,6 +63,9 @@ class BlogsController extends Controller
     public function delete(int $id): RedirectResponse
     {
         $blog = Blog::findOrFail($id);
+        if($blog->image){
+            Storage::disk('public')->delete($blog->image);
+        }
         $blog->delete();
         return redirect('/admin/blogs')->with('status.message', 'El artículo <b>' . e($blog['title']) . '</b> fue eliminado con éxito.');
     }

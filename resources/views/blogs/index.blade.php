@@ -2,9 +2,20 @@
 
 @section('title', 'Blogs')
 
+@section('meta')
+  <meta name="title" content="Blogs | Travel Odyssey" />
+  <meta name="description" content="En nuestro viaje, te llevamos a un mundo completamente nuevo y te ofrecemos la oportunidad de explorar los rincones más fascinantes del espacio exterior. Somos la opción perfecta para aquellos que buscan experiencias únicas y emocionantes que van más allá de los destinos terrestres tradicionales. Permítenos presentarte nuestra empresa y lo que te espera en nuestros viajes especiales." />
+  <meta property="og:title" content="Blogs | Travel Odyssey" />
+  <meta property="og:description" content="En nuestro viaje, te llevamos a un mundo completamente nuevo y te ofrecemos la oportunidad de explorar los rincones más fascinantes del espacio exterior. Somos la opción perfecta para aquellos que buscan experiencias únicas y emocionantes que van más allá de los destinos terrestres tradicionales. Permítenos presentarte nuestra empresa y lo que te espera en nuestros viajes especiales." />
+  <meta property="og:image" content="{{asset('/images/banner.jpg')}}" />
+  <meta property="twitter:title" content="Blogs | Travel Odyssey" />
+  <meta property="twitter:description" content="En nuestro viaje, te llevamos a un mundo completamente nuevo y te ofrecemos la oportunidad de explorar los rincones más fascinantes del espacio exterior. Somos la opción perfecta para aquellos que buscan experiencias únicas y emocionantes que van más allá de los destinos terrestres tradicionales. Permítenos presentarte nuestra empresa y lo que te espera en nuestros viajes especiales." />
+  <meta property="twitter:image" content="{{asset('/images/banner.jpg')}}" />
+@endsection
+
 @section('content')
 <section>
-    <h2 class="text-3xl mb-8">Blogs publicados</h2>
+    <h2 class="text-4xl mb-8">Blogs publicados</h2>
     <div class="blogs">
       <div class="featured">
         @foreach($blogs as $key => $blog)
@@ -22,7 +33,7 @@
         @endforeach
       </div>
       <aside>
-        <h2 class="text-3xl mb-6">Usuarios</h2>
+        <h2 class="text-4xl mb-6">Usuarios</h2>
         @if(count($users)>0)
           <div class="active-users">
             @for($i = 0; $i < count($users); $i++)

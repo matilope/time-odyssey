@@ -22,13 +22,31 @@ class CategoriesSeeder extends Seeder
             ],
             [
                 'id' => 2,
-                'name' => 'Viajes en el tiempo',
+                'name' => 'Naves',
                 'updated_at' => now(),
                 'created_at' => now()
             ],
             [
                 'id' => 3,
-                'name' => 'Extra',
+                'name' => 'Galaxias',
+                'updated_at' => now(),
+                'created_at' => now()
+            ],
+            [
+                'id' => 4,
+                'name' => 'Agujeros negros',
+                'updated_at' => now(),
+                'created_at' => now()
+            ],
+            [
+                'id' => 5,
+                'name' => 'Estrellas',
+                'updated_at' => now(),
+                'created_at' => now()
+            ],
+            [
+                'id' => 6,
+                'name' => 'Planetas',
                 'updated_at' => now(),
                 'created_at' => now()
             ]

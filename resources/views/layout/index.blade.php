@@ -6,6 +6,13 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <title>@yield('title')</title>
   @vite('resources/css/app.css')
+  <link rel="icon" type="image/png" href="{{asset('/images/logo.png')}}" />
+  <link rel="shortcut icon" href="{{asset('/images/logo.png')}}" />
+  <meta name="copyright" content="Travel Odyssey" />
+  <meta name="keywords" content="viajes, espacio exterior, aventuras, conocer, planetas, estrellas, satelites" />
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="og:type" content="website" />
+  @yield('meta')
 </head>
 <body class="font-sans">
   <nav class="custom-bg-primary">
@@ -32,9 +39,9 @@
           </div>
           <div class="hidden sm:ml-6 sm:block">
             <div class="flex space-x-4">
-              <a href="{{url('/')}}" class="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page">Inicio</a>
-              <a href="{{url('/servicios')}}" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Servicios</a>
-              <a href="{{url('/blogs')}}" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Blog</a>
+              <a href="{{url('/')}}" class="hover:bg-gray-700 text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page">Inicio</a>
+              <a href="{{url('/servicios')}}" class="text-white hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Servicios</a>
+              <a href="{{url('/blogs')}}" class="text-white hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Blog</a>
             </div>
           </div>
         </div>
@@ -61,15 +68,15 @@
   
     <div class="hidden" id="mobile-menu">
       <div class="space-y-1 px-2 pb-3 pt-2">
-        <a href="{{url('/')}}" class="bg-gray-900 text-white block rounded-md px-3 py-2 text-base font-medium" aria-current="page">Inicio</a>
-        <a href="{{url('/servicios')}}" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Servicios</a>
-        <a href="{{url('/blogs')}}" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Blog</a>
+        <a href="{{url('/')}}" class="hover:bg-gray-700 text-white block rounded-md px-3 py-2 text-base font-medium" aria-current="page">Inicio</a>
+        <a href="{{url('/servicios')}}" class="text-white hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Servicios</a>
+        <a href="{{url('/blogs')}}" class="text-white hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Blog</a>
       </div>
     </div>
   </nav>
   
-  <div class="banner" style="background-image: linear-gradient(rgb(55 69 0 / 40%), rgb(97 53 0 / 40%)), url({{url('/images/banner.jpg')}});">
-    <h1 class="text-4xl mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 py-10 font-mono">Travel Odyssey</h1>
+  <div class="banner" style="background-image: linear-gradient(rgba(60, 78, 102, 40%), rgba(60, 78, 102, 60%)), url({{url('/images/banner.jpg')}});">
+    <h1 class="text-5xl mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 py-10 font-mono">Travel Odyssey</h1>
   </div>
 
   <main class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 py-10">
