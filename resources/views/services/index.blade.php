@@ -21,7 +21,7 @@
       @foreach($services as $key => $service)
         <article>
           <div>
-            <img loading="eager" src="@if($service->image){{ asset('images/services/' . $service->image) }}@else {{asset('/images/default.png')}} @endif" alt="{{$service->title}}" />
+            <img loading="eager" src="@if($service->image){{ asset('storage/' . $service->image) }}@else {{asset('/images/default.png')}} @endif" alt="{{$service->title}}" />
           </div>
           <div>
             <h3 title="{{$service->destiny->name}}" class="text-2xl my-3">{{$service->destiny->name}}</h3>

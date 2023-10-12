@@ -18,9 +18,9 @@ class UsersSeeder extends Seeder
                 'id' => 1,
                 'username' => 'matilo',
                 'email' => 'matias.lopez@davinci.edu.ar',
-                'password' => 'password',
                 'rol' => 'admin',
                 'profile_picture' => 'image.jpg',
+                'password' => 'password',
                 'updated_at' => now(),
                 'created_at' => now()
             ],
@@ -28,9 +28,9 @@ class UsersSeeder extends Seeder
                 'id' => 2,
                 'username' => 'lauti',
                 'email' => 'lautaro.climent@davinci.edu.ar',
-                'password' => 'password',
                 'rol' => 'admin',
                 'profile_picture' => 'image.jpg',
+                'password' => 'password',
                 'updated_at' => now(),
                 'created_at' => now()
             ],
@@ -38,19 +38,9 @@ class UsersSeeder extends Seeder
                 'id' => 3,
                 'username' => 'santi',
                 'email' => 'santiago.gallino@davinci.edu.ar',
-                'password' => 'password',
                 'rol' => 'user',
                 'profile_picture' => null,
-                'updated_at' => now(),
-                'created_at' => now()
-            ],
-            [
-                'id' => 4,
-                'username' => 'luciana',
-                'email' => 'luciana@gmail.com',
                 'password' => 'password',
-                'rol' => 'user',
-                'profile_picture' => null,
                 'updated_at' => now(),
                 'created_at' => now()
             ]

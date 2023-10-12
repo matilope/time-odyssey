@@ -37,7 +37,7 @@ class Service extends Model
         'date_of_departure.required' => 'La fecha de salida es requerida.'
     ];
 
-    public function price(): Attribute
+    protected function price(): Attribute
     {
         return Attribute::make(
             get: fn ($value) => $value / 100,

@@ -51,7 +51,7 @@ class BlogsController extends Controller
         $request->validate(Blog::$rules, Blog::$errorMessages);
         $blogUpdated = $request->except(['_token']);
         if ($request->hasFile('image')) {
-            if($blog->image){
+            if($blog->image && Storage::has($blog->image)){
                 Storage::disk('public')->delete($blog->image);
             }
             $blogUpdated['image'] = $request->file('image')->store('blogs_covers');
@@ -63,7 +63,7 @@ class BlogsController extends Controller
     public function delete(int $id): RedirectResponse
     {
         $blog = Blog::findOrFail($id);
-        if($blog->image){
+        if($blog->image && Storage::has($blog->image)){
             Storage::disk('public')->delete($blog->image);
         }
         $blog->delete();
