@@ -4,7 +4,7 @@
 
 @section('content')
   <h1 class="text-4xl mb-6">Editar artículo {{$blog->title}}</h1>
-  <form class="form_blogs" action="{{url('/blogs/' . $blog->id . '/editar')}}" method="POST" enctype="multipart/form-data">
+  <form class="form_blogs" action="{{route('blogs.edit.post', ['id' => $blog->id])}}" method="POST" enctype="multipart/form-data">
     @csrf
     <div class="double-column">
       <div class="form-div">

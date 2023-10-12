@@ -4,7 +4,7 @@
 
 @section('content')
   <h1 class="text-4xl mb-6">Crear artículo de blog</h1>
-  <form class="form_blogs" action="{{url('/blogs/crear')}}" method="POST" enctype="multipart/form-data">
+  <form class="form_blogs" action="{{route('blogs.create.post')}}" method="POST" enctype="multipart/form-data">
     @csrf
     <div class="double-column">
       <div class="form-div">

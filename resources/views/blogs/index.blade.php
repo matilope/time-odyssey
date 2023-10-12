@@ -27,7 +27,7 @@
               </span>
               <h3 title="{{$blog->title}}" class="text-2xl">{{$blog->title}}</h3>
               <p>{{$blog->description}}</p>
-              <a class="btn read-btn" href="{{url('/blogs/' . $blog->id)}}">Leer blog</a>
+              <a class="btn read-btn" href="{{route('blogs.article', ['id' => $blog->id])}}">Leer blog</a>
             </div>
           </article>
         @endforeach
@@ -38,7 +38,7 @@
           <div class="active-users">
             @for($i = 0; $i < count($users); $i++)
               <article>
-                <p><a href="{{url('/perfil/'. $users[$i]->id)}}">{{$users[$i]->username}}</a></p>
+                <p><a href="#">{{$users[$i]->username}}</a></p>
               </article>
               @if($i>1)
                 @break

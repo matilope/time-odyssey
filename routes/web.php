@@ -13,24 +13,39 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [\App\Http\Controllers\HomeController::class, 'index']);
+Route::get('/', [\App\Http\Controllers\HomeController::class, 'index'])
+  ->name('home');
 
-Route::get('/servicios', [\App\Http\Controllers\ServicesController::class, 'index']);
+Route::get('/servicios', [\App\Http\Controllers\ServicesController::class, 'index'])
+  ->name('services.index');
 
-Route::get('/blogs', [\App\Http\Controllers\BlogsController::class, 'index']);
+Route::get('/blogs', [\App\Http\Controllers\BlogsController::class, 'index'])
+  ->name('blogs.index');
 
-Route::get('/blogs/{id}', [\App\Http\Controllers\BlogsController::class, 'article'])->whereNumber('id');
+Route::get('/blogs/{id}', [\App\Http\Controllers\BlogsController::class, 'article'])
+  ->whereNumber('id')
+  ->name('blogs.article');
 
-Route::get('/blogs/crear', [\App\Http\Controllers\BlogsController::class, 'viewCreate']);
+Route::get('/blogs/crear', [\App\Http\Controllers\BlogsController::class, 'viewCreate'])
+  ->name('blogs.create.form');
 
-Route::post('/blogs/crear', [\App\Http\Controllers\BlogsController::class, 'create']);
+Route::post('/blogs/crear', [\App\Http\Controllers\BlogsController::class, 'create'])
+  ->name('blogs.create.post');
 
-Route::get('/blogs/{id}/editar', [\App\Http\Controllers\BlogsController::class, 'viewEdit'])->whereNumber('id');
+Route::get('/blogs/{id}/editar', [\App\Http\Controllers\BlogsController::class, 'viewEdit'])
+  ->whereNumber('id')
+  ->name('blogs.edit.form');
 
-Route::post('/blogs/{id}/editar', [\App\Http\Controllers\BlogsController::class, 'edit'])->whereNumber('id');
+Route::post('/blogs/{id}/editar', [\App\Http\Controllers\BlogsController::class, 'edit'])
+  ->whereNumber('id')
+  ->name('blogs.edit.post');
 
-Route::post('/blogs/{id}/eliminar', [\App\Http\Controllers\BlogsController::class, 'delete'])->whereNumber('id');
+Route::post('/blogs/{id}/eliminar', [\App\Http\Controllers\BlogsController::class, 'delete'])
+  ->whereNumber('id')
+  ->name('blogs.delete.post');
 
-Route::get('/admin', [\App\Http\Controllers\AdminController::class, 'index']);
+Route::get('/admin', [\App\Http\Controllers\AdminController::class, 'index'])
+  ->name('admin.index');
 
-Route::get('/admin/blogs', [\App\Http\Controllers\AdminController::class, 'blogs']);
+Route::get('/admin/blogs', [\App\Http\Controllers\AdminController::class, 'blogs'])
+  ->name('admin.blogs');

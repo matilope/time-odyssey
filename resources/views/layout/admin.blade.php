@@ -12,10 +12,10 @@
 
   <nav class="admin-navbar">
     <ul>
-      <li><a href="{{url('/')}}">Inicio</a></li>
-      <li><a href="{{url('/admin')}}">Admin</a></li>
-      <li><a href="{{url('/admin/blogs')}}">Listado de blogs</a></li>
-      <li><a href="{{url('/blogs/crear')}}">Crear blog</a></li>
+      <li><a href="{{route('home')}}">Inicio</a></li>
+      <li><a href="{{route('admin.index')}}">Admin</a></li>
+      <li><a href="{{route('admin.blogs')}}">Listado de blogs</a></li>
+      <li><a href="{{route('blogs.create.form')}}">Crear blog</a></li>
     </ul>
   </nav>
   

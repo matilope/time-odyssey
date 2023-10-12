@@ -24,5 +24,5 @@
       <p>{!! nl2br(e($blog->synopsis)) !!}</p>
     @endif
   </article>
-  <a class="btn" href="/blogs">Volver</a>
+  <a class="btn" href="{{route('blogs.index')}}">Volver</a>
 @endsection

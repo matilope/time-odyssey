@@ -39,9 +39,9 @@
           </div>
           <div class="hidden sm:ml-6 sm:block">
             <div class="flex space-x-4">
-              <a href="{{url('/')}}" class="hover:bg-gray-700 text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page">Inicio</a>
-              <a href="{{url('/servicios')}}" class="text-white hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Servicios</a>
-              <a href="{{url('/blogs')}}" class="text-white hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Blogs</a>
+              <a href="{{route('home')}}" class="hover:bg-gray-700 text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page">Inicio</a>
+              <a href="{{route('services.index')}}" class="text-white hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Servicios</a>
+              <a href="{{route('blogs.index')}}" class="text-white hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Blogs</a>
             </div>
           </div>
         </div>
@@ -68,14 +68,14 @@
   
     <div class="hidden" id="mobile-menu">
       <div class="space-y-1 px-2 pb-3 pt-2">
-        <a href="{{url('/')}}" class="hover:bg-gray-700 text-white block rounded-md px-3 py-2 text-base font-medium" aria-current="page">Inicio</a>
-        <a href="{{url('/servicios')}}" class="text-white hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Servicios</a>
-        <a href="{{url('/blogs')}}" class="text-white hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Blogs</a>
+        <a href="{{route('home')}}" class="hover:bg-gray-700 text-white block rounded-md px-3 py-2 text-base font-medium" aria-current="page">Inicio</a>
+        <a href="{{route('services.index')}}" class="text-white hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Servicios</a>
+        <a href="{{route('blogs.index')}}" class="text-white hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Blogs</a>
       </div>
     </div>
   </nav>
   
-  <div class="banner" style="background-image: linear-gradient(rgba(60, 78, 102, 40%), rgba(60, 78, 102, 60%)), url({{url('/images/banner.jpg')}});">
+  <div class="banner" style="background-image: linear-gradient(rgba(60, 78, 102, 40%), rgba(60, 78, 102, 60%)), url({{asset('/images/banner.jpg')}});">
     <h1 class="text-5xl mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 py-10 font-mono">Travel Odyssey</h1>
   </div>
 
