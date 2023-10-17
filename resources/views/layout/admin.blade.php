@@ -10,13 +10,17 @@
 </head>
 <body class="font-sans">
 
-  <nav class="admin-navbar">
-    <ul>
-      <li><a href="{{route('home')}}">Inicio</a></li>
-      <li><a href="{{route('admin.index')}}">Admin</a></li>
-      <li><a href="{{route('admin.blogs')}}">Listado de blogs</a></li>
-      <li><a href="{{route('blogs.create.form')}}">Crear blog</a></li>
-    </ul>
+  <nav class="admin-navbar custom-bg-primary">
+    <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+      <div class="relative flex h-16 items-center justify-between">
+        <ul class="flex space-x-4 items-center">
+          <li><a href="{{route('home')}}" class="hover:bg-gray-700 text-white rounded-md px-3 py-2 text-sm font-medium">Inicio</a></li>
+          <li><a href="{{route('admin.index')}}" class="hover:bg-gray-700 text-white rounded-md px-3 py-2 text-sm font-medium">Admin</a></li>
+          <li><a href="{{route('admin.blogs')}}" class="hover:bg-gray-700 text-white rounded-md px-3 py-2 text-sm font-medium">Listado de blogs</a></li>
+          <li><a href="{{route('blogs.create.form')}}" class="hover:bg-gray-700 text-white rounded-md px-3 py-2 text-sm font-medium">Crear blog</a></li>
+        </ul>
+      </div>
+    </div>
   </nav>
   
   <main class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 py-10">
