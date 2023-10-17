@@ -27,25 +27,42 @@ Route::get('/blogs/{id}', [\App\Http\Controllers\BlogsController::class, 'articl
   ->name('blogs.article');
 
 Route::get('/blogs/crear', [\App\Http\Controllers\BlogsController::class, 'viewCreate'])
-  ->name('blogs.create.form');
+  ->name('blogs.create.form')
+  ->middleware(['auth']);
 
 Route::post('/blogs/crear', [\App\Http\Controllers\BlogsController::class, 'create'])
-  ->name('blogs.create.post');
+  ->name('blogs.create.post')
+  ->middleware(['auth']);
 
 Route::get('/blogs/{id}/editar', [\App\Http\Controllers\BlogsController::class, 'viewEdit'])
   ->whereNumber('id')
-  ->name('blogs.edit.form');
+  ->name('blogs.edit.form')
+  ->middleware(['auth']);
 
 Route::post('/blogs/{id}/editar', [\App\Http\Controllers\BlogsController::class, 'edit'])
   ->whereNumber('id')
-  ->name('blogs.edit.post');
+  ->name('blogs.edit.post')
+  ->middleware(['auth']);
 
 Route::post('/blogs/{id}/eliminar', [\App\Http\Controllers\BlogsController::class, 'delete'])
   ->whereNumber('id')
-  ->name('blogs.delete.post');
+  ->name('blogs.delete.post')
+  ->middleware(['auth']);
 
 Route::get('/admin', [\App\Http\Controllers\AdminController::class, 'index'])
-  ->name('admin.index');
+  ->name('admin.index')
+  ->middleware(['auth']);
 
 Route::get('/admin/blogs', [\App\Http\Controllers\AdminController::class, 'blogs'])
-  ->name('admin.blogs');
+  ->name('admin.blogs')
+  ->middleware(['auth']);
+
+Route::get('/iniciar-sesion', [\App\Http\Controllers\AuthController::class, 'viewLogin'])
+  ->name('auth.login.form');
+
+Route::post('/iniciar-sesion', [\App\Http\Controllers\AuthController::class, 'login'])
+  ->name('auth.login.post');
+
+Route::post('/', [\App\Http\Controllers\AuthController::class, 'logout'])
+  ->name('auth.logout.post')
+  ->middleware(['auth']);

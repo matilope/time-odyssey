@@ -13,8 +13,8 @@
           <span>{{count($blogs)}}</span>
         </div>
         <div>
-          <h2 class="text-2xl mb-3">Blog con mas visitas</h2>
-          <span>{{$blogs[0]->title}}</span>
+          <h2 class="text-2xl mb-3">Blog con más visitas</h2>
+          <span>{{$blogs[5]->title}}</span>
         </div>
         <div>
           <h2 class="text-2xl mb-3">Blog con menos visitas</h2>

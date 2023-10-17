@@ -4,7 +4,7 @@
 
 @section('content')
   <h1 class="text-4xl mb-6">Crear artículo de blog</h1>
-  <form class="form_blogs" action="{{route('blogs.create.post')}}" method="POST" enctype="multipart/form-data">
+  <form class="form-custom" action="{{route('blogs.create.post')}}" method="POST" enctype="multipart/form-data">
     @csrf
     <div class="double-column">
       <div class="form-div">
@@ -77,7 +77,7 @@
             </svg>
             <div class="mt-4 flex justify-center text-sm leading-6 text-gray-600">
               <label class="relative cursor-pointer rounded-md bg-white font-semibold text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500">
-                <span>Upload a file</span>
+                <span>Subir imagen</span>
                 <input name="image" id="image" type="file" class="sr-only">
               </label>
             </div>

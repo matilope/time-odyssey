@@ -33,12 +33,12 @@
         @endforeach
       </div>
       <aside>
-        <h2 class="text-4xl mb-6">Usuarios</h2>
+        <h2 class="text-3xl mb-6">Usuarios activos</h2>
         @if(count($users)>0)
           <div class="active-users">
             @for($i = 0; $i < count($users); $i++)
               <article>
-                <p><a href="#">{{$users[$i]->username}}</a></p>
+                <span>{{$users[$i]->username}}</span>
               </article>
               @if($i>1)
                 @break

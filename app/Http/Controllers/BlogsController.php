@@ -37,7 +37,9 @@ class BlogsController extends Controller
             $blog['image'] = $request->file('image')->store('blogs_covers');
         }
         Blog::create($blog);
-        return redirect('/admin/blogs')->with('status.message', 'El blog <b>' . e($blog['title']) . '</b> se publicó con éxito.');
+        return redirect('/admin/blogs')
+            ->with('status.message', 'El blog <b>' . e($blog['title']) . '</b> se publicó con éxito.')
+            ->with('status.success', true);
     }
 
     public function viewEdit(int $id): View
@@ -57,7 +59,9 @@ class BlogsController extends Controller
             $blogUpdated['image'] = $request->file('image')->store('blogs_covers');
         }
         $blog->update($blogUpdated);
-        return redirect('/admin/blogs')->with('status.message', 'El artículo <b>' . e($blog['title']) . '</b> se actualizo con éxito.');
+        return redirect('/admin/blogs')
+            ->with('status.message', 'El artículo <b>' . e($blog['title']) . '</b> se actualizo con éxito.')
+            ->with('status.success', true);
     }
 
     public function delete(int $id): RedirectResponse
@@ -67,6 +71,8 @@ class BlogsController extends Controller
             Storage::disk('public')->delete($blog->image);
         }
         $blog->delete();
-        return redirect('/admin/blogs')->with('status.message', 'El artículo <b>' . e($blog['title']) . '</b> fue eliminado con éxito.');
+        return redirect('/admin/blogs')
+            ->with('status.message', 'El artículo <b>' . e($blog['title']) . '</b> fue eliminado con éxito.')
+            ->with('status.success', true);
     }
 }
