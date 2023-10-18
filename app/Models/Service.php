@@ -7,6 +7,35 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
+/**
+ * App\Models\Service
+ *
+ * @property int $id
+ * @property string $description
+ * @property string|null $image
+ * @property int $price
+ * @property int $duration
+ * @property int $lodging
+ * @property string $date_of_departure
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property int $destiny_id
+ * @property-read \App\Models\Destiny $destiny
+ * @method static \Illuminate\Database\Eloquent\Builder|Service newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Service newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Service query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Service whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Service whereDateOfDeparture($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Service whereDescription($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Service whereDestinyId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Service whereDuration($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Service whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Service whereImage($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Service whereLodging($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Service wherePrice($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Service whereUpdatedAt($value)
+ * @mixin \Eloquent
+ */
 class Service extends Model
 {
     // use HasFactory;
@@ -37,6 +66,11 @@ class Service extends Model
         'date_of_departure.required' => 'La fecha de salida es requerida.'
     ];
 
+    /**
+     * El set lo guarda en centavos
+     * El get lo divide por 100 para que no sean centavos
+     * @return Attribute
+     */
     protected function price(): Attribute
     {
         return Attribute::make(
@@ -45,6 +79,10 @@ class Service extends Model
         );
     }
 
+    /**
+     * Establece una relación de uno a muchos con el modelo Destiny.
+     * @return BelongsTo
+    */
     public function destiny(): BelongsTo
     {
         return $this->belongsTo(Destiny::class, 'destiny_id', 'id');

@@ -12,23 +12,41 @@ use Illuminate\Support\Facades\Storage;
 
 class BlogsController extends Controller
 {
+    /**
+     * Devuelve los datos de todos los blogs en la vista de blogs
+     * @return View
+     */
     public function index(): View
     {
         // \Debugbar::info(Blog::all());
         $blogs = Blog::orderBy('created_at', 'asc')->with('category')->get();
-        return view('blogs.index', ["blogs" => $blogs, "users" => User::orderBy('created_at', 'asc')->get()]);
+        return view('blogs.index', ["blogs" => $blogs, "users" => User::select('username')->orderBy('created_at', 'asc')->get()]);
     }
 
+    /**
+     * Devuelve los datos de un articulo especifico en la vista de articulos
+     * @param int $id
+     * @return View
+     */
     public function article(int $id): View
     {
         return view('blogs.article', ["blog" => Blog::findOrFail($id)]);
     }
 
+    /**
+     * Devuelve los datos de las categorias en la vista del formulario para crear una nueva entrada
+     * @return View
+    */
     public function viewCreate(): View
     {
         return view('blogs.create', ["categories" => Category::All()]);
     }
 
+    /**
+     * Recibe los datos y crea un nuevo recurso, devuelve un redireccion
+     * @param Request $request
+     * @return RedirectResponse
+    */
     public function create(Request $request): RedirectResponse
     {
         $request->validate(Blog::$rules, Blog::$errorMessages);
@@ -42,11 +60,22 @@ class BlogsController extends Controller
             ->with('status.success', true);
     }
 
+    /**
+     * Devuelve los datos de un artículo en específico, devuelve la vista para editar una entrada
+     * @param int $id es el id del artículo de blog
+     * @return View
+    */
     public function viewEdit(int $id): View
     {
         return view('blogs.edit', ["blog" => Blog::findOrFail($id), "categories" => Category::All()]);
     }
 
+    /**
+     * Recibe el id del artículo, la request y reemplaza el recurso, devuelve una redireccion
+     * @param int
+     * @param Request
+     * @return RedirectResponse
+    */
     public function edit(int $id, Request $request): RedirectResponse
     {
         $blog = Blog::findOrFail($id);
@@ -64,6 +93,11 @@ class BlogsController extends Controller
             ->with('status.success', true);
     }
 
+    /**
+     * Recibe el id del artículo y elimina el recurso, devuelve una redireccion
+     * @param int
+     * @return RedirectResponse
+    */
     public function delete(int $id): RedirectResponse
     {
         $blog = Blog::findOrFail($id);

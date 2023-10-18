@@ -8,6 +8,10 @@ use App\Models\Service;
 
 class ServicesController extends Controller
 {
+	/**
+	 * Devuelve los datos de todos los servicios en la vista de servicios
+	 * @return View
+	 */
 	public function index(): View
 	{
 		return view('services.index', ["services" => Service::orderBy('duration', 'asc')->get()]);

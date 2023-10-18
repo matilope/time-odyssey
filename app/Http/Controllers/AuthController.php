@@ -4,15 +4,26 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Contracts\View\View;
 
 class AuthController extends Controller
 {
-  public function viewLogin()
+  /**
+   * Devuelve la vista de inicio de sesión
+   * @return View
+  */
+  public function viewLogin(): View
   {
     return view('auth.login');
   }
 
-  public function login(Request $request)
+  /**
+   * Intenta autenticar al usuario utilizando las credenciales y devuelve una redireccion
+   * @param Request $request
+   * @return View
+  */
+  public function login(Request $request): RedirectResponse
   {
     $credentials = $request->only(['email', 'password']);
 
@@ -30,7 +41,12 @@ class AuthController extends Controller
       ->with('status.success', true);
   }
 
-  public function logout(Request $request)
+  /**
+   * Elimin los datos de la sesión y regenera el token de CSRF, devuelve una redireccion
+   * @param Request $request
+   * @return View
+  */
+  public function logout(Request $request): RedirectResponse
   {
     Auth::logout();
 
