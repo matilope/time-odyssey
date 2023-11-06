@@ -52,7 +52,7 @@ class DestinationsSeeder extends Seeder
             ],
             [
                 'id' => 7,
-                'name' => 'Titan',
+                'name' => 'Titán',
                 'updated_at' => now(),
                 'created_at' => now()
             ],

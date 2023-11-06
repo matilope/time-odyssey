@@ -38,7 +38,7 @@ class Blog extends Model
     protected $table = "blogs";
     protected $primaryKey = "id";
 
-    protected $fillable = ['title', 'description', 'image', 'synopsis', 'category_id'];
+    protected $fillable = ['title', 'description', 'image', 'image_description', 'synopsis', 'category_id'];
 
     public static $rules = [
         'title' => 'required|min:3',

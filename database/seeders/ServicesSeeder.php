@@ -20,7 +20,7 @@ class ServicesSeeder extends Seeder
                 'price' => 2000000,
                 'duration' => 40,
                 'lodging' => 7,
-                'date_of_departure' => '2023-10-18',
+                'date_of_departure' => '2025-08-24',
                 'updated_at' => now(),
                 'created_at' => now()
             ],
@@ -31,7 +31,7 @@ class ServicesSeeder extends Seeder
                 'price' => 2500000,
                 'duration' => 25,
                 'lodging' => 10,
-                'date_of_departure' => '2023-10-18',
+                'date_of_departure' => '2024-01-13',
                 'updated_at' => now(),
                 'created_at' => now()
             ],
@@ -42,18 +42,18 @@ class ServicesSeeder extends Seeder
                 'price' => 3500000,
                 'duration' => 40,
                 'lodging' => 14,
-                'date_of_departure' => '2023-10-18',
+                'date_of_departure' => '2024-12-01',
                 'updated_at' => now(),
                 'created_at' => now()
             ],
             [
                 'destiny_id' => 4,
-                'description' => '¡Prepárate para una experiencia inolvidable en nuestro viaje a la Luna, donde te embarcarás en un emocionante viaje espacial a bordo de una nave espacial de última generación. Durante el viaje, disfrutarás de comodidades de lujo, incluyendo un dormitorio privado y tres exquisitas cenas gourmet al día mientras te acercas a nuestro vecino celestial. Una vez en la Luna, pasarás siete días explorando sus maravillas, desde lugares icónicos como el Mar de la Tranquilidad hasta los enigmáticos cráteres que pueblan su superficie. Tu estadía en la Luna será igual de cómoda, con instalaciones de vanguardia, habitaciones con vistas espectaculares y deliciosa comida lunar preparada especialmente para ti. En total, el viaje te llevará tres días de ida, tres días de regreso y siete días mágicos en la Luna. No es solo un viaje, es una aventura fuera de este mundo que quedará grabada en tu memoria para siempre.',
+                'description' => '¡Prepárate para una experiencia inolvidable en nuestro viaje a la Luna! Durante el viaje, disfrutarás de comodidades de lujo, incluyendo un dormitorio privado y tres exquisitas cenas gourmet al día mientras te acercas a nuestro vecino celestial. Una vez en la Luna, pasarás siete días explorando sus maravillas, desde lugares icónicos como el Mar de la Tranquilidad hasta los enigmáticos cráteres que pueblan su superficie. Tu estadía en la Luna será igual de cómoda, con instalaciones de vanguardia, habitaciones con vistas espectaculares y deliciosa comida lunar preparada especialmente para ti. En total, el viaje te llevará tres días de ida, tres días de regreso y siete días mágicos en la Luna. No es solo un viaje, es una aventura fuera de este mundo que quedará grabada en tu memoria para siempre.',
                 'image' => 'services_covers/moon.png',
                 'price' => 1000000,
                 'duration' => 3,
                 'lodging' => 7,
-                'date_of_departure' => '2023-10-18',
+                'date_of_departure' => '2023-12-12',
                 'updated_at' => now(),
                 'created_at' => now()
             ],
@@ -64,7 +64,7 @@ class ServicesSeeder extends Seeder
                 'price' => 3000000,
                 'duration' => 55,
                 'lodging' => 7,
-                'date_of_departure' => '2023-10-18',
+                'date_of_departure' => '2024-03-01',
                 'updated_at' => now(),
                 'created_at' => now()
             ],
@@ -75,7 +75,7 @@ class ServicesSeeder extends Seeder
                 'price' => 4000000,
                 'duration' => 80,
                 'lodging' => 10,
-                'date_of_departure' => '2023-10-18',
+                'date_of_departure' => '2025-02-12',
                 'updated_at' => now(),
                 'created_at' => now()
             ],
@@ -86,7 +86,7 @@ class ServicesSeeder extends Seeder
                 'price' => 4500000,
                 'duration' => 100,
                 'lodging' => 14,
-                'date_of_departure' => '2023-10-18',
+                'date_of_departure' => '2024-08-12',
                 'updated_at' => now(),
                 'created_at' => now()
             ],
@@ -97,7 +97,7 @@ class ServicesSeeder extends Seeder
                 'price' => 19000000,
                 'duration' => 240,
                 'lodging' => 30,
-                'date_of_departure' => '2023-10-18',
+                'date_of_departure' => '2024-06-07',
                 'updated_at' => now(),
                 'created_at' => now()
             ]

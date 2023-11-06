@@ -4,12 +4,18 @@
 
 @section('content')
 <section>
-    <h1 class="text-4xl mb-8">Administrador de blogs</h1>
+    <h1 class="text-4xl mb-6">Administrador de blogs</h1>
+    <div class="btn create-blog mb-5">
+      <a href="{{route('blogs.create.form')}}">Crear blog</a>
+      <svg class="w-4 h-4 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16"/>
+      </svg>
+    </div>
     <div class="admin">
       <div class="featured">
         @foreach($blogs as $key => $blog)
           <article>
-            <img src="@if($blog->image){{ asset('storage/' . $blog->image) }}@else {{asset('/images/default.png')}} @endif" alt="{{$blog->title}}" />
+            <img src="@if($blog->image){{ asset('storage/' . $blog->image) }}@else {{asset('/images/default.png')}} @endif" alt="@if($blog->image_description){{$blog->image_description}}@else{{$blog->title}}@endif" />
             <div>
               <span class="category">{{$blog->categoria}}</span>
               <h2 title="{{$blog->title}}" class="text-3xl mb-3">{{$blog->title}}</h2>

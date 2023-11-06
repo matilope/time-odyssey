@@ -48,10 +48,11 @@
       </div>
     </div>
     <div class="form-div">
-      <label for="descripcion" class="block text-sm font-medium leading-6 text-gray-900">Descripción</label>
+      <label for="description" class="block text-sm font-medium leading-6 text-gray-900">Descripción</label>
       <textarea 
         class="border border-gray-900/25"
         name="description"
+        id="description"
         rows="3"
         @error('description')
           aria-describedby="error-description"
@@ -88,12 +89,33 @@
       <img id="img-preview" class="hidden" src="" alt="" />
     </div>
     <div class="form-div">
-      <label for="sinopsis" class="block text-sm font-medium leading-6 text-gray-900">Sinopsis</label>
+      <label for="image_description" class="block text-sm font-medium leading-6 text-gray-900">Descripción de la imagen</label>
+      <textarea 
+        class="border border-gray-900/25" 
+        rows="3" 
+        name="image_description" 
+        id="image_description"
+        @error('image_description')
+          aria-describedby="error-image_description"
+          aria-invalid="true"
+        @enderror 
+      >{{ old('image_description') }}</textarea>
+      @error('image_description')
+      <div class="bg-red-100 border border-red-400 text-red-700 mt-3 px-2 py-2 rounded relative" role="alert">
+        <span class="block sm:inline" id="error-image_description"><b>Error:</b> {{ $message }}</span>
+        <span class="absolute top-0 bottom-0 right-0 flex items-center mr-2">
+          <svg class="fill-current h-6 w-6 text-red-500" role="button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><title>Close</title><path d="M14.348 14.849a1.2 1.2 0 0 1-1.697 0L10 11.819l-2.651 3.029a1.2 1.2 0 1 1-1.697-1.697l2.758-3.15-2.759-3.152a1.2 1.2 0 1 1 1.697-1.697L10 8.183l2.651-3.031a1.2 1.2 0 1 1 1.697 1.697l-2.758 3.152 2.758 3.15a1.2 1.2 0 0 1 0 1.698z"/></svg>
+        </span>
+      </div>
+     @enderror
+    </div>
+    <div class="form-div">
+      <label for="synopsis" class="block text-sm font-medium leading-6 text-gray-900">Sinopsis</label>
       <textarea 
         class="border border-gray-900/25" 
         rows="8" 
         name="synopsis" 
-        id="sinopsis"
+        id="synopsis"
         @error('synopsis')
           aria-describedby="error-synopsis"
           aria-invalid="true"
@@ -118,6 +140,7 @@
             const reader = new FileReader();
             reader.onload = function(e) {
                 imagePreview.src = e.target.result;
+                imagePreview.alt = "";
                 imagePreview.classList.remove("hidden");
             };
             reader.readAsDataURL(inputFile.files[0]);

@@ -20,7 +20,7 @@
       <div class="featured">
         @foreach($blogs as $key => $blog)
           <article>
-            <img loading="lazy" src="@if($blog->image){{ asset('storage/' . $blog->image) }}@else {{asset('/images/default.png')}} @endif" alt="{{$blog->title}}" />
+            <img loading="lazy" src="@if($blog->image){{ asset('storage/' . $blog->image) }}@else {{asset('/images/default.png')}} @endif" alt="@if($blog->image_description){{$blog->image_description}}@else{{$blog->title}}@endif" />
             <div>
               <span class="category">
                 {{$blog->category->name}}
@@ -32,6 +32,7 @@
           </article>
         @endforeach
       </div>
+      {{$blogs->links()}}
       <aside>
         <h2 class="text-3xl mb-6">Usuarios activos</h2>
         @if(count($users)>0)

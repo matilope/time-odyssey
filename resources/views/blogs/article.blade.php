@@ -19,7 +19,7 @@
     <h2 title="{{$blog->title}}" class="text-4xl mb-6">{{$blog->title}}</h2>
     <p>{!! nl2br(e($blog->description)) !!}</p>
     <span class="created_at">{{ Carbon\Carbon::parse($blog->created_at)->locale('es_ES')->isoFormat('D [de] MMMM [de] YYYY [a las] HH:mm[hs]') }}</span>
-    <img loading="lazy" src="@if($blog->image){{ asset('storage/' . $blog->image) }}@else {{asset('/images/default.png')}} @endif" alt="{{$blog->title}}" />
+    <img loading="lazy" src="@if($blog->image){{ asset('storage/' . $blog->image) }}@else {{asset('/images/default.png')}} @endif" alt="@if($blog->image_description){{$blog->image_description}}@else{{$blog->title}}@endif" />
     @if($blog->synopsis)
       <p>{!! nl2br(e($blog->synopsis)) !!}</p>
     @endif

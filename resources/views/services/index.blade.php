@@ -25,6 +25,7 @@
           </div>
           <div>
             <h3 title="{{$service->destiny->name}}" class="text-2xl my-3">{{$service->destiny->name}}</h3>
+            <span class="price my-2">$ {{$service->price}}</span>
             <p>{{$service->description}}</p>
             <ul class="my-3">
               <li><span>Duración del viaje (ida y vuelta):</span> {{$service->duration * 2}} días</li>

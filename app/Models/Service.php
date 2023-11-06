@@ -49,9 +49,9 @@ class Service extends Model
         'destiny_id' => 'required',
         'description' => 'required|min:10',
         'image' => 'required',
-        'price' => 'required',
-        'duration' => 'required',
-        'lodging' => 'required',
+        'price' => 'required|numeric',
+        'duration' => 'required|numeric',
+        'lodging' => 'required|numeric',
         'date_of_departure' => 'required'
     ];
 
@@ -61,8 +61,11 @@ class Service extends Model
         'description.min' => 'La descripción debe tener al menos :min caracteres.',
         'image.required' => 'La imagen es requerida.',
         'price.required' => 'El precio es requerido.',
+        'price.numeric' => 'El precio debe ser un número.',
         'duration.required' => 'La duración es requerida.',
+        'duration.numeric' => 'El duración debe ser un número.',
         'lodging.required' => 'El tiempo de alojamiento es requerido.',
+        'lodging.numeric' => 'El tiempo de alojamiento debe ser un número.',
         'date_of_departure.required' => 'La fecha de salida es requerida.'
     ];
 
