@@ -18,24 +18,37 @@
     <h2 class="text-4xl mb-3">Planetas y satélites a visitar</h2>
     <p class="mb-6">Embárcate en una aventura espacial única con Travel Odyssey. Te llevamos a explorar destinos asombrosos más allá de la Tierra, desde la superficie abrasadora de Venus hasta los misterios de Marte y los confines del sistema solar. Nuestros viajes ofrecen experiencias inolvidables, desde cenas gourmet hasta alojamiento de lujo en el espacio exterior. ¿Estás listo para descubrir lo desconocido?</p>
     <div class="services">
-      @foreach($services as $key => $service)
+      @forelse($services as $key => $service)
         <article>
           <div>
             <img loading="eager" src="@if($service->image){{ asset('storage/' . $service->image) }}@else {{ asset('/images/default.png') }} @endif" alt="{{$service->title}}" />
           </div>
           <div>
             <h3 title="{{$service->destiny->name}}" class="text-2xl my-3">{{$service->destiny->name}}</h3>
-            <span class="price my-2">$ {{$service->price}}</span>
+            <span class="price my-2">@money($service->price)</span>
             <p>{{$service->description}}</p>
             <ul class="my-3">
               <li><span>Duración del viaje (ida y vuelta):</span> {{$service->duration * 2}} días</li>
               <li><span>Estadía:</span> {{$service->lodging}} días</li>
               <li><span>Fecha salida:</span> {{ Carbon\Carbon::parse($service->date_of_departure)->locale('es_ES')->isoFormat('D [de] MMMM [de] YYYY') }}</li>
             </ul>
-            <button class="btn btn-see-more">Ver más</button>
+            <div style="display: flex; justify-content: space-between; align-items: center; padding: 0;">
+              <button class="btn btn-see-more">Ver más</button>
+              @auth
+                <form action="{{route('services.purchase.post')}}" method="POST">
+                  @csrf
+                  <input type="hidden" name="user_id" value="{{auth()->id()}}" />
+                  <input type="hidden" name="service_id" value="{{$service->id}}" />
+                  <input type="hidden" name="price" value="{{$service->price}}" />
+                  <button type="submit" class="btn btn-see-more">Contratar</button>
+                </form>
+              @endauth
+            </div>
           </div>
         </article>
-      @endforeach
+        @empty
+        <p>No hay servicios disponibles actualmente</p>
+      @endforelse
     </div>
   </section>
   <script>

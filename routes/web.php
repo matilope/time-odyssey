@@ -19,6 +19,10 @@ Route::get('/', [\App\Http\Controllers\HomeController::class, 'index'])
 Route::get('/servicios', [\App\Http\Controllers\ServicesController::class, 'index'])
   ->name('services.index');
 
+Route::post('/servicios/comprar', [\App\Http\Controllers\ServicesController::class, 'purchase'])
+  ->name('services.purchase.post')
+  ->middleware(['auth']);
+
 Route::get('/blogs', [\App\Http\Controllers\BlogsController::class, 'index'])
   ->name('blogs.index');
 
@@ -55,6 +59,10 @@ Route::get('/admin', [\App\Http\Controllers\AdminController::class, 'index'])
 
 Route::get('/admin/blogs', [\App\Http\Controllers\AdminController::class, 'blogs'])
   ->name('admin.blogs')
+  ->middleware(['auth']);
+
+Route::get('/admin/usuarios', [\App\Http\Controllers\UsersController::class, 'index'])
+  ->name('users.index')
   ->middleware(['auth']);
 
 Route::get('/iniciar-sesion', [\App\Http\Controllers\AuthController::class, 'viewLogin'])

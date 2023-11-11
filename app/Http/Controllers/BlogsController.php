@@ -61,10 +61,10 @@ class BlogsController extends Controller
             return redirect('/admin/blogs')
                 ->with('status.message', 'El blog <b>' . e($blog['title']) . '</b> se publicó con éxito.')
                 ->with('status.success', true);
-        } catch(Exception $e){
+        } catch (Exception $e) {
             return redirect('/admin/blogs')
-            ->with('status.message', 'El blog no se pudo publicar.')
-            ->with('status.success', true);
+                ->with('status.message', 'El blog no se pudo publicar.')
+                ->with('status.error', true);
         }
     }
 
@@ -87,23 +87,23 @@ class BlogsController extends Controller
     public function edit(int $id, Request $request): RedirectResponse
     {
         try {
-        $blog = Blog::findOrFail($id);
-        $request->validate(Blog::$rules, Blog::$errorMessages);
-        $blogUpdated = $request->except(['_token']);
-        if ($request->hasFile('image')) {
-            $blogUpdated['image'] = $request->file('image')->store('blogs_covers');
-            if ($blog->image && Storage::has($blog->image)) {
-                Storage::disk('public')->delete($blog->image);
+            $blog = Blog::findOrFail($id);
+            $request->validate(Blog::$rules, Blog::$errorMessages);
+            $blogUpdated = $request->except(['_token']);
+            if ($request->hasFile('image')) {
+                $blogUpdated['image'] = $request->file('image')->store('blogs_covers');
+                if ($blog->image && Storage::has($blog->image)) {
+                    Storage::disk('public')->delete($blog->image);
+                }
             }
-        }
-        $blog->update($blogUpdated);
-        return redirect('/admin/blogs')
-            ->with('status.message', 'El artículo <b>' . e($blog['title']) . '</b> se actualizo con éxito.')
-            ->with('status.success', true);
-        } catch(Exception $e) {
+            $blog->update($blogUpdated);
             return redirect('/admin/blogs')
-            ->with('status.message', 'El artículo no se pudo editar.')
-            ->with('status.error', true);
+                ->with('status.message', 'El artículo <b>' . e($blog['title']) . '</b> se actualizo con éxito.')
+                ->with('status.success', true);
+        } catch (Exception $e) {
+            return redirect('/admin/blogs')
+                ->with('status.message', 'El artículo no se pudo editar.')
+                ->with('status.error', true);
         }
     }
 

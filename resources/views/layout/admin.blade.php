@@ -36,6 +36,7 @@
               <li><a href="{{route('home')}}" class="hover:bg-gray-700 text-white rounded-md px-3 py-2 text-sm font-medium">Inicio</a></li>
               <li><a href="{{route('admin.index')}}" class="hover:bg-gray-700 text-white rounded-md px-3 py-2 text-sm font-medium">Admin</a></li>
               <li><a href="{{route('admin.blogs')}}" class="hover:bg-gray-700 text-white rounded-md px-3 py-2 text-sm font-medium">Blogs</a></li>
+              <li><a href="{{route('users.index')}}" class="hover:bg-gray-700 text-white rounded-md px-3 py-2 text-sm font-medium">Usuarios</a></li>
               <li>
                 <form action="{{route('auth.logout.post')}}" method="post">
                   @csrf
@@ -58,6 +59,7 @@
         <a href="{{route('home')}}" class="hover:bg-gray-700 text-white block rounded-md px-3 py-2 text-base font-medium">Inicio</a>
         <a href="{{route('admin.index')}}" class="hover:bg-gray-700 text-white block rounded-md px-3 py-2 text-base font-medium">Admin</a>
         <a href="{{route('admin.blogs')}}" class="hover:bg-gray-700 text-white block rounded-md px-3 py-2 text-base font-medium">Blogs</a>
+        <a href="{{route('users.index')}}" class="hover:bg-gray-700 text-white block rounded-md px-3 py-2 text-base font-medium">Usuarios</a>
         <form action="{{route('auth.logout.post')}}" method="post">
           @csrf
           <button type="submit" class="hover:bg-gray-700 text-white block rounded-md px-3 py-2 text-base font-medium btn-icon">
@@ -74,7 +76,7 @@
   <main class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 py-10">
     @if (\Session::has('status.message'))
     <div class="@if(\Session::has('status.success')) bg-green-100 border border-green-400 text-green-700 @else bg-red-100 border-red-400 text-red-700 px-3 py-3 @endif border px-3 py-3 rounded relative my-5" role="alert">
-      <span class="block sm:inline" id="error-synopsis">{!! \Session::get('status.message') !!}</span>
+      <p class="block sm:inline" id="error-synopsis">{!! \Session::get('status.message') !!}</p>
       <span class="absolute top-0 bottom-0 right-0 flex items-center mr-2">
         @if(\Session::has('status.success'))
           <svg class="fill-current h-6 w-6 text-green-500" role="button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><title>Éxito</title>
