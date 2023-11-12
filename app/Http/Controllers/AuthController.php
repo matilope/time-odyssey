@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Contracts\View\View;
+use Illuminate\Support\Facades\Storage;
+use Intervention\Image\Facades\Image;
 
 class AuthController extends Controller
 {
@@ -23,7 +25,7 @@ class AuthController extends Controller
   /**
    * Registra el usuario y devuelve una redirección
    * @param Request $request
-   * @return View
+   * @return RedirectResponse
    */
   public function register(Request $request): RedirectResponse
   {
@@ -31,7 +33,15 @@ class AuthController extends Controller
       $request->validate(User::$rules, User::$errorMessages);
       $user = $request->except(['_token']);
       if ($request->hasFile('picture')) {
-        $user['picture'] = $request->file('picture')->store('users_covers');
+        // $resizedImage = Image::make($request->hasFile('picture'))->resize(null, 160);
+        $imageFile = $request->file('picture');
+        $mime = $imageFile->getClientOriginalExtension();
+        $imageName = time() . "." . $mime;
+        $image = Image::make($imageFile)->resize(null, 160, function ($constraint) {
+            $constraint->aspectRatio();
+          })->encode($mime, 100);
+        Storage::disk('public')->put('users_covers/' . $imageName, $image);
+        $user['picture'] = 'users_covers/' . $imageName;
       }
       User::create($user);
       return redirect()
@@ -41,7 +51,7 @@ class AuthController extends Controller
     } catch (Exception $e) {
       return redirect()
         ->route('auth.register.form')
-        ->with('status.register.message', 'No se ha podido registrar.')
+        ->with('status.register.message', 'El usuario no se pudo registrar.' . "$e")
         ->with('status.error', true);
     }
   }
@@ -58,7 +68,7 @@ class AuthController extends Controller
   /**
    * Intenta autenticar al usuario utilizando las credenciales y devuelve una redirección
    * @param Request $request
-   * @return View
+   * @return RedirectResponse
    */
   public function login(Request $request): RedirectResponse
   {
