@@ -19,7 +19,7 @@ class UsersController extends Controller
     }
 
     /**
-     * Devuelve los datos de un usuario especifico en la vista del usuario
+     * Devuelve los datos de un usuario específico en la vista del usuario
      * @param int $id
      * @return View
      */
@@ -27,6 +27,16 @@ class UsersController extends Controller
     {
         $user = User::findOrFail($id);
         $purchases = Purchase::with(['service'])->where('user_id', $user->id)->get();
-        return view('users.user', ["purchases" => $purchases, "user" => $user]);
+        return view('users.user', ["purchases" => $purchases, "user" => $user, "ownProfile" => false]);
+    }
+
+    /**
+     * Devuelve los datos del usuario autenticado en la vista del usuario
+     * @return View
+     */
+    public function viewProfile(): View
+    {
+        $purchases = Purchase::with(['service'])->where('user_id', auth()->user()->id)->get();
+        return view('users.user', ["purchases" => $purchases, "user" => auth()->user(), "ownProfile" => true]);
     }
 }

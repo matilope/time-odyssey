@@ -68,7 +68,7 @@
                 <button type="button" class="custom-profile-menu relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
                   <span class="absolute -inset-1.5"></span>
                   <span class="sr-only">Abrir menú</span>
-                  <img class="h-8 w-8 rounded-full" src="{{asset('/images/user.png')}}" alt="Imagen del usuario" />
+                  <img class="h-8 w-8 rounded-full bg-white p-0.5" src="{{asset('/images/user.png')}}" alt="Imagen del usuario" />
                 </button>
               </div>
               <div class="hidden absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
@@ -116,7 +116,7 @@
   <main class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 py-10">
     @if (\Session::has('status.message'))
       <div class="@if(\Session::has('status.success')) bg-green-100  border-green-400 text-green-700 @else bg-red-100 border-red-400 text-red-700 @endif border px-3 py-3 rounded relative my-5" role="alert">
-        <p class="block sm:inline" id="error-synopsis">{!! \Session::get('status.message') !!}</p>
+        <p class="block sm:inline">{!! \Session::get('status.message') !!}</p>
         <span class="absolute top-0 bottom-0 right-0 flex items-center mr-2">
           @if (\Session::has('status.success'))
             <svg class="fill-current h-6 w-6 text-green-500" role="button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><title>Éxito</title>

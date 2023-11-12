@@ -1,11 +1,14 @@
 @extends('layout.admin')
 
-@section('title', 'Listado de usuarios')
+@if($ownProfile)
+  @section('title', 'Mi perfil')
+@else
+  @section('title', 'Perfil de usuario')
+@endif
 
 @section('meta')
   <meta name="robots" content="noindex, nofollow" />
 @endsection
-
 
 @section('content')
   <section class="user-profile relative flex flex-col w-full min-w-0 mb-6 break-words border bg-clip-border rounded-2xl border-stone-200 bg-light/30 draggable">

@@ -41,17 +41,17 @@ Route::post('/blogs/crear', [\App\Http\Controllers\BlogsController::class, 'crea
 Route::get('/blogs/{id}/editar', [\App\Http\Controllers\BlogsController::class, 'viewEdit'])
   ->whereNumber('id')
   ->name('blogs.edit.form')
-  ->middleware(['auth']);
+  ->middleware(['auth', \App\Http\Middleware\Roles::class]);
 
 Route::post('/blogs/{id}/editar', [\App\Http\Controllers\BlogsController::class, 'edit'])
   ->whereNumber('id')
   ->name('blogs.edit.post')
-  ->middleware(['auth']);
+  ->middleware(['auth', \App\Http\Middleware\Roles::class]);
 
 Route::post('/blogs/{id}/eliminar', [\App\Http\Controllers\BlogsController::class, 'delete'])
   ->whereNumber('id')
   ->name('blogs.delete.post')
-  ->middleware(['auth']);
+  ->middleware(['auth', \App\Http\Middleware\Roles::class]);
 
 Route::get('/admin', [\App\Http\Controllers\AdminController::class, 'index'])
   ->name('admin.index')
@@ -63,10 +63,14 @@ Route::get('/admin/blogs', [\App\Http\Controllers\AdminController::class, 'blogs
 
 Route::get('/admin/usuarios', [\App\Http\Controllers\UsersController::class, 'index'])
   ->name('users.index')
-  ->middleware(['auth']);
+  ->middleware(['auth', \App\Http\Middleware\Roles::class]);
 
 Route::get('/admin/usuarios/{id}', [\App\Http\Controllers\UsersController::class, 'viewUser'])
   ->name('users.user')
+  ->middleware(['auth', \App\Http\Middleware\Roles::class]);
+
+Route::get('/admin/perfil', [\App\Http\Controllers\UsersController::class, 'viewProfile'])
+  ->name('users.profile')
   ->middleware(['auth']);
 
 Route::get('/iniciar-sesion', [\App\Http\Controllers\AuthController::class, 'viewLogin'])

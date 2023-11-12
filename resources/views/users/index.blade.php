@@ -36,12 +36,19 @@
                     </th>
                     <td class="px-6 py-4">
                       {{$user->username}}
+                      @if(Auth::user()->id === $user->id)
+                        <span class="font-medium text-red-600">(Tú)</span>
+                      @endif
                     </td>
                     <td class="px-6 py-4">
                       {{$user->email}}
                     </td>
                     <td class="px-6 py-4">
-                      <a href="{{route('users.user', ['id' => $user->id])}}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Ver</a>
+                      @if(Auth::user()->id === $user->id)
+                        <a href="{{route('users.profile')}}" class="font-medium text-red-600 dark:red -blue-500 hover:underline">Ver perfil</a>
+                      @else
+                        <a href="{{route('users.user', ['id' => $user->id])}}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Ver</a>
+                      @endif
                     </td>
                   </tr>
                 @endforeach
