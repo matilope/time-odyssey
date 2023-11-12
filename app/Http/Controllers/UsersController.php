@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Purchase;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Contracts\View\View;
@@ -22,8 +23,10 @@ class UsersController extends Controller
      * @param int $id
      * @return View
      */
-    public function user(int $id): View
+    public function viewUser(int $id): View
     {
-        return view('users.article', ["user" => User::findOrFail($id)]);
+        $user = User::findOrFail($id);
+        $purchases = Purchase::with(['service'])->where('user_id', $user->id)->get();
+        return view('users.user', ["purchases" => $purchases, "user" => $user]);
     }
 }

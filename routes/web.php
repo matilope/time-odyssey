@@ -65,11 +65,21 @@ Route::get('/admin/usuarios', [\App\Http\Controllers\UsersController::class, 'in
   ->name('users.index')
   ->middleware(['auth']);
 
+Route::get('/admin/usuarios/{id}', [\App\Http\Controllers\UsersController::class, 'viewUser'])
+  ->name('users.user')
+  ->middleware(['auth']);
+
 Route::get('/iniciar-sesion', [\App\Http\Controllers\AuthController::class, 'viewLogin'])
   ->name('auth.login.form');
 
 Route::post('/iniciar-sesion', [\App\Http\Controllers\AuthController::class, 'login'])
   ->name('auth.login.post');
+
+Route::get('/registro', [\App\Http\Controllers\AuthController::class, 'viewRegister'])
+  ->name('auth.register.form');
+
+Route::post('/registro', [\App\Http\Controllers\AuthController::class, 'register'])
+  ->name('auth.register.post');
 
 Route::post('/', [\App\Http\Controllers\AuthController::class, 'logout'])
   ->name('auth.logout.post')

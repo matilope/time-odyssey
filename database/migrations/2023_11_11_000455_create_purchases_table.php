@@ -14,7 +14,9 @@ return new class extends Migration
         Schema::create('purchases', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained('users', 'id');
+            $table->foreignId('service_id')->constrained('services', 'id');
             $table->unsignedInteger('price');
+            $table->unsignedTinyInteger('quantity')->default(1);
             $table->timestamps();
         });
     }

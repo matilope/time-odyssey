@@ -14,17 +14,22 @@ class Purchase extends Model
     protected $table = "purchases";
     protected $primaryKey = "id";
 
-    protected $fillable = ['user_id', 'price'];
+    protected $fillable = ['user_id', 'service_id', 'price', 'quantity'];
 
     public static $rules = [
         'user_id' => 'required',
-        'price' => 'required|numeric'
+        'service_id' => 'required',
+        'price' => 'required|numeric',
+        'quantity' => 'required|numeric'
     ];
 
     public static $errorMessages = [
         'user_id.required' => 'El usuario no puede estar vacío.',
+        'service_id.required' => 'El servicio no puede estar vacío.',
         'price.required' => 'El precio es requerido.',
-        'price.numeric' => 'El precio debe ser un número.'
+        'price.numeric' => 'El precio debe ser un número.',
+        'quantity.required' => 'La cantidad de viajes es requerida.',
+        'quantity.numeric' => 'La cantidad de viajes debe ser un número.'
     ];
 
     /**
@@ -41,11 +46,20 @@ class Purchase extends Model
     }
 
     /**
-     * Establece una relación de muchos a uno con el modelo Service.
+     * Establece una relación de muchos a uno con el modelo User.
      * @return BelongsTo
      */
     public function user(): BelongsTo
     {
-        return $this->belongsTo(User::class, 'id', 'user_id');
+        return $this->belongsTo(User::class, 'user_id', 'id');
+    }
+
+    /**
+     * Establece una relación de muchos a uno con el modelo Service.
+     * @return BelongsTo
+     */
+    public function service(): BelongsTo
+    {
+        return $this->belongsTo(Service::class, 'service_id', 'id');
     }
 }

@@ -4,6 +4,7 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
@@ -55,6 +56,19 @@ class User extends Authenticatable
         'username',
         'email',
         'password',
+        'picture'
+    ];
+
+    public static $rules = [
+        'username' => 'required',
+        'email' => 'required',
+        'password' => 'required'
+    ];
+
+    public static $errorMessages = [
+        'username.required' => 'El nombre de usuario no puede estar vacío.',
+        'email.required' => 'El correo electrónico no puede estar vacío.',
+        'password.required' => 'La contraseña es requerida.'
     ];
 
     /**
@@ -76,4 +90,13 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    /**
+     * Establece una relación de muchos a uno con el modelo Service.
+     * @return BelongsTo
+     */
+    public function purchases(): BelongsTo
+    {
+        return $this->belongsTo(Purchase::class, 'user_id', 'id');
+    }
 }

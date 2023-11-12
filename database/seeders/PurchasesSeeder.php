@@ -17,7 +17,9 @@ class PurchasesSeeder extends Seeder
             [
                 'id' => 1,
                 'user_id' => 3,
+                'service_id' => 3,
                 'price' => 3500000,
+                'quantity' => 1,
                 'updated_at' => now(),
                 'created_at' => now()
             ]

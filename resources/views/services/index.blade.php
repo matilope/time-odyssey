@@ -40,6 +40,7 @@
                   <input type="hidden" name="user_id" value="{{auth()->id()}}" />
                   <input type="hidden" name="service_id" value="{{$service->id}}" />
                   <input type="hidden" name="price" value="{{$service->price}}" />
+                  <input type="hidden" name="quantity" value="1" />
                   <button type="submit" class="btn btn-see-more">Contratar</button>
                 </form>
               @endauth
