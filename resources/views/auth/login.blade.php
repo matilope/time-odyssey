@@ -8,7 +8,7 @@
 
 @section('content')
   @if (\Session::has('status.login.message'))
-    <div class="@if (\Session::has('status.error')) bg-red-100 border border-red-400 text-red-700 @else bg-green-100 border border-green-400 text-green-700 @endif px-3 py-3 rounded relative my-5 form-user" role="alert">
+    <div class="@if (\Session::has('status.error')) bg-red-100 border-red-400 text-red-700 @else bg-green-100 border-green-400 text-green-700 @endif border px-3 py-3 rounded relative my-5 form-user" role="alert">
       <span class="block sm:inline" id="error-synopsis">{!! \Session::get('status.login.message') !!}</span>
       <span class="absolute top-0 bottom-0 right-0 flex items-center mr-2">
         @if(\Session::has('status.success'))
