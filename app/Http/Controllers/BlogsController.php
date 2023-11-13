@@ -25,7 +25,7 @@ class BlogsController extends Controller
     }
 
     /**
-     * Devuelve los datos de un articulo especifico en la vista de articulos
+     * Devuelve los datos de un articulo específico en la vista de articulos
      * @param int $id
      * @return View
      */

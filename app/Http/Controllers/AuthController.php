@@ -33,15 +33,14 @@ class AuthController extends Controller
       $request->validate(User::$rules, User::$errorMessages);
       $user = $request->except(['_token']);
       if ($request->hasFile('picture')) {
-        // $resizedImage = Image::make($request->hasFile('picture'))->resize(null, 160);
-        $imageFile = $request->file('picture');
-        $mime = $imageFile->getClientOriginalExtension();
-        $imageName = time() . "." . $mime;
-        $image = Image::make($imageFile)->resize(null, 160, function ($constraint) {
+        $file = $request->file('picture');
+        $extension = $file->getClientOriginalExtension();
+        $name = time() . "." . $extension;
+        $image = Image::make($file)->resize(null, 160, function ($constraint) {
             $constraint->aspectRatio();
-          })->encode($mime, 100);
-        Storage::disk('public')->put('users_covers/' . $imageName, $image);
-        $user['picture'] = 'users_covers/' . $imageName;
+          })->encode($extension, 100);
+        Storage::disk('public')->put('users_covers/' . $name, $image);
+        $user['picture'] = 'users_covers/' . $name;
       }
       User::create($user);
       return redirect()

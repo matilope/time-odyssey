@@ -68,7 +68,7 @@
                 <button type="button" class="custom-profile-menu relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
                   <span class="absolute -inset-1.5"></span>
                   <span class="sr-only">Abrir menú</span>
-                  <img class="h-8 w-8 rounded-full bg-white p-0.5" src="{{asset('/images/user.png')}}" alt="Imagen del usuario" />
+                  <img class="h-8 w-8 rounded-full bg-white p-0.5 object-cover" src="@if(Auth::user()->picture){{ asset('storage/' . Auth::user()->picture) }}@else{{asset('/images/user.png')}}@endif" alt="Perfil de {{Auth::user()->username}}" />
                 </button>
               </div>
               <div class="hidden absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
@@ -109,9 +109,7 @@
     </div>
   </nav>
   
-  <div class="banner" style="background-image: linear-gradient(rgba(60, 78, 102, 40%), rgba(60, 78, 102, 60%)), url({{asset('/images/banner.jpg')}});">
-    <h1 class="text-5xl mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 py-10 font-mono">Travel Odyssey</h1>
-  </div>
+  @yield("banner")
 
   <main class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 py-10">
     @if (\Session::has('status.message'))

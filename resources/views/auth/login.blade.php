@@ -23,7 +23,7 @@
       </span>
     </div>
   @endif
-  <h2 class="text-4xl mb-6 form-user">Iniciar sesión</h2>
+  <h1 class="text-4xl mb-6 form-user">Iniciar sesión</h1>
   <form class="form-custom form-user" action="{{route('auth.login.post') }}" method="post">
     @csrf
     <div class="form-div">

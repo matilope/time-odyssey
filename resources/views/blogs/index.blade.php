@@ -15,7 +15,7 @@
 
 @section('content')
 <section>
-    <h2 class="text-4xl mb-8">Blogs publicados</h2>
+    <h1 class="text-4xl mb-8">Blogs publicados</h1>
     <div class="blogs">
       <div class="featured">
         @foreach($blogs as $key => $blog)

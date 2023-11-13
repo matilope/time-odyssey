@@ -23,7 +23,7 @@ class UsersController extends Controller
      * @param int $id
      * @return View
      */
-    public function viewUser(int $id): View
+    public function user(int $id): View
     {
         $user = User::findOrFail($id);
         $purchases = Purchase::with(['service'])->where('user_id', $user->id)->get();
@@ -34,7 +34,7 @@ class UsersController extends Controller
      * Devuelve los datos del usuario autenticado en la vista del usuario
      * @return View
      */
-    public function viewProfile(): View
+    public function profile(): View
     {
         $purchases = Purchase::with(['service'])->where('user_id', auth()->user()->id)->get();
         return view('users.user', ["purchases" => $purchases, "user" => auth()->user(), "ownProfile" => true]);

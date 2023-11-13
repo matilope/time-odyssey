@@ -13,6 +13,12 @@
   <meta property="twitter:image" content="{{asset('/images/banner.jpg')}}" />
 @endsection
 
+@section('banner')
+  <div class="banner" style="background-image: linear-gradient(rgba(60, 78, 102, 40%), rgba(60, 78, 102, 60%)), url({{asset('/images/banner.jpg')}});">
+    <h1 class="text-5xl mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 py-10 font-mono">Travel Odyssey</h1>
+  </div>
+@endsection()
+
 @section('content')
   <article>
     <h2 class="text-4xl mb-6">¡Bienvenidos a Travel Odyssey!</h2>

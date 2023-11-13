@@ -21,6 +21,16 @@ class ServicesController extends Controller
 	}
 
 	/**
+	 * Devuelve los datos de un servicio específico en la vista del servicio
+	 * @param int $id
+	 * @return View
+	 */
+	public function service(int $id): View
+	{
+		return view('services.service', ["service" => Service::findOrFail($id)]);
+	}
+
+	/**
 	 * Recibe los datos y crea una nueva compra y ademas un nuevo detalle de compra, devuelve un redireccion
 	 * @param Request $request
 	 * @return RedirectResponse
@@ -32,7 +42,7 @@ class ServicesController extends Controller
 			$purchase = $request->except(['_token']);
 			Purchase::create($purchase);
 			return redirect('/')
-				->with('status.message', 'Se ha realizado la contratación correctamente.<br />Dentro de unos minutos le llegara el correo con todos los datos.')
+				->with('status.message', '<b>Se ha realizado la contratación correctamente.</b><br />Dentro de unos minutos le llegara un correo con todos los datos.')
 				->with('status.success', true);
 		} catch (Exception $e) {
 			return redirect('/')

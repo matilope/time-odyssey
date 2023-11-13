@@ -8,7 +8,7 @@
 
 @section('content')
   <section>
-    <h2 class="text-4xl mb-8">Listado de usuarios</h2>
+    <h1 class="text-4xl mb-8">Listado de usuarios</h1>
       @if(count($users) > 0)
         <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
           <table class="user-table w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
@@ -32,7 +32,7 @@
                 @foreach($users as $key => $user)
                   <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                      <img src="@if($user->picture){{ asset('storage/' . $user->picture) }}@else{{asset('/images/user.png')}}@endif" alt="{{$user->username}}" />
+                      <img src="@if($user->picture){{ asset('storage/' . $user->picture) }}@else{{asset('/images/user.png')}}@endif" alt="Perfil de {{$user->username}}" />
                     </th>
                     <td class="px-6 py-4">
                       {{$user->username}}

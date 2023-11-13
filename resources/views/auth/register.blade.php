@@ -17,7 +17,7 @@
     </div>
     @endif
   @endif
-  <h2 class="text-4xl mb-6 form-user">Registrarse</h2>
+  <h1 class="text-4xl mb-6 form-user">Registrarse</h1>
   <form class="form-custom form-user" action="{{route('auth.register.post') }}" method="post" enctype="multipart/form-data">
     @csrf
     <div class="form-div">

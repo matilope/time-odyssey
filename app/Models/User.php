@@ -56,13 +56,14 @@ class User extends Authenticatable
         'username',
         'email',
         'password',
-        'picture'
+        'picture',
+        'role'
     ];
 
     public static $rules = [
         'username' => 'required',
         'email' => 'required',
-        'password' => 'required'
+        'password' => 'required',
     ];
 
     public static $errorMessages = [

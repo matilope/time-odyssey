@@ -3,37 +3,58 @@
 @section('title', 'Travel Odyssey')
 
 @section('meta')
-  <meta name="title" content="Servicios | Travel Odyssey" />
+  <meta name="title" content="Viajes | Travel Odyssey" />
   <meta name="description" content="Embárcate en una aventura espacial única con Travel Odyssey. Te llevamos a explorar destinos asombrosos más allá de la Tierra, desde la superficie abrasadora de Venus hasta los misterios de Marte y los confines del sistema solar. Nuestros viajes ofrecen experiencias inolvidables, desde cenas gourmet hasta alojamiento de lujo en el espacio exterior." />
-  <meta property="og:title" content="Servicios | Travel Odyssey" />
+  <meta property="og:title" content="Viajes | Travel Odyssey" />
   <meta property="og:description" content="Embárcate en una aventura espacial única con Travel Odyssey. Te llevamos a explorar destinos asombrosos más allá de la Tierra, desde la superficie abrasadora de Venus hasta los misterios de Marte y los confines del sistema solar. Nuestros viajes ofrecen experiencias inolvidables, desde cenas gourmet hasta alojamiento de lujo en el espacio exterior." />
   <meta property="og:image" content="{{asset('/images/banner.jpg')}}" />
-  <meta property="twitter:title" content="Servicios | Travel Odyssey" />
+  <meta property="twitter:title" content="Viajes | Travel Odyssey" />
   <meta property="twitter:description" content="Embárcate en una aventura espacial única con Travel Odyssey. Te llevamos a explorar destinos asombrosos más allá de la Tierra, desde la superficie abrasadora de Venus hasta los misterios de Marte y los confines del sistema solar. Nuestros viajes ofrecen experiencias inolvidables, desde cenas gourmet hasta alojamiento de lujo en el espacio exterior." />
   <meta property="twitter:image" content="{{asset('/images/banner.jpg')}}" />
 @endsection
 
 @section('content')
   <section>
-    <h2 class="text-4xl mb-3">Planetas y satélites a visitar</h2>
+    <h1 class="text-4xl mb-3">Planetas y satélites a visitar</h1>
     <p class="mb-6">Embárcate en una aventura espacial única con Travel Odyssey. Te llevamos a explorar destinos asombrosos más allá de la Tierra, desde la superficie abrasadora de Venus hasta los misterios de Marte y los confines del sistema solar. Nuestros viajes ofrecen experiencias inolvidables, desde cenas gourmet hasta alojamiento de lujo en el espacio exterior. ¿Estás listo para descubrir lo desconocido?</p>
     <div class="services">
       @forelse($services as $key => $service)
-        <article>
-          <div>
-            <img loading="eager" src="@if($service->image){{ asset('storage/' . $service->image) }}@else {{ asset('/images/default.png') }} @endif" alt="{{$service->title}}" />
+        <article class="relative flex w-full max-w-xs flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-md">
+          <div class="relative m-3 flex h-60 overflow-hidden rounded-xl">
+            <img class="object-contain w-full" loading="eager" src="@if($service->image){{ asset('storage/' . $service->image) }}@else {{ asset('/images/default.png') }} @endif" alt="{{$service->title}}" />
+            <span class="absolute top-0 left-0 rounded-full bg-yellow-300 px-4 py-1 text-center text-sm font-medium text-black">Viajes</span>
           </div>
-          <div>
-            <h3 title="{{$service->destiny->name}}" class="text-2xl my-3">{{$service->destiny->name}}</h3>
-            <span class="price my-2">@money($service->price)</span>
-            <p>{{$service->description}}</p>
-            <ul class="my-3">
-              <li><span>Duración del viaje (ida y vuelta):</span> {{$service->duration * 2}} días</li>
-              <li><span>Estadía:</span> {{$service->lodging}} días</li>
-              <li><span>Fecha salida:</span> {{ Carbon\Carbon::parse($service->date_of_departure)->locale('es_ES')->isoFormat('D [de] MMMM [de] YYYY') }}</li>
-            </ul>
-            <div style="display: flex; justify-content: space-between; align-items: center; padding: 0;">
-              <button class="btn btn-see-more">Ver más</button>
+          <div class="mt-5 px-5 pb-5">
+            <h2 title="{{$service->destiny->name}}" class="text-3xl tracking-tight text-slate-900">{{$service->destiny->name}}</h2>
+            <div class="mt-2 mb-3 flex items-center justify-between">
+              <p>
+                <span class="text-xl font-bold text-slate-900">@money($service->price)</span>
+                <span class="text-sm text-slate-900 line-through">@money($service->price * 1.2)</span>
+              </p>
+            </div>
+            <div class="flex items-center my-3">
+              <svg aria-hidden="true" class="h-5 w-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+              </svg>
+              <svg aria-hidden="true" class="h-5 w-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+              </svg>
+              <svg aria-hidden="true" class="h-5 w-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+              </svg>
+              <svg aria-hidden="true" class="h-5 w-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+              </svg>
+              <svg aria-hidden="true" class="h-5 w-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+              </svg>
+              <span class="mr-2 ml-3 rounded bg-yellow-200 px-2.5 py-0.5 text-xs font-semibold">5.0</span>
+            </div>
+            <div>
+              <p>{{$service->description}}</p>
+            </div>
+            <div class="flex justify-between flex-col md:flex-row mt-4 gap-3 md:gap-0">
+              <a href="{{route('services.service', ['id' => $service->id])}}" class="btn btn-see-more text-center">Ver más</a>
               @auth
                 <form action="{{route('services.purchase.post')}}" method="POST">
                   @csrf
@@ -41,9 +62,9 @@
                   <input type="hidden" name="service_id" value="{{$service->id}}" />
                   <input type="hidden" name="price" value="{{$service->price}}" />
                   <input type="hidden" name="quantity" value="1" />
-                  <button type="submit" class="btn btn-see-more">Contratar</button>
+                  <button type="submit" class="btn btn-see-more w-full">Contratar</button>
                 </form>
-              @endauth
+               @endauth
             </div>
           </div>
         </article>
@@ -52,38 +73,6 @@
       @endforelse
     </div>
   </section>
-  <script>
-    const servicesBtn = document.querySelectorAll(".services button");
-    servicesBtn.forEach(item => {
-      item.addEventListener('click', (e) => {
-        const div = document.createElement("div");
-        const backBackground = document.createElement("div");
-        backBackground.classList.add("bg-modal");
-        div.classList.add("services", "unique-service");
-        const HTML = e.target.parentElement.parentElement.innerHTML;
-        div.innerHTML = HTML;
-        const close = document.createElement("div");
-        close.innerHTML = `<svg class="close" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
-          <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
-        </svg>`;
-        document.body.append(backBackground, div, close);
-        [close, backBackground]?.forEach(item => {
-          item.addEventListener('click', () => {
-          document.querySelector(".unique-service")?.remove();
-          backBackground?.remove();
-          close?.remove();
-         });
-        });
-        document?.addEventListener('keyup', (e) => {
-          if(e.key === "Escape") {
-            document.querySelector(".unique-service")?.remove();
-            backBackground?.remove();
-            close?.remove();
-          }
-         });
-      });
-    });
-  </script>
   <script>
     const servicesContainer = document.querySelector(".services");
     let isDragging = false;

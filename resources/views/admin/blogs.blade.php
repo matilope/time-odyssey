@@ -37,7 +37,7 @@
                   </button>
                 @else
                   <div class="bg-red-50 border-red-300 text-red-600 px-3 py-3 border rounded relative" role="alert">
-                    <p class="block sm:inline">El usuario no tiene los permisos necesarios para realizar acciones en este <a href="{{route('blogs.article', ['id' => $blog->id])}}" title="{{$blog->title}}" class="text-red-700 font-bold">blog</a></p>
+                    <p class="block sm:inline">No tienes los permisos necesarios para realizar acciones en este <a href="{{route('blogs.article', ['id' => $blog->id])}}" title="{{$blog->title}}" class="text-red-700 font-bold">blog</a></p>
                   </div>
                 @endif
               </div>

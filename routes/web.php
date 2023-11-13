@@ -19,6 +19,9 @@ Route::get('/', [\App\Http\Controllers\HomeController::class, 'index'])
 Route::get('/servicios', [\App\Http\Controllers\ServicesController::class, 'index'])
   ->name('services.index');
 
+Route::get('/servicios/{id}', [\App\Http\Controllers\ServicesController::class, 'service'])
+  ->name('services.service');
+
 Route::post('/servicios/comprar', [\App\Http\Controllers\ServicesController::class, 'purchase'])
   ->name('services.purchase.post')
   ->middleware(['auth']);
@@ -65,11 +68,11 @@ Route::get('/admin/usuarios', [\App\Http\Controllers\UsersController::class, 'in
   ->name('users.index')
   ->middleware(['auth', \App\Http\Middleware\Roles::class]);
 
-Route::get('/admin/usuarios/{id}', [\App\Http\Controllers\UsersController::class, 'viewUser'])
+Route::get('/admin/usuarios/{id}', [\App\Http\Controllers\UsersController::class, 'user'])
   ->name('users.user')
   ->middleware(['auth', \App\Http\Middleware\Roles::class]);
 
-Route::get('/admin/perfil', [\App\Http\Controllers\UsersController::class, 'viewProfile'])
+Route::get('/admin/perfil', [\App\Http\Controllers\UsersController::class, 'profile'])
   ->name('users.profile')
   ->middleware(['auth']);
 
