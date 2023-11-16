@@ -4,28 +4,39 @@
 
 @section('meta')
   <meta name="title" content="Viajes | Travel Odyssey" />
-  <meta name="description" content="Embárcate en una aventura espacial única con Travel Odyssey. Te llevamos a explorar destinos asombrosos más allá de la Tierra, desde la superficie abrasadora de Venus hasta los misterios de Marte y los confines del sistema solar. Nuestros viajes ofrecen experiencias inolvidables, desde cenas gourmet hasta alojamiento de lujo en el espacio exterior." />
+  <meta name="description"
+    content="Embárcate en una aventura espacial única con Travel Odyssey. Te llevamos a explorar destinos asombrosos más allá de la Tierra, desde la superficie abrasadora de Venus hasta los misterios de Marte y los confines del sistema solar. Nuestros viajes ofrecen experiencias inolvidables, desde cenas gourmet hasta alojamiento de lujo en el espacio exterior." />
   <meta property="og:title" content="Viajes | Travel Odyssey" />
-  <meta property="og:description" content="Embárcate en una aventura espacial única con Travel Odyssey. Te llevamos a explorar destinos asombrosos más allá de la Tierra, desde la superficie abrasadora de Venus hasta los misterios de Marte y los confines del sistema solar. Nuestros viajes ofrecen experiencias inolvidables, desde cenas gourmet hasta alojamiento de lujo en el espacio exterior." />
-  <meta property="og:image" content="{{asset('/images/banner.jpg')}}" />
+  <meta property="og:description"
+    content="Embárcate en una aventura espacial única con Travel Odyssey. Te llevamos a explorar destinos asombrosos más allá de la Tierra, desde la superficie abrasadora de Venus hasta los misterios de Marte y los confines del sistema solar. Nuestros viajes ofrecen experiencias inolvidables, desde cenas gourmet hasta alojamiento de lujo en el espacio exterior." />
+  <meta property="og:image" content="{{ asset('/images/banner.jpg') }}" />
   <meta property="twitter:title" content="Viajes | Travel Odyssey" />
-  <meta property="twitter:description" content="Embárcate en una aventura espacial única con Travel Odyssey. Te llevamos a explorar destinos asombrosos más allá de la Tierra, desde la superficie abrasadora de Venus hasta los misterios de Marte y los confines del sistema solar. Nuestros viajes ofrecen experiencias inolvidables, desde cenas gourmet hasta alojamiento de lujo en el espacio exterior." />
-  <meta property="twitter:image" content="{{asset('/images/banner.jpg')}}" />
+  <meta property="twitter:description"
+    content="Embárcate en una aventura espacial única con Travel Odyssey. Te llevamos a explorar destinos asombrosos más allá de la Tierra, desde la superficie abrasadora de Venus hasta los misterios de Marte y los confines del sistema solar. Nuestros viajes ofrecen experiencias inolvidables, desde cenas gourmet hasta alojamiento de lujo en el espacio exterior." />
+  <meta property="twitter:image" content="{{ asset('/images/banner.jpg') }}" />
 @endsection
 
 @section('content')
   <section>
     <h1 class="text-4xl mb-3">Planetas y satélites a visitar</h1>
-    <p class="mb-6">Embárcate en una aventura espacial única con Travel Odyssey. Te llevamos a explorar destinos asombrosos más allá de la Tierra, desde la superficie abrasadora de Venus hasta los misterios de Marte y los confines del sistema solar. Nuestros viajes ofrecen experiencias inolvidables, desde cenas gourmet hasta alojamiento de lujo en el espacio exterior. ¿Estás listo para descubrir lo desconocido?</p>
+    <p class="mb-6">Embárcate en una aventura espacial única con Travel Odyssey. Te llevamos a explorar destinos
+      asombrosos más allá de la Tierra, desde la superficie abrasadora de Venus hasta los misterios de Marte y los
+      confines del sistema solar. Nuestros viajes ofrecen experiencias inolvidables, desde cenas gourmet hasta alojamiento
+      de lujo en el espacio exterior. ¿Estás listo para descubrir lo desconocido?</p>
     <div class="services">
       @forelse($services as $key => $service)
-        <article class="relative flex w-full max-w-xs flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-md">
+        <article
+          class="relative flex w-full max-w-xs flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-md">
           <div class="relative m-3 flex h-60 overflow-hidden rounded-xl">
-            <img class="object-contain w-full" loading="eager" src="@if($service->image){{ asset('storage/' . $service->image) }}@else {{ asset('/images/default.png') }} @endif" alt="{{$service->title}}" />
-            <span class="absolute top-0 left-0 rounded-full bg-yellow-300 px-4 py-1 text-center text-sm font-medium text-black">Viajes</span>
+            <img class="object-contain w-full" loading="eager"
+              src="@if ($service->image) {{ asset('storage/' . $service->image) }}@else {{ asset('/images/default.png') }} @endif"
+              alt="{{ $service->title }}" />
+            <span
+              class="absolute top-0 left-0 rounded-full bg-yellow-300 px-4 py-1 text-center text-sm font-medium text-black">Viajes</span>
           </div>
           <div class="mt-5 px-5 pb-5">
-            <h2 title="{{$service->destiny->name}}" class="text-3xl tracking-tight text-slate-900">{{$service->destiny->name}}</h2>
+            <h2 title="{{ $service->destiny->name }}" class="text-3xl tracking-tight text-slate-900">
+              {{ $service->destiny->name }}</h2>
             <div class="mt-2 mb-3 flex items-center justify-between">
               <p>
                 <span class="text-xl font-bold text-slate-900">@money($service->price)</span>
@@ -33,35 +44,52 @@
               </p>
             </div>
             <div class="flex items-center my-3">
-              <svg aria-hidden="true" class="h-5 w-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+              <svg aria-hidden="true" class="h-5 w-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                </path>
               </svg>
-              <svg aria-hidden="true" class="h-5 w-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+              <svg aria-hidden="true" class="h-5 w-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                </path>
               </svg>
-              <svg aria-hidden="true" class="h-5 w-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+              <svg aria-hidden="true" class="h-5 w-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                </path>
               </svg>
-              <svg aria-hidden="true" class="h-5 w-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+              <svg aria-hidden="true" class="h-5 w-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                </path>
               </svg>
-              <svg aria-hidden="true" class="h-5 w-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+              <svg aria-hidden="true" class="h-5 w-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                </path>
               </svg>
               <span class="mr-2 ml-3 rounded bg-yellow-200 px-2.5 py-0.5 text-xs font-semibold">5.0</span>
             </div>
             <div>
-              <p>{{$service->description}}</p>
+              <p>{{ $service->description }}</p>
             </div>
-            <div class="flex justify-between flex-col md:flex-row mt-4 gap-3 md:gap-0">
-              <a href="{{route('services.service', ['id' => $service->id])}}" class="btn btn-see-more text-center">Ver más</a>
+            <div class="flex justify-between flex-col md:flex-row mt-4 gap-3">
+              <a href="{{ route('services.service', ['id' => $service->id]) }}"
+                class="btn btn-see-more text-center flex-1">Ver más</a>
               @auth
-                <button data-id="{{$service->id}}" data-name="{{$service->destiny->name}}" type="button" class="btn btn-see-more w-full">Contratar</button>
-               @endauth
+                <button data-id="{{ $service->id }}" data-name="{{ $service->destiny->name }}" type="button"
+                  class="btn btn-see-more w-full flex-1">Contratar</button>
+              @endauth
             </div>
           </div>
         </article>
-        @empty
+      @empty
         <p>No hay servicios disponibles actualmente</p>
       @endforelse
     </div>
@@ -69,16 +97,20 @@
   @auth
     <div class="relative z-10 hidden" aria-labelledby="modal-title" role="dialog" aria-modal="true">
       <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
-    
+
       <div class="fixed inset-0 z-10 w-screen overflow-y-auto">
         <div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
-          <div class="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
+          <div
+            class="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
             <div class="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
               <div class="sm:flex sm:items-start">
-                <div class="mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-green-100 sm:mx-0 sm:h-10 sm:w-10">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-green-600" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M11.35 3.836c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75 2.25 2.25 0 00-.1-.664m-5.8 0A2.251 2.251 0 0113.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m8.9-4.414c.376.023.75.05 1.124.08 1.131.094 1.976 1.057 1.976 2.192V16.5A2.25 2.25 0 0118 18.75h-2.25m-7.5-10.5H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V18.75m-7.5-10.5h6.375c.621 0 1.125.504 1.125 1.125v9.375m-8.25-3l1.5 1.5 3-3.75" />
-                  </svg>                                     
+                <div
+                  class="mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-green-100 sm:mx-0 sm:h-10 sm:w-10">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-green-600" fill="none" viewBox="0 0 24 24"
+                    stroke-width="1.5" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                      d="M11.35 3.836c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75 2.25 2.25 0 00-.1-.664m-5.8 0A2.251 2.251 0 0113.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m8.9-4.414c.376.023.75.05 1.124.08 1.131.094 1.976 1.057 1.976 2.192V16.5A2.25 2.25 0 0118 18.75h-2.25m-7.5-10.5H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V18.75m-7.5-10.5h6.375c.621 0 1.125.504 1.125 1.125v9.375m-8.25-3l1.5 1.5 3-3.75" />
+                  </svg>
                 </div>
                 <div class="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
                   <p class="text-base font-semibold leading-6 text-gray-900" id="modal-title">Contratar</p>
@@ -91,11 +123,13 @@
             <div class="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
               <form class="purchase-form" action="#" method="POST">
                 @csrf
-                <input type="hidden" name="user_id" value="{{auth()->id()}}" />
+                <input type="hidden" name="user_id" value="{{ auth()->id() }}" />
                 <input type="hidden" name="quantity" value="1" />
-                <button type="submit" class="inline-flex w-full justify-center rounded-md bg-green-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-green-500 sm:ml-3 sm:w-auto">Aceptar</button>
+                <button type="submit"
+                  class="inline-flex w-full justify-center rounded-md bg-green-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-green-500 sm:ml-3 sm:w-auto">Aceptar</button>
               </form>
-              <button type="button" class="modal-cancel mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto">Cancelar</button>
+              <button type="button"
+                class="modal-cancel mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto">Cancelar</button>
             </div>
           </div>
         </div>
@@ -108,9 +142,9 @@
           const id = e.target.getAttribute("data-id");
           const name = e.target.getAttribute("data-name");
           const modalMessage = document.querySelector(".modal-message");
-          modalMessage.textContent = `¿Estás seguro de comprar "${name}"?`;
+          modalMessage.textContent = `¿Estás seguro de contratar "${name}"?`;
           const form = document.querySelector('.purchase-form');
-          form.action=`{{url('/servicios/${id}/comprar')}}`;
+          form.action = `{{ url('/servicios/${id}/comprar') }}`;
           modal.classList.remove("hidden");
           document.querySelector(".modal-cancel")?.addEventListener('click', (e) => {
             modal?.classList.add("hidden");
@@ -135,7 +169,7 @@
     document.addEventListener("mousemove", (e) => {
       if (!isDragging) return;
       e.preventDefault();
-      
+
       servicesContainer.classList.add("active");
       const x = e.pageX - servicesContainer.offsetLeft;
       const walk = (x - startX) * 2;

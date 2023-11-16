@@ -87,7 +87,7 @@ class AuthController extends Controller
   }
 
   /**
-   * Elimin los datos de la sesión y regenera el token de CSRF, devuelve una redirección
+   * Elimina los datos de la sesión y regenera el token de CSRF, devuelve una redirección
    * @param Request $request
    * @return View
    */

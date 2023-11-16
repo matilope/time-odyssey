@@ -6,24 +6,24 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
-    public function up(): void
-    {
-        Schema::table('services', function (Blueprint $table) {
-            $table->unsignedTinyInteger('destiny_id')->before('description');
-            $table->foreign('destiny_id')->references('id')->on('destinations');
-        });
-    }
+  /**
+   * Run the migrations.
+   */
+  public function up(): void
+  {
+    Schema::table('services', function (Blueprint $table) {
+      $table->unsignedTinyInteger('destiny_id')->before('description');
+      $table->foreign('destiny_id')->references('id')->on('destinations');
+    });
+  }
 
-    /**
-     * Reverse the migrations.
-     */
-    public function down(): void
-    {
-        Schema::table('services', function (Blueprint $table) {
-            $table->dropColumn('destiny_id');
-        });
-    }
+  /**
+   * Reverse the migrations.
+   */
+  public function down(): void
+  {
+    Schema::table('services', function (Blueprint $table) {
+      $table->dropColumn('destiny_id');
+    });
+  }
 };

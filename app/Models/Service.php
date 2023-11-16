@@ -38,60 +38,60 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  */
 class Service extends Model
 {
-    // use HasFactory;
+  // use HasFactory;
 
-    protected $table = "services";
-    protected $primaryKey = "id";
+  protected $table = "services";
+  protected $primaryKey = "id";
 
-    protected $fillable = ['destiny_id', 'description', 'image', 'price', 'duration', 'lodging', 'date_of_departure'];
+  protected $fillable = ['destiny_id', 'description', 'image', 'price', 'duration', 'lodging', 'date_of_departure'];
 
-    public static $rules = [
-        'destiny_id' => 'required',
-        'description' => 'required|min:10',
-        'image' => 'required',
-        'price' => 'required|numeric',
-        'duration' => 'required|numeric',
-        'lodging' => 'required|numeric',
-        'date_of_departure' => 'required'
-    ];
+  public static $rules = [
+    'destiny_id' => 'required',
+    'description' => 'required|min:10',
+    'image' => 'required',
+    'price' => 'required|numeric',
+    'duration' => 'required|numeric',
+    'lodging' => 'required|numeric',
+    'date_of_departure' => 'required'
+  ];
 
-    public static $errorMessages = [
-        'destiny_id.required' => 'El destino no puede estar vacío.',
-        'description.required' => 'La descripción es requerida.',
-        'description.min' => 'La descripción debe tener al menos :min caracteres.',
-        'image.required' => 'La imagen es requerida.',
-        'price.required' => 'El precio es requerido.',
-        'price.numeric' => 'El precio debe ser un número.',
-        'duration.required' => 'La duración es requerida.',
-        'duration.numeric' => 'El duración debe ser un número.',
-        'lodging.required' => 'El tiempo de alojamiento es requerido.',
-        'lodging.numeric' => 'El tiempo de alojamiento debe ser un número.',
-        'date_of_departure.required' => 'La fecha de salida es requerida.'
-    ];
+  public static $errorMessages = [
+    'destiny_id.required' => 'El destino no puede estar vacío.',
+    'description.required' => 'La descripción es requerida.',
+    'description.min' => 'La descripción debe tener al menos :min caracteres.',
+    'image.required' => 'La imagen es requerida.',
+    'price.required' => 'El precio es requerido.',
+    'price.numeric' => 'El precio debe ser un número.',
+    'duration.required' => 'La duración es requerida.',
+    'duration.numeric' => 'El duración debe ser un número.',
+    'lodging.required' => 'El tiempo de alojamiento es requerido.',
+    'lodging.numeric' => 'El tiempo de alojamiento debe ser un número.',
+    'date_of_departure.required' => 'La fecha de salida es requerida.'
+  ];
 
-    /**
-     * El set lo guarda en centavos
-     * El get lo divide por 100 para que no sean centavos
-     * @return Attribute
-     */
-    protected function price(): Attribute
-    {
-        return Attribute::make(
-            get: fn ($value) => $value / 100,
-            set: fn ($value) => $value * 100
-        );
-    }
+  /**
+   * El set lo guarda en centavos
+   * El get lo divide por 100 para que no sean centavos
+   * @return Attribute
+   */
+  protected function price(): Attribute
+  {
+    return Attribute::make(
+      get: fn ($value) => $value / 100,
+      set: fn ($value) => $value * 100
+    );
+  }
 
-    /**
-     * Establece una relación de uno a muchos con el modelo Destiny.
-     * @return BelongsTo
-     */
-    public function destiny(): BelongsTo
-    {
-        return $this->belongsTo(Destiny::class, 'destiny_id', 'id');
-    }
+  /**
+   * Establece una relación de uno a muchos con el modelo Destiny.
+   * @return BelongsTo
+   */
+  public function destiny(): BelongsTo
+  {
+    return $this->belongsTo(Destiny::class, 'destiny_id', 'id');
+  }
 
-    /*
+  /*
      * Establece una relación de muchos a muchos con el modelo PurchaseDetails.
      * @return BelongsToMany
 

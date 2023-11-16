@@ -29,38 +29,40 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @method static \Illuminate\Database\Eloquent\Builder|Blog whereSynopsis($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Blog whereTitle($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Blog whereUpdatedAt($value)
+ * @property string|null $image_description
+ * @method static \Illuminate\Database\Eloquent\Builder|Blog whereImageDescription($value)
  * @mixin \Eloquent
  */
 class Blog extends Model
 {
-    // use HasFactory; 
+  // use HasFactory; 
 
-    protected $table = "blogs";
-    protected $primaryKey = "id";
+  protected $table = "blogs";
+  protected $primaryKey = "id";
 
-    protected $fillable = ['title', 'description', 'image', 'image_description', 'synopsis', 'category_id'];
+  protected $fillable = ['title', 'description', 'image', 'image_description', 'synopsis', 'category_id'];
 
-    public static $rules = [
-        'title' => 'required|min:3',
-        'description' => 'required|min:3',
-        'category_id' => 'required|exists:categories,id'
-    ];
+  public static $rules = [
+    'title' => 'required|min:3',
+    'description' => 'required|min:3',
+    'category_id' => 'required|exists:categories,id'
+  ];
 
-    public static $errorMessages = [
-        'title.required' => 'El título no puede estar vacío.',
-        'title.min' => 'El título debe tener al menos :min caracteres.',
-        'description.required' => 'La descripción es requerida.',
-        'description.min' => 'La descripción debe tener al menos :min caracteres.',
-        'category_id.required' => 'La categoría es requerida.',
-        'category_id.exists' => 'La categoría no existe o no es válida.'
-    ];
+  public static $errorMessages = [
+    'title.required' => 'El título no puede estar vacío.',
+    'title.min' => 'El título debe tener al menos :min caracteres.',
+    'description.required' => 'La descripción es requerida.',
+    'description.min' => 'La descripción debe tener al menos :min caracteres.',
+    'category_id.required' => 'La categoría es requerida.',
+    'category_id.exists' => 'La categoría no existe o no es válida.'
+  ];
 
-    /**
-     * Establece una relación de uno a muchos con el modelo Category.
-     * @return BelongsTo
-    */
-    public function category(): BelongsTo 
-    {
-        return $this->belongsTo(Category::class, 'category_id', 'id');
-    }
+  /**
+   * Establece una relación de uno a muchos con el modelo Category.
+   * @return BelongsTo
+   */
+  public function category(): BelongsTo
+  {
+    return $this->belongsTo(Category::class, 'category_id', 'id');
+  }
 }

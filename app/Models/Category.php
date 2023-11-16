@@ -23,18 +23,18 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Category extends Model
 {
-    // use HasFactory;
-    protected $table = "categories";
-    protected $primaryKey = "id";
+  // use HasFactory;
+  protected $table = "categories";
+  protected $primaryKey = "id";
 
-    protected $fillable = ['name'];
+  protected $fillable = ['name'];
 
-    public static $rules = [
-        'name' => 'required|min:3'
-    ];
+  public static $rules = [
+    'name' => 'required|min:3'
+  ];
 
-    public static $errorMessages = [
-        'name.required' => 'El nombre de la categoría no puede estar vacío.',
-        'name.min' => 'El nombre de la categoría debe tener al menos :min caracteres.',
-    ];
+  public static $errorMessages = [
+    'name.required' => 'El nombre de la categoría no puede estar vacío.',
+    'name.min' => 'El nombre de la categoría debe tener al menos :min caracteres.',
+  ];
 }

@@ -41,63 +41,67 @@ use Laravel\Sanctum\HasApiTokens;
  * @method static \Illuminate\Database\Eloquent\Builder|User whereProfilePicture($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereUsername($value)
  * @property string|null $profile_picture
+ * @property string $role
+ * @property-read \App\Models\Purchase $purchases
+ * @method static \Illuminate\Database\Eloquent\Builder|User wherePicture($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereRole($value)
  * @mixin \Eloquent
  */
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable;
+  use HasApiTokens, HasFactory, Notifiable;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<int, string>
-     */
-    protected $fillable = [
-        'username',
-        'email',
-        'password',
-        'picture',
-        'role'
-    ];
+  /**
+   * The attributes that are mass assignable.
+   *
+   * @var array<int, string>
+   */
+  protected $fillable = [
+    'username',
+    'email',
+    'password',
+    'picture',
+    'role'
+  ];
 
-    public static $rules = [
-        'username' => 'required',
-        'email' => 'required',
-        'password' => 'required',
-    ];
+  public static $rules = [
+    'username' => 'required',
+    'email' => 'required',
+    'password' => 'required',
+  ];
 
-    public static $errorMessages = [
-        'username.required' => 'El nombre de usuario no puede estar vacío.',
-        'email.required' => 'El correo electrónico no puede estar vacío.',
-        'password.required' => 'La contraseña es requerida.'
-    ];
+  public static $errorMessages = [
+    'username.required' => 'El nombre de usuario no puede estar vacío.',
+    'email.required' => 'El correo electrónico no puede estar vacío.',
+    'password.required' => 'La contraseña es requerida.'
+  ];
 
-    /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var array<int, string>
-     */
-    protected $hidden = [
-        'password',
-        'remember_token',
-    ];
+  /**
+   * The attributes that should be hidden for serialization.
+   *
+   * @var array<int, string>
+   */
+  protected $hidden = [
+    'password',
+    'remember_token',
+  ];
 
-    /**
-     * The attributes that should be cast.
-     *
-     * @var array<string, string>
-     */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-        'password' => 'hashed',
-    ];
+  /**
+   * The attributes that should be cast.
+   *
+   * @var array<string, string>
+   */
+  protected $casts = [
+    'email_verified_at' => 'datetime',
+    'password' => 'hashed',
+  ];
 
-    /**
-     * Establece una relación de muchos a uno con el modelo Service.
-     * @return BelongsTo
-     */
-    public function purchases(): BelongsTo
-    {
-        return $this->belongsTo(Purchase::class, 'user_id', 'id');
-    }
+  /**
+   * Establece una relación de muchos a uno con el modelo Service.
+   * @return BelongsTo
+   */
+  public function purchases(): BelongsTo
+  {
+    return $this->belongsTo(Purchase::class, 'user_id', 'id');
+  }
 }
