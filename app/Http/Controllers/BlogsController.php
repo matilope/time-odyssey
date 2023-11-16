@@ -20,7 +20,7 @@ class BlogsController extends Controller
    */
   public function index(): View
   {
-    $blogs = Blog::orderBy('created_at', 'asc')->with(['category'])->paginate(4);
+    $blogs = Blog::orderBy('created_at', 'asc')->with(['category'])->paginate(12);
     return view('blogs.index', ["blogs" => $blogs, "users" => User::select('username')->orderBy('created_at', 'asc')->get()]);
   }
 

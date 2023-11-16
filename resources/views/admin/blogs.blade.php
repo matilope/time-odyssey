@@ -57,6 +57,8 @@
       </div>
     </div>
   </section>
+  
+  {{ $blogs->links() }}
 
   @if (Auth::user()->role === 'administrador')
     <div class="relative z-10 hidden" aria-labelledby="modal-title" role="dialog" aria-modal="true">

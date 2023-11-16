@@ -14,7 +14,7 @@ class AdminController extends Controller
    */
   public function index(): View
   {
-    return view('admin.index', ["blogs" => Blog::orderBy('updated_at', 'asc')->get(), "users" => User::select('id')->get()]);
+    return view('admin.index', ["blogs" => Blog::all(), "users" => User::select('id')->get()]);
   }
 
   /**
@@ -23,6 +23,6 @@ class AdminController extends Controller
    */
   public function blogs(): View
   {
-    return view('admin.blogs', ["blogs" => Blog::all()]);
+    return view('admin.blogs', ["blogs" => Blog::orderBy('updated_at', 'asc')->paginate(12)]);
   }
 }
