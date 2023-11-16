@@ -101,7 +101,7 @@
   <main class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 py-10">
     @if (\Session::has('status.message'))
       <div
-        class="@if (\Session::has('status.success')) bg-green-100 border border-green-400 text-green-700 @else bg-red-100 border-red-400 text-red-700 @endif border px-3 py-3 rounded relative my-5"
+        class="@if (\Session::has('status.success')) bg-green-100 border-green-400 text-green-700 @else bg-red-100 border-red-400 text-red-700 @endif border px-3 py-3 rounded relative my-5"
         role="alert">
         <p class="block sm:inline">{!! \Session::get('status.message') !!}</p>
         <span class="absolute top-0 bottom-0 right-0 flex items-center mr-2">
