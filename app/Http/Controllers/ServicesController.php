@@ -6,6 +6,7 @@ use App\Models\Purchase;
 use Illuminate\Http\Request;
 use Illuminate\Contracts\View\View;
 use App\Models\Service;
+use App\Models\User;
 use Exception;
 use Illuminate\Http\RedirectResponse;
 
@@ -35,18 +36,22 @@ class ServicesController extends Controller
 	 * @param Request $request
 	 * @return RedirectResponse
 	 */
-	public function purchase(Request $request): RedirectResponse
+	public function purchase(int $id, Request $request): RedirectResponse
 	{
 		try {
-			$request->validate(Purchase::$rules, Purchase::$errorMessages);
 			$purchase = $request->except(['_token']);
+			$request->validate(Purchase::$rules, Purchase::$errorMessages);
+			$service = Service::findOrFail($id);
+			$purchase['service_id'] = $service->id;
+			$purchase['service_name'] = $service->destiny->name;
+			$purchase['price'] = $service->price;
 			Purchase::create($purchase);
 			return redirect('/')
 				->with('status.message', '<b>Se ha realizado la contratación correctamente.</b><br />Dentro de unos minutos le llegara un correo con todos los datos.')
 				->with('status.success', true);
 		} catch (Exception $e) {
 			return redirect('/')
-				->with('status.message', 'No se ha podido realizar la contratación.')
+				->with('status.message', 'No se ha podido realizar la contratación.' . "$e")
 				->with('status.error', true);
 		}
 	}

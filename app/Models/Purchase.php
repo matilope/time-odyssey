@@ -14,20 +14,15 @@ class Purchase extends Model
     protected $table = "purchases";
     protected $primaryKey = "id";
 
-    protected $fillable = ['user_id', 'service_id', 'price', 'quantity'];
+    protected $fillable = ['user_id', 'service_id', 'service_name', 'price', 'quantity'];
 
     public static $rules = [
         'user_id' => 'required',
-        'service_id' => 'required',
-        'price' => 'required|numeric',
         'quantity' => 'required|numeric'
     ];
 
     public static $errorMessages = [
         'user_id.required' => 'El usuario no puede estar vacío.',
-        'service_id.required' => 'El servicio no puede estar vacío.',
-        'price.required' => 'El precio es requerido.',
-        'price.numeric' => 'El precio debe ser un número.',
         'quantity.required' => 'La cantidad de viajes es requerida.',
         'quantity.numeric' => 'La cantidad de viajes debe ser un número.'
     ];

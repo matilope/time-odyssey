@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained('users', 'id');
             $table->foreignId('service_id')->constrained('services', 'id');
+            $table->string('service_name', 60);
             $table->unsignedInteger('price');
             $table->unsignedTinyInteger('quantity')->default(1);
             $table->timestamps();

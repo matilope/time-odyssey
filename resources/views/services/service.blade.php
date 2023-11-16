@@ -93,17 +93,10 @@
             </div>
 
             @auth
-              <form action="{{route('services.purchase.post')}}" method="POST">
-                @csrf
-                <input type="hidden" name="user_id" value="{{auth()->id()}}" />
-                <input type="hidden" name="service_id" value="{{$service->id}}" />
-                <input type="hidden" name="price" value="{{$service->price}}" />
-                <input type="hidden" name="quantity" value="1" />
-                <button type="submit" class="inline-flex items-center justify-center rounded-md border-2 border-transparent bg-yellow-500 bg-none px-12 py-3 text-center text-base font-bold text-white transition-all duration-200 ease-in-out focus:shadow hover:bg-yellow-600">Contratar</button>
-              </form>
+              <button data-id="{{$service->id}}" data-name="{{$service->destiny->name}}" type="button" class="inline-flex items-center justify-center rounded-md border-2 border-transparent bg-yellow-500 bg-none px-12 py-3 text-center text-base font-bold text-white transition-all duration-200 ease-in-out focus:shadow hover:bg-yellow-600">Contratar</button>
             @endauth
             @if(!Auth::user())
-            <a href="{{route('auth.register.form')}}" class="admin-btn create-btn">Registrarse para contratar</a>
+              <a href="{{route('auth.register.form')}}" class="admin-btn create-btn">Registrarse para contratar</a>
             @endif
           </div>
         </div>
@@ -123,6 +116,59 @@
       </div>
     </article>
   </section>
+  @auth
+    <div class="relative z-10 hidden" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+      <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
+    
+      <div class="fixed inset-0 z-10 w-screen overflow-y-auto">
+        <div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+          <div class="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
+            <div class="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
+              <div class="sm:flex sm:items-start">
+                <div class="mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-green-100 sm:mx-0 sm:h-10 sm:w-10">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-green-600" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M11.35 3.836c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75 2.25 2.25 0 00-.1-.664m-5.8 0A2.251 2.251 0 0113.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m8.9-4.414c.376.023.75.05 1.124.08 1.131.094 1.976 1.057 1.976 2.192V16.5A2.25 2.25 0 0118 18.75h-2.25m-7.5-10.5H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V18.75m-7.5-10.5h6.375c.621 0 1.125.504 1.125 1.125v9.375m-8.25-3l1.5 1.5 3-3.75" />
+                  </svg>                                     
+                </div>
+                <div class="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
+                  <p class="text-base font-semibold leading-6 text-gray-900" id="modal-title">Contratar</p>
+                  <div class="mt-2">
+                    <p class="text-sm text-gray-500 modal-message">¿Estas seguro de contratar -?</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
+              <form class="purchase-form" action="#" method="POST">
+                @csrf
+                <input type="hidden" name="user_id" value="{{auth()->id()}}" />
+                <input type="hidden" name="quantity" value="1" />
+                <button type="submit" class="inline-flex w-full justify-center rounded-md bg-green-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-green-500 sm:ml-3 sm:w-auto">Aceptar</button>
+              </form>
+              <button type="button" class="modal-cancel mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto">Cancelar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      document.querySelectorAll("[data-id]")?.forEach(item => {
+        item?.addEventListener('click', (e) => {
+          const modal = document.querySelector("[aria-modal='true']");
+          const id = e.target.getAttribute("data-id");
+          const name = e.target.getAttribute("data-name");
+          const modalMessage = document.querySelector(".modal-message");
+          modalMessage.textContent = `¿Estás seguro de comprar "${name}"?`;
+          const form = document.querySelector('.purchase-form');
+          form.action=`{{url('/servicios/${id}/comprar')}}`;
+          modal.classList.remove("hidden");
+          document.querySelector(".modal-cancel")?.addEventListener('click', (e) => {
+            modal?.classList.add("hidden");
+          });
+        });
+      });
+    </script>
+  @endauth
   <script>
     const accordions = document.querySelectorAll(".accordion");
     accordions.forEach((accordion) => {

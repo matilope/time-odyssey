@@ -14,11 +14,11 @@
 @endsection
 
 @section('content')
-<section>
+  <section>
     <h1 class="text-4xl mb-8">Blogs publicados</h1>
     <div class="blogs">
       <div class="featured">
-        @foreach($blogs as $key => $blog)
+        @forelse($blogs as $key => $blog)
           <article>
             <img loading="lazy" src="@if($blog->image){{ asset('storage/' . $blog->image) }}@else {{asset('/images/default.png')}} @endif" alt="@if($blog->image_description){{$blog->image_description}}@else{{$blog->title}}@endif" />
             <div>
@@ -30,7 +30,9 @@
               <a class="btn read-btn" href="{{route('blogs.article', ['id' => $blog->id])}}">Leer blog</a>
             </div>
           </article>
-        @endforeach
+        @empty
+          <p>No hay blogs publicados</p>
+        @endforelse
       </div>
       {{$blogs->links()}}
       <aside>

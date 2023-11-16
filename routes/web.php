@@ -22,9 +22,9 @@ Route::get('/servicios', [\App\Http\Controllers\ServicesController::class, 'inde
 Route::get('/servicios/{id}', [\App\Http\Controllers\ServicesController::class, 'service'])
   ->name('services.service');
 
-Route::post('/servicios/comprar', [\App\Http\Controllers\ServicesController::class, 'purchase'])
+Route::post('/servicios/{id}/comprar', [\App\Http\Controllers\ServicesController::class, 'purchase'])
   ->name('services.purchase.post')
-  ->middleware(['auth']);
+  ->middleware(['auth', 'roles']);
 
 Route::get('/blogs', [\App\Http\Controllers\BlogsController::class, 'index'])
   ->name('blogs.index');
@@ -44,17 +44,17 @@ Route::post('/blogs/crear', [\App\Http\Controllers\BlogsController::class, 'crea
 Route::get('/blogs/{id}/editar', [\App\Http\Controllers\BlogsController::class, 'viewEdit'])
   ->whereNumber('id')
   ->name('blogs.edit.form')
-  ->middleware(['auth', \App\Http\Middleware\Roles::class]);
+  ->middleware(['auth', 'roles']);
 
 Route::post('/blogs/{id}/editar', [\App\Http\Controllers\BlogsController::class, 'edit'])
   ->whereNumber('id')
   ->name('blogs.edit.post')
-  ->middleware(['auth', \App\Http\Middleware\Roles::class]);
+  ->middleware(['auth', 'roles']);
 
 Route::post('/blogs/{id}/eliminar', [\App\Http\Controllers\BlogsController::class, 'delete'])
   ->whereNumber('id')
   ->name('blogs.delete.post')
-  ->middleware(['auth', \App\Http\Middleware\Roles::class]);
+  ->middleware(['auth', 'roles']);
 
 Route::get('/admin', [\App\Http\Controllers\AdminController::class, 'index'])
   ->name('admin.index')
@@ -66,11 +66,11 @@ Route::get('/admin/blogs', [\App\Http\Controllers\AdminController::class, 'blogs
 
 Route::get('/admin/usuarios', [\App\Http\Controllers\UsersController::class, 'index'])
   ->name('users.index')
-  ->middleware(['auth', \App\Http\Middleware\Roles::class]);
+  ->middleware(['auth', 'roles']);
 
 Route::get('/admin/usuarios/{id}', [\App\Http\Controllers\UsersController::class, 'user'])
   ->name('users.user')
-  ->middleware(['auth', \App\Http\Middleware\Roles::class]);
+  ->middleware(['auth', 'roles']);
 
 Route::get('/admin/perfil', [\App\Http\Controllers\UsersController::class, 'profile'])
   ->name('users.profile')

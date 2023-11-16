@@ -43,7 +43,7 @@
                 <form action="{{route('auth.logout.post')}}" method="post">
                   @csrf
                   <button type="submit" class="hover:bg-gray-700 text-white rounded-md px-3 py-2 text-sm font-medium btn-icon">
-                    Cerrar sesión
+                    {{Auth::user()->username}} (Cerrar sesión)
                     <svg class="w-6 h-6 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 16">
                       <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8h11m0 0-4-4m4 4-4 4m-5 3H3a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h3"/>
                     </svg>
@@ -67,7 +67,7 @@
         <form action="{{route('auth.logout.post')}}" method="post">
           @csrf
           <button type="submit" class="hover:bg-gray-700 text-white block rounded-md px-3 py-2 text-base font-medium btn-icon">
-            Cerrar sesión
+            {{Auth::user()->username}} (Cerrar sesión)
             <svg class="w-6 h-6 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 16">
               <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8h11m0 0-4-4m4 4-4 4m-5 3H3a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h3"/>
             </svg>
