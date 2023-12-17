@@ -40,8 +40,10 @@
             <ul class="flex space-x-4 items-center">
               <li><a href="{{ route('home') }}"
                   class="hover:bg-gray-700 text-white rounded-md px-3 py-2 text-sm font-medium">Inicio</a></li>
-              <li><a href="{{ route('admin.index') }}"
-                  class="hover:bg-gray-700 text-white rounded-md px-3 py-2 text-sm font-medium">Admin</a></li>
+              @if (Auth::user()->role === 'administrador')
+                <li><a href="{{ route('admin.index') }}"
+                    class="hover:bg-gray-700 text-white rounded-md px-3 py-2 text-sm font-medium">Admin</a></li>
+              @endif
               <li><a href="{{ route('admin.blogs') }}"
                   class="hover:bg-gray-700 text-white rounded-md px-3 py-2 text-sm font-medium">Blogs</a></li>
               @if (Auth::user()->role === 'administrador')
@@ -55,7 +57,7 @@
                   @csrf
                   <button type="submit"
                     class="hover:bg-gray-700 text-white rounded-md px-3 py-2 text-sm font-medium btn-icon">
-                    {{ Auth::user()->username }} (Cerrar sesión)
+                    {{ Auth::user()->name == '-' ? Auth::user()->email : Auth::user()->name }} (Cerrar sesión)
                     <svg class="w-6 h-6 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
                       viewBox="0 0 18 16">
                       <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -86,7 +88,7 @@
           @csrf
           <button type="submit"
             class="hover:bg-gray-700 text-white block rounded-md px-3 py-2 text-base font-medium btn-icon">
-            {{ Auth::user()->username }} (Cerrar sesión)
+            {{ Auth::user()->name == '-' ? Auth::user()->email : Auth::user()->name }} (Cerrar sesión)
             <svg class="w-6 h-6 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
               viewBox="0 0 18 16">
               <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"

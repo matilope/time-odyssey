@@ -16,7 +16,7 @@ class Roles
   public function handle(Request $request, Closure $next): Response
   {
     if (Auth::user()->role === "usuario") {
-      return to_route('admin.index')
+      return to_route('users.profile')
         ->with('status.message', 'El usuario no tiene los permisos necesario para realizar esta acción.')
         ->with('status.error', true);
     }

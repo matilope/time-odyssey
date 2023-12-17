@@ -69,7 +69,7 @@
           <div class="my-5">
             <div class="accordion bg-gray-50 py-1 px-2 rounded-md border-t-2 border-b-2 border-solid border-white">
               <button
-                class="py-3 inline-flex justify-between items-center gap-x-3 w-full font-semibold text-start text-gray-800 hover:text-gray-500 rounded-lg disabled:opacity-50 dark:text-gray-200 dark:hover:text-gray-400 dark:focus:outline-none dark:focus:text-gray-400">
+                class="py-3 inline-flex justify-between items-center gap-x-3 w-full font-semibold text-start text-gray-800 hover:text-gray-500 rounded-lg disabled:opacity-50">
                 Duración
                 <svg class="block w-4 h-4 svg-minus" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                   viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -84,14 +84,14 @@
                 </svg>
               </button>
               <div class="content hidden w-full overflow-hidden transition-[height] duration-300">
-                <p class="text-gray-800 dark:text-gray-200 mt-1 mb-3">
+                <p class="text-gray-800 mt-1 mb-3">
                   La duración del viaje (ida y vuelta) es de {{ $service->duration * 2 }} días
                 </p>
               </div>
             </div>
             <div class="accordion bg-gray-50 py-1 px-2 rounded-md border-t-2 border-b-2 border-solid border-white">
               <button
-                class="py-3 inline-flex justify-between items-center gap-x-3 w-full font-semibold text-start text-gray-800 hover:text-gray-500 rounded-lg disabled:opacity-50 dark:text-gray-200 dark:hover:text-gray-400 dark:focus:outline-none dark:focus:text-gray-400">
+                class="py-3 inline-flex justify-between items-center gap-x-3 w-full font-semibold text-start text-gray-800 hover:text-gray-500 rounded-lg disabled:opacity-50">
                 Estadía
                 <svg class="block w-4 h-4 svg-minus" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                   viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -106,7 +106,7 @@
                 </svg>
               </button>
               <div class="content hidden w-full overflow-hidden transition-[height] duration-300">
-                <p class="text-gray-800 dark:text-gray-200 mt-1 mb-3">
+                <p class="text-gray-800 mt-1 mb-3">
                   La estadía es de {{ $service->lodging }} días
                 </p>
               </div>
@@ -114,7 +114,7 @@
 
             <div class="accordion bg-gray-50 py-1 px-2 rounded-md border-t-2 border-b-2 border-solid border-white">
               <button
-                class="py-3 inline-flex justify-between items-center gap-x-3 w-full font-semibold text-start text-gray-800 hover:text-gray-500 rounded-lg disabled:opacity-50 dark:text-gray-200 dark:hover:text-gray-400 dark:focus:outline-none dark:focus:text-gray-400">
+                class="py-3 inline-flex justify-between items-center gap-x-3 w-full font-semibold text-start text-gray-800 hover:text-gray-500 rounded-lg disabled:opacity-50">
                 Fecha de salida
                 <svg class="block w-4 h-4 svg-minus" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                   viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -129,7 +129,7 @@
                 </svg>
               </button>
               <div class="content hidden w-full overflow-hidden transition-[height] duration-300">
-                <p class="text-gray-800 dark:text-gray-200 mt-1 mb-3">
+                <p class="text-gray-800 mt-1 mb-3">
                   La fecha de salida es el
                   {{ Carbon\Carbon::parse($service->date_of_departure)->locale('es_ES')->isoFormat('D [de] MMMM [de] YYYY') }}
                 </p>

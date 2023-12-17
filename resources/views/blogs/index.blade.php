@@ -45,9 +45,11 @@
         @if (count($users) > 0)
           <div class="active-users">
             @for ($i = 0; $i < count($users); $i++)
-              <div>
-                <span>{{ $users[$i]->username }}</span>
-              </div>
+              @if($users[$i]->name != "-")
+                <div>
+                  <span>{{ $users[$i]->name }}</span>
+                </div>
+              @endif
               @if ($i > 1)
               @break
             @endif

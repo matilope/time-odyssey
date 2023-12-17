@@ -657,3 +657,52 @@ form .double-column-img div {
 .hired-services-container img {
   width: 4rem;
 }
+
+.img-upload {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 2;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  height: 100%;
+  width: 100%;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: .5rem;
+  cursor: pointer;
+}
+
+.img-upload svg {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.bg-fixed {
+  position: absolute;
+  background: rgba(0, 0, 0, .5);
+  top: 0;
+  width: 160px;
+  height: 160px;
+  z-index: 1;
+}
+
+.user-edit input {
+  outline: none;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.375rem;
+}
+
+.profile-picture {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile-span {
+  color: green;
+  font-weight: bold;
+}

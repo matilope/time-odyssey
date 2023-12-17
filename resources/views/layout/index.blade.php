@@ -88,7 +88,7 @@
                   <span class="sr-only">Abrir menú</span>
                   <img class="h-8 w-8 rounded-full bg-white p-0.5 object-cover"
                     src="@if (Auth::user()->picture) {{ asset('storage/' . Auth::user()->picture) }}@else{{ asset('/images/user.png') }} @endif"
-                    alt="Perfil de {{ Auth::user()->username }}" />
+                    alt="Perfil de {{ Auth::user()->name == "-" ? Auth::user()->email : Auth::user()->name  }}" />
                 </button>
               </div>
               <div

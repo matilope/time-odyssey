@@ -16,7 +16,7 @@ class UsersSeeder extends Seeder
     DB::table('users')->insert([
       [
         'id' => 1,
-        'username' => 'matilo',
+        'name' => 'Matias',
         'email' => 'matias.lopez@davinci.edu.ar',
         'picture' => null,
         'password' => Hash::make('password'),
@@ -26,7 +26,7 @@ class UsersSeeder extends Seeder
       ],
       [
         'id' => 2,
-        'username' => 'lauti',
+        'name' => 'Lautaro',
         'email' => 'lautaro.climent@davinci.edu.ar',
         'picture' => null,
         'password' =>  Hash::make('password'),
@@ -36,7 +36,7 @@ class UsersSeeder extends Seeder
       ],
       [
         'id' => 3,
-        'username' => 'santi',
+        'name' => 'Santiago',
         'email' => 'santiago.gallino@davinci.edu.ar',
         'picture' => null,
         'password' =>  Hash::make('password'),

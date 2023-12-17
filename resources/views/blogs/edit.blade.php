@@ -85,7 +85,7 @@
                 clip-rule="evenodd" />
             </svg>
             <div class="mt-4 flex justify-center text-sm leading-6 text-gray-600">
-              <label
+              <label tabindex="0"
                 class="relative cursor-pointer rounded-md bg-white font-semibold text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500">
                 <span>Subir imagen</span>
                 <input name="image" id="image" type="file" class="sr-only">
@@ -154,6 +154,12 @@
           imagePreview.src = e.target.result;
         };
         reader.readAsDataURL(inputFile.files[0]);
+      }
+    });
+    document.querySelector('[tabindex="0"]')?.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        document.getElementById('image').click();
       }
     });
   </script>

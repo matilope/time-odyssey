@@ -85,6 +85,7 @@
             </svg>
             <div class="mt-4 flex justify-center text-sm leading-6 text-gray-600">
               <label
+                tabindex="0"
                 class="relative cursor-pointer rounded-md bg-white font-semibold text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500">
                 <span>Subir imagen</span>
                 <input name="image" id="image" type="file" class="sr-only">
@@ -144,7 +145,9 @@
     const inputFile = document.getElementById('image');
     const imageInputContainer = document.querySelector('.double-column-img');
     inputFile?.addEventListener('change', (e) => {
+      document.querySelector(".preview-img")?.remove();
       const image = document.createElement("img");
+      image.classList.add("preview-img");
       imageInputContainer.appendChild(image);
       if (inputFile.files && inputFile.files[0]) {
         const reader = new FileReader();
@@ -153,6 +156,12 @@
           image.alt = "";
         };
         reader.readAsDataURL(inputFile.files[0]);
+      }
+    });
+    document.querySelector('[tabindex="0"]')?.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        document.getElementById('image').click();
       }
     });
   </script>

@@ -58,7 +58,7 @@ Route::post('/blogs/{id}/eliminar', [\App\Http\Controllers\BlogsController::clas
 
 Route::get('/admin', [\App\Http\Controllers\AdminController::class, 'index'])
   ->name('admin.index')
-  ->middleware(['auth']);
+  ->middleware(['auth', 'roles']);
 
 Route::get('/admin/blogs', [\App\Http\Controllers\AdminController::class, 'blogs'])
   ->name('admin.blogs')
@@ -74,6 +74,14 @@ Route::get('/admin/usuarios/{id}', [\App\Http\Controllers\UsersController::class
 
 Route::get('/admin/perfil', [\App\Http\Controllers\UsersController::class, 'profile'])
   ->name('users.profile')
+  ->middleware(['auth']);
+
+Route::get('/admin/perfil/editar', [\App\Http\Controllers\UsersController::class, 'viewEdit'])
+  ->name('users.edit')
+  ->middleware(['auth']);
+
+Route::post('/admin/perfil/editar', [\App\Http\Controllers\UsersController::class, 'edit'])
+  ->name('users.edit.post')
   ->middleware(['auth']);
 
 Route::get('/iniciar-sesion', [\App\Http\Controllers\AuthController::class, 'viewLogin'])

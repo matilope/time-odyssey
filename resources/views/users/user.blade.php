@@ -19,7 +19,7 @@
           <div class="relative inline-block shrink-0 rounded-2xl">
             <img class="inline-block shrink-0 rounded-2xl w-[80px] h-[80px] lg:w-[160px] lg:h-[160px]"
               src="@if ($user->picture) {{ asset('storage/' . $user->picture) }}@else{{ asset('/images/user.png') }} @endif"
-              alt="Perfil de {{ $user->username }}" />
+              alt="Perfil de {{ $user->name == "-" ? $user->email : $user->name  }}" />
           </div>
         </div>
         <div class="grow">
@@ -28,7 +28,7 @@
               <div class="flex items-center mb-2">
                 <h1
                   class="text-secondary-inverse hover:text-primary transition-colors duration-200 ease-in-out font-semibold text-[1.5rem] mr-1">
-                  Perfil de {{ $user->username }}</h1>
+                  Perfil de {{ $user->name == "-" ? explode('@', $user->email)[0] : $user->name }}</h1>
               </div>
               <div class="flex flex-wrap pr-2 mb-4 font-medium">
                 <a class="flex items-center mb-2 mr-5 text-secondary-dark hover:text-primary"
@@ -51,6 +51,13 @@
                 class="mr-3 mb-2 inline-flex items-center justify-center text-secondary-inverse rounded-full transition-all duration-200 ease-in-out px-3 py-1 text-sm font-medium leading-normal capitalize @if ($user->role == 'administrador') badge-admin @else badge-user @endif">{{ $user->role }}</span>
             </div>
           </div>
+          @if ($ownProfile)
+           <div class="flex flex-wrap justify-between mt-3">
+              <div class="flex flex-wrap items-center">
+                <a href="{{ route('users.edit', ['id' => $user->id]) }}" class="mr-3 mb-2 inline-flex items-center justify-center text-secondary-inverse rounded-md transition-all duration-200 ease-in-out px-3 py-1 text-sm font-medium leading-normal bg-green-600 text-white" title="Editar perfil">Editar perfil</a>
+              </div>
+            </div>
+          @endif
         </div>
       </div>
       <hr class="w-full h-px border-neutral-200">
@@ -58,8 +65,8 @@
       <div class="hired-services-container my-5">
         @if (count($purchases) > 0)
           <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-              <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <table class="w-full text-sm text-left rtl:text-right text-gray-500">
+              <thead class="text-xs text-gray-700 uppercase bg-gray-50">
                 <tr>
                   <th scope="col" class="px-6 py-3">
                     Imagen
@@ -78,8 +85,8 @@
               <tbody>
                 @foreach ($purchases as $data)
                   <tr
-                    class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                    class="odd:bg-white even:bg-gray-50 border-b">
+                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
                       <img src="{{ asset('storage/' . $data->service->image) }}"
                         alt="{{ $data->service->destiny->name }}" />
                     </th>
@@ -91,7 +98,7 @@
                     </td>
                     <td class="px-6 py-4">
                       <a href="{{ route('services.service', ['id' => $data->service->id]) }}"
-                        class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Ver</a>
+                        class="font-medium text-blue-600 hover:underline">Ver</a>
                     </td>
                   </tr>
                 @endforeach

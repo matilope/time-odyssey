@@ -36,10 +36,10 @@ use Laravel\Sanctum\HasApiTokens;
  * @method static \Illuminate\Database\Eloquent\Builder|User wherePassword($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereRememberToken($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereUpdatedAt($value)
- * @property string $username
+ * @property string $name
  * @property string|null $picture
  * @method static \Illuminate\Database\Eloquent\Builder|User whereProfilePicture($value)
- * @method static \Illuminate\Database\Eloquent\Builder|User whereUsername($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereName($value)
  * @property string|null $profile_picture
  * @property string $role
  * @property-read \App\Models\Purchase $purchases
@@ -57,7 +57,7 @@ class User extends Authenticatable
    * @var array<int, string>
    */
   protected $fillable = [
-    'username',
+    'name',
     'email',
     'password',
     'picture',
@@ -65,13 +65,13 @@ class User extends Authenticatable
   ];
 
   public static $rules = [
-    'username' => 'required',
+    'name' => 'required',
     'email' => 'required',
     'password' => 'required',
   ];
 
   public static $errorMessages = [
-    'username.required' => 'El nombre de usuario no puede estar vacío.',
+    'name.required' => 'El nombre no puede estar vacío.',
     'email.required' => 'El correo electrónico no puede estar vacío.',
     'password.required' => 'La contraseña es requerida.'
   ];
