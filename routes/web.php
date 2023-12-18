@@ -26,6 +26,18 @@ Route::post('/servicios/{id}/comprar', [\App\Http\Controllers\ServicesController
   ->name('services.purchase.post')
   ->middleware(['auth', 'roles']);
 
+Route::get('/compra/exito', [\App\Http\Controllers\PurchaseController::class, 'success'])
+  ->name('purchases.success')
+  ->middleware(['auth']);
+
+Route::get('/compra/pendiente', [\App\Http\Controllers\PurchaseController::class, 'pending'])
+  ->name('purchases.pending')
+  ->middleware(['auth']);
+
+Route::get('/compra/fallo', [\App\Http\Controllers\PurchaseController::class, 'failure'])
+  ->name('purchases.failure')
+  ->middleware(['auth']);
+
 Route::get('/blogs', [\App\Http\Controllers\BlogsController::class, 'index'])
   ->name('blogs.index');
 

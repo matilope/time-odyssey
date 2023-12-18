@@ -706,3 +706,81 @@ form .double-column-img div {
   color: green;
   font-weight: bold;
 }
+
+/* Order success */
+
+.order-success {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  box-shadow: 1px 1px 8px rgba(105, 105, 105, 0.25);
+}
+
+.order-success svg {
+  color: #00ad65;
+  width: 5rem;
+  height: 5rem;
+  margin-bottom: 1rem;
+}
+
+.order-success a {
+  text-decoration: underline;
+  color: rgb(0, 153, 255);
+}
+
+.order-success * {
+  text-align: center;
+}
+
+/* Order pending */
+
+.order-pending {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  box-shadow: 1px 1px 8px rgba(105, 105, 105, 0.25);
+}
+
+.order-pending svg {
+  color: #ad7000;
+  width: 5rem;
+  height: 5rem;
+  margin-bottom: 1rem;
+}
+
+.order-pending a {
+  text-decoration: underline;
+  color: rgb(0, 153, 255);
+}
+
+.order-pending * {
+  text-align: center;
+}
+
+/* Order failure */
+
+.order-failure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  box-shadow: 1px 1px 8px rgba(105, 105, 105, 0.25);
+}
+
+.order-failure svg {
+  color: #ad0000;
+  width: 5rem;
+  height: 5rem;
+  margin-bottom: 1rem;
+}
+
+.order-failure a {
+  text-decoration: underline;
+  color: rgb(0, 153, 255);
+}
+
+.order-failure * {
+  text-align: center;
+}

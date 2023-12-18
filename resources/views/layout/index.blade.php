@@ -88,14 +88,18 @@
                   <span class="sr-only">Abrir menú</span>
                   <img class="h-8 w-8 rounded-full bg-white p-0.5 object-cover"
                     src="@if (Auth::user()->picture) {{ asset('storage/' . Auth::user()->picture) }}@else{{ asset('/images/user.png') }} @endif"
-                    alt="Perfil de {{ Auth::user()->name == "-" ? Auth::user()->email : Auth::user()->name  }}" />
+                    alt="Perfil de {{ Auth::user()->name == '-' ? Auth::user()->email : Auth::user()->name }}" />
                 </button>
               </div>
               <div
                 class="hidden absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
                 role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
-                <a href="{{ route('admin.index') }}" class="block px-4 py-2 text-sm text-gray-700" role="menuitem"
-                  tabindex="-1" id="user-menu-item-0">Admin</a>
+                @if (Auth::user()->role === 'administrador')
+                  <a href="{{ route('admin.index') }}" class="block px-4 py-2 text-sm text-gray-700" role="menuitem"
+                    tabindex="-1" id="user-menu-item-0">Admin</a>
+                @endif
+                <a href="{{ route('users.profile') }}" class="block px-4 py-2 text-sm text-gray-700" role="menuitem"
+                  tabindex="-1" id="user-menu-item-0">Perfil</a>
                 <div>
                   <form action="{{ route('auth.logout.post') }}" method="post">
                     @csrf

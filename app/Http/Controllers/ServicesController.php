@@ -8,6 +8,8 @@ use Illuminate\Contracts\View\View;
 use App\Models\Service;
 use Exception;
 use Illuminate\Http\RedirectResponse;
+use MercadoPago\Client\Preference\PreferenceClient;
+use MercadoPago\MercadoPagoConfig;
 
 class ServicesController extends Controller
 {
@@ -27,31 +29,29 @@ class ServicesController extends Controller
    */
   public function service(int $id): View
   {
-    return view('services.service', ["service" => Service::findOrFail($id)]);
-  }
-
-  /**
-   * Recibe los datos y crea una nueva contratación, devuelve un redirección
-   * @param Request $request
-   * @return RedirectResponse
-   */
-  public function purchase(int $id, Request $request): RedirectResponse
-  {
-    try {
-      $purchase = $request->except(['_token']);
-      $request->validate(Purchase::$rules, Purchase::$errorMessages);
-      $service = Service::findOrFail($id);
-      $purchase['service_id'] = $service->id;
-      $purchase['service_name'] = $service->destiny->name;
-      $purchase['price'] = $service->price;
-      Purchase::create($purchase);
-      return redirect('/')
-        ->with('status.message', '<b>Se ha realizado la contratación correctamente.</b><br />Dentro de unos minutos le llegara un correo con todos los datos.')
-        ->with('status.success', true);
-    } catch (Exception $e) {
-      return redirect('/')
-        ->with('status.message', 'No se ha podido realizar la contratación.' . "$e")
-        ->with('status.error', true);
-    }
+    $service = Service::findOrFail($id);
+    MercadoPagoConfig::setAccessToken(env("MP_ACCESS_TOKEN"));
+    $client = new PreferenceClient();
+    $preference = $client->create([
+      "items" => array(
+        array(
+          "title" => $service->name,
+          "unit_price" => $service->price,
+          "quantity" => 1,
+          'currency_id' => 'ARS'
+        )
+      ),
+      'external_reference' => "$service->id<-split->" . $service->destiny->name . "<-split->" . auth()->user()->id,
+      'back_urls' => [
+        'success' => route('purchases.success'),
+        'pending' => route('purchases.pending'),
+        'failure' => route('purchases.failure'),
+      ]
+    ]);
+    return view('services.service', [
+      "service" => $service,
+      "preference" => $preference,
+      "mp_public_key" => env('MP_PUBLIC_KEY')
+    ]);
   }
 }

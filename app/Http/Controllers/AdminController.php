@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Contracts\View\View;
 use App\Models\Blog;
+use App\Models\Purchase;
 use App\Models\User;
+use Barryvdh\Debugbar\Facades\Debugbar;
+use Illuminate\Support\Facades\DB;
 
 class AdminController extends Controller
 {
@@ -14,7 +17,19 @@ class AdminController extends Controller
    */
   public function index(): View
   {
-    return view('admin.index', ["blogs" => Blog::all(), "users" => User::select('id')->get()]);
+    $purchases = Purchase::select('service_id', 'service_name', 'price', DB::raw('SUM(quantity) as total_quantity'))
+      ->groupBy('service_id', 'service_name', 'price')
+      ->get();
+    $totalQuantity = $purchases->sum('total_quantity');
+    $mostContractedService = Purchase::orderBy('quantity', 'desc')->first();
+
+    return view('admin.index', [
+      "blogs" => Blog::all(),
+      "users" => User::select('id')->get(),
+      "purchases" => $purchases,
+      "totalQuantity" => $totalQuantity,
+      "mostContractedService" => $mostContractedService
+    ]);
   }
 
   /**

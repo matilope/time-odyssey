@@ -78,6 +78,9 @@
                     Precio
                   </th>
                   <th scope="col" class="px-6 py-3">
+                    Cantidad
+                  </th>
+                  <th scope="col" class="px-6 py-3">
                     Acciones
                   </th>
                 </tr>
@@ -97,8 +100,15 @@
                       @money($data->price)
                     </td>
                     <td class="px-6 py-4">
+                      {{ $data->quantity }}
+                    </td>
+                    <td class="px-6 py-4">
                       <a href="{{ route('services.service', ['id' => $data->service->id]) }}"
                         class="font-medium text-blue-600 hover:underline">Ver</a>
+                      @if ($ownProfile)
+                        <a href="{{ route('services.service', ['id' => $data->service->id]) }}"
+                          class="font-medium text-red-600 hover:underline ml-2">Cancelar</a>
+                      @endif
                     </td>
                   </tr>
                 @endforeach

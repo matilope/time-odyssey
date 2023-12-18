@@ -90,14 +90,4 @@ class Service extends Model
   {
     return $this->belongsTo(Destiny::class, 'destiny_id', 'id');
   }
-
-  /*
-     * Establece una relación de muchos a muchos con el modelo PurchaseDetails.
-     * @return BelongsToMany
-
-    public function ids(): BelongsToMany
-    {
-        return $this->BelongsToMany(PurchaseDetails::class, "purchases_details", "id", "service_id", "id", "id");
-    }
-    */
 }

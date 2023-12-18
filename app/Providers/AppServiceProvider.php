@@ -24,7 +24,7 @@ class AppServiceProvider extends ServiceProvider
     Blade::directive('money', function ($amount) {
       return "<?php 
         \$formatter = new NumberFormatter('en_US', NumberFormatter::CURRENCY);
-        echo \$formatter->formatCurrency(floatval($amount), 'USD');
+        echo \$formatter->formatCurrency(floatval($amount), 'ARS');
           ?>";
     });
   }
