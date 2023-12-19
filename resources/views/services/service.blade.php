@@ -187,14 +187,16 @@
       });
     });
   </script>
-  <script src="https://sdk.mercadopago.com/js/v2"></script>
-  <script>
-    const mp = new MercadoPago("{{ $mp_public_key }}");
-    const bricksBuilder = mp.bricks();
-    mp.bricks().create("wallet", "checkout", {
-      initialization: {
-        preferenceId: "{{ $preference->id }}",
-      },
-    });
-  </script>
+  @auth
+    <script src="https://sdk.mercadopago.com/js/v2"></script>
+    <script>
+      const mp = new MercadoPago("{{ $mp_public_key }}");
+      const bricksBuilder = mp.bricks();
+      mp.bricks().create("wallet", "checkout", {
+        initialization: {
+          preferenceId: "{{ $preference->id }}",
+        },
+      });
+    </script>
+  @endauth
 @endsection

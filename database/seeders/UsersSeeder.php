@@ -19,7 +19,7 @@ class UsersSeeder extends Seeder
         'name' => 'Matias',
         'email' => 'matias.lopez@davinci.edu.ar',
         'picture' => null,
-        'password' => Hash::make('password'),
+        'password' => Hash::make('asdasd'),
         'role' => 'administrador',
         'updated_at' => now(),
         'created_at' => now()
@@ -29,7 +29,7 @@ class UsersSeeder extends Seeder
         'name' => 'Lautaro',
         'email' => 'lautaro.climent@davinci.edu.ar',
         'picture' => null,
-        'password' =>  Hash::make('password'),
+        'password' =>  Hash::make('asdasd'),
         'role' => 'administrador',
         'updated_at' => now(),
         'created_at' => now()
@@ -39,7 +39,7 @@ class UsersSeeder extends Seeder
         'name' => 'Santiago',
         'email' => 'santiago.gallino@davinci.edu.ar',
         'picture' => null,
-        'password' =>  Hash::make('password'),
+        'password' =>  Hash::make('asdasd'),
         'role' => 'usuario',
         'updated_at' => now(),
         'created_at' => now()

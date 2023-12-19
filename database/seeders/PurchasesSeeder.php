@@ -20,6 +20,7 @@ class PurchasesSeeder extends Seeder
         'service_name' => 'Marte',
         'price' => 3500000,
         'quantity' => 1,
+        'payment_id' => 1,
         'updated_at' => now(),
         'created_at' => now()
       ],
@@ -30,6 +31,7 @@ class PurchasesSeeder extends Seeder
         'service_name' => 'Próxima Centauri b',
         'price' => 19000000,
         'quantity' => 1,
+        'payment_id' => 2,
         'updated_at' => now(),
         'created_at' => now()
       ],
@@ -40,6 +42,7 @@ class PurchasesSeeder extends Seeder
         'service_name' => 'Marte',
         'price' => 3500000,
         'quantity' => 1,
+        'payment_id' => 3,
         'updated_at' => now(),
         'created_at' => now()
       ],
@@ -50,6 +53,7 @@ class PurchasesSeeder extends Seeder
         'service_name' => 'Europa',
         'price' => 4000000,
         'quantity' => 1,
+        'payment_id' => 4,
         'updated_at' => now(),
         'created_at' => now()
       ],
@@ -60,6 +64,7 @@ class PurchasesSeeder extends Seeder
         'service_name' => 'Luna',
         'price' => 1000000,
         'quantity' => 1,
+        'payment_id' => 5,
         'updated_at' => now(),
         'created_at' => now()
       ]

@@ -30,28 +30,34 @@ class ServicesController extends Controller
   public function service(int $id): View
   {
     $service = Service::findOrFail($id);
-    MercadoPagoConfig::setAccessToken(env("MP_ACCESS_TOKEN"));
-    $client = new PreferenceClient();
-    $preference = $client->create([
-      "items" => array(
-        array(
-          "title" => $service->name,
-          "unit_price" => $service->price,
-          "quantity" => 1,
-          'currency_id' => 'ARS'
-        )
-      ),
-      'external_reference' => "$service->id<-split->" . $service->destiny->name . "<-split->" . auth()->user()->id,
-      'back_urls' => [
-        'success' => route('purchases.success'),
-        'pending' => route('purchases.pending'),
-        'failure' => route('purchases.failure'),
-      ]
-    ]);
-    return view('services.service', [
-      "service" => $service,
-      "preference" => $preference,
-      "mp_public_key" => env('MP_PUBLIC_KEY')
-    ]);
+    if(auth()->user()) {
+      MercadoPagoConfig::setAccessToken(env("MP_ACCESS_TOKEN"));
+      $client = new PreferenceClient();
+      $preference = $client->create([
+        "items" => array(
+          array(
+            "title" => $service->name,
+            "unit_price" => $service->price,
+            "quantity" => 1,
+            'currency_id' => 'ARS'
+          )
+        ),
+        'external_reference' => "$service->id<-split->" . $service->destiny->name . "<-split->" . auth()->user()->id,
+        'back_urls' => [
+          'success' => route('purchases.success'),
+          'pending' => route('purchases.pending'),
+          'failure' => route('purchases.failure'),
+        ]
+      ]);
+      return view('services.service', [
+        "service" => $service,
+        "preference" => $preference,
+        "mp_public_key" => env('MP_PUBLIC_KEY')
+      ]);
+    } else {
+      return view('services.service', [
+        "service" => $service
+      ]);
+    }
   }
 }

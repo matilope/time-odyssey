@@ -40,17 +40,20 @@ class Purchase extends Model
   protected $table = "purchases";
   protected $primaryKey = "id";
 
-  protected $fillable = ['user_id', 'service_id', 'service_name', 'price', 'quantity'];
+  protected $fillable = ['user_id', 'service_id', 'service_name', 'price', 'quantity', "payment_id"];
 
   public static $rules = [
     'user_id' => 'required',
-    'quantity' => 'required|numeric'
+    'quantity' => 'required|numeric',
+    'payment_id' => 'required|numeric'
   ];
 
   public static $errorMessages = [
     'user_id.required' => 'El usuario no puede estar vacío.',
     'quantity.required' => 'La cantidad de viajes es requerida.',
-    'quantity.numeric' => 'La cantidad de viajes debe ser un número.'
+    'quantity.numeric' => 'La cantidad de viajes debe ser un número.',
+    'payment_id.numeric' => 'La id del pago debe ser un número.',
+    'payment_id.required' => 'La id del pago es requerido.'
   ];
 
   /**

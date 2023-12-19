@@ -26,15 +26,20 @@ Route::post('/servicios/{id}/comprar', [\App\Http\Controllers\ServicesController
   ->name('services.purchase.post')
   ->middleware(['auth', 'roles']);
 
-Route::get('/compra/exito', [\App\Http\Controllers\PurchaseController::class, 'success'])
+Route::post('/compras/{id}/eliminar', [\App\Http\Controllers\PurchaseController::class, 'delete'])
+  ->whereNumber('id')
+  ->name('purchase.delete.post')
+  ->middleware(['auth', 'roles']);
+
+Route::get('/compras/exito', [\App\Http\Controllers\PurchaseController::class, 'success'])
   ->name('purchases.success')
   ->middleware(['auth']);
 
-Route::get('/compra/pendiente', [\App\Http\Controllers\PurchaseController::class, 'pending'])
+Route::get('/compras/pendiente', [\App\Http\Controllers\PurchaseController::class, 'pending'])
   ->name('purchases.pending')
   ->middleware(['auth']);
 
-Route::get('/compra/fallo', [\App\Http\Controllers\PurchaseController::class, 'failure'])
+Route::get('/compras/fallo', [\App\Http\Controllers\PurchaseController::class, 'failure'])
   ->name('purchases.failure')
   ->middleware(['auth']);
 
