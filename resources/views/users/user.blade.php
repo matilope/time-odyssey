@@ -80,7 +80,10 @@
                     Precio
                   </th>
                   <th scope="col" class="px-6 py-3">
-                    Cantidad
+                    Fecha de contratación
+                  </th>
+                  <th scope="col" class="px-6 py-3">
+                    Fecha de salida
                   </th>
                   <th scope="col" class="px-6 py-3">
                     Acciones
@@ -90,10 +93,10 @@
               <tbody>
                 @foreach ($purchases as $data)
                   <tr class="odd:bg-white even:bg-gray-50 border-b">
-                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                    <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
                       <img src="{{ asset('storage/' . $data->service->image) }}"
                         alt="{{ $data->service->destiny->name }}" />
-                    </th>
+                    </td>
                     <td class="px-6 py-4">
                       {{ $data->service->destiny->name }}
                     </td>
@@ -101,7 +104,10 @@
                       @money($data->price)
                     </td>
                     <td class="px-6 py-4">
-                      {{ $data->quantity }}
+                      {{ Carbon\Carbon::parse($data->created_at)->locale('es_ES')->isoFormat('D [de] MMMM [de] YYYY') }}
+                    </td>
+                    <td class="px-6 py-4">
+                      {{ Carbon\Carbon::parse($data->service->date_of_departure)->locale('es_ES')->isoFormat('D [de] MMMM [de] YYYY') }}
                     </td>
                     <td class="px-6 py-4">
                       <div class="flex gap-3 items-center">

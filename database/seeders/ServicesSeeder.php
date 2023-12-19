@@ -53,7 +53,7 @@ class ServicesSeeder extends Seeder
         'price' => 1000000,
         'duration' => 3,
         'lodging' => 7,
-        'date_of_departure' => '2023-12-12',
+        'date_of_departure' => '2023-12-30',
         'updated_at' => now(),
         'created_at' => now()
       ],
