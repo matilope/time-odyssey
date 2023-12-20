@@ -74,7 +74,7 @@
             @enderror
           </div>
           <div class="my-3 flex flex-col gap-2">
-            <label for="email">Correo electrónico</label>
+            <label for="email">Correo electrónico <span class="text-red-500">*</span></label>
             <input class="border border-gray-900/25" type="email" name="email" id="email"
               value="{{ old('email', $user->email) }}"
               @error('email')

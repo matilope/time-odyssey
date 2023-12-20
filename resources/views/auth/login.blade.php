@@ -35,7 +35,7 @@
   <form class="form-custom form-user" action="{{ route('auth.login.post') }}" method="post">
     @csrf
     <div class="form-div">
-      <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Correo electrónico</label>
+      <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Correo electrónico <span class="text-red-500">*</span></label>
       <input type="email" class="border border-gray-900/25" name="email" id="email" value="{{ old('email') }}"
         @error('email')
         aria-describedby="error-email"
@@ -56,7 +56,7 @@
       @enderror
     </div>
     <div class="form-div">
-      <label for="password" class="block text-sm font-medium leading-6 text-gray-900">Contraseña</label>
+      <label for="password" class="block text-sm font-medium leading-6 text-gray-900">Contraseña <span class="text-red-500">*</span></label>
       <input type="password" class="border border-gray-900/25" name="password" id="password"
         @error('password')
         aria-describedby="error-password"

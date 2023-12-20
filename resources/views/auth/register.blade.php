@@ -48,7 +48,7 @@
       @enderror
     </div>
     <div class="form-div">
-      <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Correo electrónico</label>
+      <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Correo electrónico <span class="text-red-500">*</span></label>
       <input type="email" class="border border-gray-900/25" name="email" id="email" value="{{ old('email') }}"
         @error('email')
         aria-describedby="error-email"
@@ -69,7 +69,7 @@
       @enderror
     </div>
     <div class="form-div">
-      <label for="password" class="block text-sm font-medium leading-6 text-gray-900">Contraseña</label>
+      <label for="password" class="block text-sm font-medium leading-6 text-gray-900">Contraseña <span class="text-red-500">*</span></label>
       <div class="relative">
         <input type="password" class="pl-10 pr-4 py-2 border border-gray-900/25 w-full" name="password" id="password"
           @error('password') aria-describedby="error-password" aria-invalid="true" @enderror required />

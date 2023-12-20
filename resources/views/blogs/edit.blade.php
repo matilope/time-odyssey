@@ -9,7 +9,7 @@
     @csrf
     <div class="double-column">
       <div class="form-div">
-        <label for="title" class="block text-sm font-medium leading-6 text-gray-900">Título</label>
+        <label for="title" class="block text-sm font-medium leading-6 text-gray-900">Título <span class="text-red-500">*(mínimo 3 caracteres)</span></label>
         <input type="text" class="border border-gray-900/25" name="title" id="title"
           value="{{ old('title', $blog->title) }}"
           @error('title')
@@ -31,7 +31,7 @@
         @enderror
       </div>
       <div class="form-div">
-        <label for="category_id" class="block text-sm font-medium leading-6 text-gray-900">Categoría</label>
+        <label for="category_id" class="block text-sm font-medium leading-6 text-gray-900">Categoría <span class="text-red-500">*</span></label>
         <select class="border border-gray-900/25" id="category_id" name="category_id"
           @error('category_id') aria-describedby="error-category" aria-invalid="true" @enderror>
           @foreach ($categories as $category)
@@ -54,7 +54,7 @@
       </div>
     </div>
     <div class="form-div">
-      <label for="description" class="block text-sm font-medium leading-6 text-gray-900">Descripción</label>
+      <label for="description" class="block text-sm font-medium leading-6 text-gray-900">Descripción <span class="text-red-500">*(mínimo 3 caracteres)</span></label>
       <textarea class="border border-gray-900/25" name="description" id="description" rows="3"
         @error('description')
           aria-describedby="error-description"

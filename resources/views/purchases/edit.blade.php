@@ -15,7 +15,7 @@
   <form class="form-custom" action="{{ route('purchase.edit.post', ['id' => $purchase->id]) }}" method="POST">
     @csrf
     <div class="form-div">
-      <label for="service_id" class="block text-sm font-medium leading-6 text-gray-900">Destino</label>
+      <label for="service_id" class="block text-sm font-medium leading-6 text-gray-900">Destino <span class="text-red-500">*</span></label>
       <select class="border border-gray-900/25" id="service_id" name="service_id"
         @error('service_id') aria-describedby="error-destiny" aria-invalid="true" @enderror required>
         @foreach ($services as $service)

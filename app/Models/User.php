@@ -65,13 +65,11 @@ class User extends Authenticatable
   ];
 
   public static $rules = [
-    'name' => 'required',
     'email' => 'required',
     'password' => 'required',
   ];
 
   public static $errorMessages = [
-    'name.required' => 'El nombre no puede estar vacío.',
     'email.required' => 'El correo electrónico no puede estar vacío.',
     'password.required' => 'La contraseña es requerida.'
   ];
