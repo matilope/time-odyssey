@@ -784,3 +784,12 @@ form .double-column-img div {
 .order-failure * {
   text-align: center;
 }
+
+/* Change order */
+.price-update {
+  display: block;
+  margin: 1rem 0;
+  font-size: 18px;
+  color: #ad0000;
+  font-weight: bold;
+}

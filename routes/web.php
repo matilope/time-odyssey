@@ -24,12 +24,22 @@ Route::get('/servicios/{id}', [\App\Http\Controllers\ServicesController::class, 
 
 Route::post('/servicios/{id}/comprar', [\App\Http\Controllers\ServicesController::class, 'purchase'])
   ->name('services.purchase.post')
-  ->middleware(['auth', 'roles']);
+  ->middleware(['auth']);
+
+Route::get('/compras/{id}/editar', [\App\Http\Controllers\PurchaseController::class, 'viewEdit'])
+  ->whereNumber('id')
+  ->name('purchase.edit.form')
+  ->middleware(['auth']);
+
+Route::post('/compras/{id}/editar', [\App\Http\Controllers\PurchaseController::class, 'edit'])
+  ->whereNumber('id')
+  ->name('purchase.edit.post')
+  ->middleware(['auth']);
 
 Route::post('/compras/{id}/eliminar', [\App\Http\Controllers\PurchaseController::class, 'delete'])
   ->whereNumber('id')
   ->name('purchase.delete.post')
-  ->middleware(['auth', 'roles']);
+  ->middleware(['auth']);
 
 Route::get('/compras/exito', [\App\Http\Controllers\PurchaseController::class, 'success'])
   ->name('purchases.success')

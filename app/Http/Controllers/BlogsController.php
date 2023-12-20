@@ -79,7 +79,7 @@ class BlogsController extends Controller
 
   /**
    * Recibe el id del artículo, la request y reemplaza el recurso, devuelve una redireccion
-   * @param int
+   * @param int $id es el id del artículo
    * @param Request
    * @return RedirectResponse
    */

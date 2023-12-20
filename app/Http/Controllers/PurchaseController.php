@@ -40,6 +40,45 @@ class PurchaseController extends Controller
   }
 
   /**
+   * Devuelve los datos de un viaje comprado, devuelve la vista para editar una entrada
+   * @param int $id es el id de la contratación
+   * @return View
+   */
+  public function viewEdit(int $id): View
+  {
+    return view('purchases.edit', ["purchase" => Purchase::findOrFail($id), "services" => Service::all()]);
+  }
+
+  /**
+   * Recibe el id de la contratación, la request y reemplaza el recurso, devuelve una redireccion
+   * @param int $id es el id de la contratación
+   * @param Request
+   * @return RedirectResponse
+   */
+  public function edit(int $id, Request $request): RedirectResponse
+  {
+    try {
+      $purchase = Purchase::findOrFail($id);
+      $service = Service::findOrFail(intval($request->input('service_id')));
+      $request->merge(['user_id' => auth()->user()->id]);
+      $request->merge(['service_name' => $service->destiny->name]);
+      $request->merge(['price' => $service->price]);
+      $request->merge(['quantity' => 1]);
+      $request->merge(['payment_id' => $purchase->payment_id]);
+      $request->validate(Purchase::$rules, Purchase::$errorMessages);
+      $purchaseUpdated = $request->except(['_token']);
+      $purchase->update($purchaseUpdated);
+      return redirect('/admin/perfil')
+        ->with('status.message', "Se actualizó el destino del viaje a <b>" . e($service->destiny->name) . ".</b>")
+        ->with('status.success', true);
+    } catch (Exception $e) {
+      return redirect('/admin/perfil')
+        ->with('status.message', 'El viaje no se pudo actualizar.' . $e)
+        ->with('status.error', true);
+    }
+  }
+
+  /**
    * Recibe los datos y elimina una contratación
    * @param int $id
    * @return RedirectResponse

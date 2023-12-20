@@ -113,6 +113,8 @@
                       <div class="flex gap-3 items-center">
                         <a href="{{ route('services.service', ['id' => $data->service->id]) }}"
                           class="font-medium text-blue-600 hover:underline">Ver</a>
+                        <a href="{{ route('purchase.edit.form', ['id' => $data->id]) }}"
+                          class="font-medium text-orange-600 hover:underline">Editar</a>
                         @if ($ownProfile)
                           <button data-id="{{ $data->id }}" data-name="{{ $data->service->destiny->name }}"
                             type="submit" class="font-medium text-red-600 hover:underline">Cancelar</button>
